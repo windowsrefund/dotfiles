@@ -20,6 +20,15 @@ dotfiles:
   d_xresources.d:
     src: Xresources.d
     dst: ~/.Xresources.d
+  d_themes:
+    src: themes
+    dst: ~/.themes
+  d_gtk-2.0:
+    src: config/gtk-2.0
+    dst: ~/.config/gtk-2.0
+  d_gtk-3.0:
+    src: config/gtk-3.0
+    dst: ~/.config/gtk-3.0
 profiles:
   mtf8:
     dotfiles:
@@ -27,3 +36,6 @@ profiles:
     - f_xresources
     - f_x-color-switch.sh
     - d_xresources.d
+    - d_themes
+    - d_gtk-2.0
+    - d_gtk-3.0

@@ -11,5 +11,6 @@ PACKAGES_INSTALL="\
   nitrogen
   tmux
   lxappearance
+  qt5-style-plugins
   vim
   "
