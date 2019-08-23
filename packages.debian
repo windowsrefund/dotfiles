@@ -10,5 +10,6 @@ PACKAGES_INSTALL="\
   compton
   nitrogen
   tmux
+  lxappearance
   vim
   "
