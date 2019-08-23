@@ -1,0 +1,14 @@
+PACKAGES_REMOVE="\
+  nano
+  "
+PACKAGES_INSTALL="\
+  python3-pip
+  i3-wm
+  rofi
+  unclutter
+  dunst
+  compton
+  nitrogen
+  tmux
+  vim
+  "

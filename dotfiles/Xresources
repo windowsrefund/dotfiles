@@ -1,0 +1,6 @@
+! vim: set filetype=xdefaults
+
+! xrdb -merge ~/.Xresources
+
+#include ".Xresources.d/colors"
+!# include ".Xresources.d/rofi"

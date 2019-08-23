@@ -1,0 +1,40 @@
+#!/usr/bin/env sh
+
+# disable bell
+xset -b
+
+# turn off screen in 10 minutes
+xset dpms 600
+
+# no screen saver
+xset s off
+
+# kill X with ctrl+alt+backspace
+setxkbmap -option terminate:ctrl_alt_bksp
+
+# keyboard layout
+setxkbmap us
+
+# speed xrate up
+xset r rate 300 50 &
+
+# remove mouse when idle
+unclutter &
+
+# dunst for notifications
+dunst &
+
+# jackdbus starter
+autojack > /tmp/autojack.log 2>&1 < /dev/null &
+
+# pulse audio
+start-pulseaudio-x11 &
+
+# compositor for termite transparency
+compton -d :0.0 -b &
+
+# backgrounds
+nitrogen --restore &
+
+exec i3 -V > /tmp/i3.log
+

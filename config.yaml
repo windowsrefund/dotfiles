@@ -1,0 +1,25 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: dotfiles
+  keepdot: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
+  longkey: false
+dotfiles:
+  f_xinitrc:
+    src: xinitrc
+    dst: ~/.xinitrc
+  f_xresources:
+    src: Xresources
+    dst: ~/.Xresources
+  d_xresources.d:
+    src: Xresources.d
+    dst: ~/.Xresources.d
+profiles:
+  mtf8:
+    dotfiles:
+    - f_xinitrc
+    - f_xresources
+    - d_xresources.d
