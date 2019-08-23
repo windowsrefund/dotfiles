@@ -30,9 +30,6 @@ autojack > /tmp/autojack.log 2>&1 < /dev/null &
 # pulse audio
 start-pulseaudio-x11 &
 
-# compositor for termite transparency
-compton -d :0.0 -b &
-
 # backgrounds
 nitrogen --restore &
 
