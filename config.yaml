@@ -14,6 +14,9 @@ dotfiles:
   f_xresources:
     src: Xresources
     dst: ~/.Xresources
+  f_x-color-switch.sh:
+    src: bin/x-color-switch.sh
+    dst: ~/bin/x-color-switch.sh
   d_xresources.d:
     src: Xresources.d
     dst: ~/.Xresources.d
@@ -22,4 +25,5 @@ profiles:
     dotfiles:
     - f_xinitrc
     - f_xresources
+    - f_x-color-switch.sh
     - d_xresources.d

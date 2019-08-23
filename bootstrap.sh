@@ -25,3 +25,5 @@ sudo $INSTALL $PACKAGES_INSTALL
 
 read -p "Install dotdrop? (y/N): "
 [[ "$REPLY" == [Yy] ]] && pip3 install --user dotdrop
+
+mkdir ~/bin 2> /dev/null
