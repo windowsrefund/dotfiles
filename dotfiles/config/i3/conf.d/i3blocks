@@ -1,0 +1,39 @@
+# vim:filetype=i3
+bar {
+  status_command i3blocks
+  position top
+  mode dock
+  modifier None
+  font pango:Hack,FontAwesome 14
+  output primary
+  tray_output primary
+  colors {
+    separator $white
+    background $black
+    statusline $white
+    focused_workspace $black $purple $black
+    active_workspace  $black  $black  $white
+    inactive_workspace  $black  $black  $white
+    urgent_workspace  $black  $white $black
+  }
+  # Take a screenshot by right clicking on the bar
+  # bindsym --release button3 exec --no-startup-id import /tmp/latest-screenshot.png
+}
+
+bar {
+  status_command i3blocks -c $HOME/.config/i3blocks/config2
+  position top
+  modifier None
+  font pango:FontAwesome 14
+  output DVI-D-2
+  binding_mode_indicator no
+  colors {
+    separator $white
+    background $black
+    statusline $white
+    focused_workspace $black $green $black
+    active_workspace  $black  $black  $white
+    inactive_workspace  $black  $black  $white
+    urgent_workspace  $black  $red  $black
+  }
+}

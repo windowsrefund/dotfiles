@@ -1,0 +1,4 @@
+# vim:filetype=i3
+
+# on every restart
+exec_always --no-startup-id xrdb -merge ~/.Xresources

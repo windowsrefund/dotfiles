@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+XCOLORS=$(readlink -f ~/.Xresources.d/colors)
+[ -f $XCOLORS ] || { echo "No $XCOLORS found!"; exit 1; }
+TERMITE_DIR=~/.config/termite
+TERMITE_BASE=${TERMITE_DIR}/config.base
+TERMITE_CONFIG=${TERMITE_DIR}/config
+
+cat $TERMITE_BASE ${XCOLORS}.termite > $TERMITE_CONFIG

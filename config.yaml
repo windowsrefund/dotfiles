@@ -32,6 +32,9 @@ dotfiles:
   f_userchrome.css:
     src: mozilla/firefox/043ud7lz.default/chrome/userChrome.css
     dst: ~/.mozilla/firefox/043ud7lz.default/chrome/userChrome.css
+  d_i3:
+    src: config/i3
+    dst: ~/.config/i3
 profiles:
   mtf8:
     dotfiles:
@@ -43,3 +46,4 @@ profiles:
     - d_gtk-2.0
     - d_gtk-3.0
     - f_userchrome.css
+    - d_i3

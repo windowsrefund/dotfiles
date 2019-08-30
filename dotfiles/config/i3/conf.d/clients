@@ -1,0 +1,18 @@
+# vim:filetype=i3
+
+assign [class="Firefox"] $ws2
+
+# qtractor in a single window
+for_window [class="(?i)Qtractor" instance="(?i)Qtractor"] floating disable
+assign [class="(?i)Qtractor" instance="(?i)Qtractor"] $ws4
+
+# konfyt
+# assign [class="konfyt"] $ws3
+
+# key-mon
+for_window [instance="key-mon"] floating enable
+bindsym $mod+m exec --no-startup-id "key-mon --nomouse -t big-letters"
+
+# rofi
+#bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"
+bindsym $mod+d exec --no-startup-id rofi -show run

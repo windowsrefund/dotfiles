@@ -1,0 +1,4 @@
+# vim:filetype=i3
+
+bindsym $mod+w layout toggle all
+

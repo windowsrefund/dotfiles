@@ -1,0 +1,8 @@
+# vim:filetype=i3
+
+# don't follow mouse for window focus
+focus_follows_mouse no
+
+floating_modifier $mod
+
+bindsym $mod+Return exec --no-startup-id termite
