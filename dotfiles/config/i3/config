@@ -266,7 +266,9 @@ bar {
 }
 # vim:filetype=i3
 
-assign [class="Firefox"] $ws2
+# Firefox
+assign [class="^Firefox$"] $ws2
+for_window [title="^Twitch - Mozilla Firefox$"] move workspace $ws1
 
 # qtractor in a single window
 for_window [class="(?i)Qtractor" instance="(?i)Qtractor"] floating disable
