@@ -269,6 +269,7 @@ bar {
 # Firefox
 assign [class="^Firefox$"] $ws2
 for_window [title="^Twitch - Mozilla Firefox$"] move workspace $ws1
+for_window [title="^Home Page - Select or create a notebook - Mozilla Firefox$"] move workspace $ws1
 
 # qtractor in a single window
 for_window [class="(?i)Qtractor" instance="(?i)Qtractor"] floating disable
@@ -284,6 +285,11 @@ bindsym $mod+m exec --no-startup-id "key-mon --nomouse -t big-letters"
 # rofi
 #bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"
 bindsym $mod+d exec --no-startup-id rofi -show run
+
+# zrythm
+assign [class="^Zrythm$"] $ws4
+
+assign [class="^obs$"] $ws1
 # vim:filetype=i3
 
 bindsym $mod+w layout toggle all

@@ -23,18 +23,15 @@ dotfiles:
   d_themes:
     src: themes
     dst: ~/.themes
-  d_gtk-2.0:
-    src: config/gtk-2.0
-    dst: ~/.config/gtk-2.0
-  d_gtk-3.0:
-    src: config/gtk-3.0
-    dst: ~/.config/gtk-3.0
   f_userchrome.css:
     src: mozilla/firefox/043ud7lz.default/chrome/userChrome.css
     dst: ~/.mozilla/firefox/043ud7lz.default/chrome/userChrome.css
   d_i3:
     src: config/i3
     dst: ~/.config/i3
+  f_settings.ini:
+    src: config/gtk-3.0/settings.ini
+    dst: ~/.config/gtk-3.0/settings.ini
 profiles:
   mtf8:
     dotfiles:
@@ -43,7 +40,6 @@ profiles:
     - f_x-color-switch.sh
     - d_xresources.d
     - d_themes
-    - d_gtk-2.0
-    - d_gtk-3.0
     - f_userchrome.css
     - d_i3
+    - f_settings.ini
