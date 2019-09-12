@@ -269,6 +269,7 @@ bar {
 # Firefox
 assign [class="^Firefox$"] $ws2
 for_window [title="^Twitch - Mozilla Firefox$"] move workspace $ws1
+#for_window [title="^mtf8_music - Twitch - Mozilla Firefox$"] move workspace $ws1
 for_window [title="^Home Page - Select or create a notebook - Mozilla Firefox$"] move workspace $ws1
 
 # qtractor in a single window
