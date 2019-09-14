@@ -35,6 +35,9 @@ dotfiles:
   f_config:
     src: config/termite/config
     dst: ~/.config/termite/config
+  f_redshift.conf:
+    src: config/redshift/redshift.conf
+    dst: ~/.config/redshift/redshift.conf
 profiles:
   mtf8:
     dotfiles:
@@ -47,3 +50,4 @@ profiles:
     - d_i3
     - f_settings.ini
     - f_config
+    - f_redshift.conf
