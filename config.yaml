@@ -38,6 +38,15 @@ dotfiles:
   f_redshift.conf:
     src: config/redshift/redshift.conf
     dst: ~/.config/redshift/redshift.conf
+  f_vimrc:
+    src: vimrc
+    dst: ~/.vimrc
+  d_colors:
+    src: vim/colors
+    dst: ~/.vim/colors
+  d_vundle.vim:
+    src: vim/bundle/Vundle.vim
+    dst: ~/.vim/bundle/Vundle.vim
 profiles:
   mtf8:
     dotfiles:
@@ -51,3 +60,6 @@ profiles:
     - f_settings.ini
     - f_config
     - f_redshift.conf
+    - f_vimrc
+    - d_colors
+    - d_vundle.vim
