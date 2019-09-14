@@ -24,11 +24,11 @@ unclutter &
 # dunst for notifications
 dunst &
 
-# jackdbus starter
-autojack > /tmp/autojack.log 2>&1 < /dev/null &
-
 # pulse audio
 start-pulseaudio-x11 &
+
+# jackdbus starter
+autojack > /tmp/autojack.log 2>&1 < /dev/null &
 
 # backgrounds
 nitrogen --restore &
