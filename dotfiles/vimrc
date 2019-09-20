@@ -242,14 +242,13 @@ if has("autocmd")
     au BufNewFile,BufRead *.py setlocal ft=python
     " au BufNewFile *.py 0r ~/.vim/template-py | normal Go
     au FileType python setlocal tabstop=4
+    au FileType python setlocal foldmethod=indent
     au FileType python setlocal softtabstop=4
     au FileType python setlocal shiftwidth=4
     au FileType python setlocal textwidth=79
     au FileType python setlocal expandtab
     au FileType python setlocal autoindent
     au FileType python setlocal fileformat=unix
-    au FileType python setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
-    au BufWinLeave *.py setlocal foldexpr< foldmethod<
     au BufWritePre *.py if !filereadable(expand('%')) | let b:is_new = 1 | endif
     au BufWritePost *.py if get(b:, 'is_new', 0) | silent execute '!chmod +x %' | endif
   augroup END
