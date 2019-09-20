@@ -16,13 +16,14 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
-" Python autocomplete
-Plugin 'rkulla/pydiction'
 Plugin 'tmhedberg/SimpylFold'
 " Check syntax on save
 Plugin 'vim-syntastic/syntastic'
 " PEP 8 checking
-Plugin 'nvie/vim-flake8' " PEP 8 checking"
+Plugin 'nvie/vim-flake8'
+" python auto-indentation improvement
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 " All plugins must be added before this line
 call vundle#end()
@@ -206,7 +207,6 @@ let g:mirodark_disable_color_approximation=1
 let g:mirodark_enable_higher_contrast_mode=0
 let g:GPGPreferArmor=1
 let g:pydiction_location='/home/akosmin/.vim/bundle/pydiction/complete-dict'
-
 
 " autocommands {{{1
 if has("autocmd")
