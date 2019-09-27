@@ -12,5 +12,5 @@ PACKAGES_INSTALL="\
   tmux
   lxappearance
   qt5-style-plugins
-  vim
+  neovim
   "
