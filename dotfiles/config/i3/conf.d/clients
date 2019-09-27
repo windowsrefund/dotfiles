@@ -3,8 +3,12 @@
 # Firefox
 assign [class="^Firefox$"] $ws2
 for_window [title="^Twitch - Mozilla Firefox$"] move workspace $ws1
+
+# Twitch chat
 #for_window [title="^mtf8_music - Twitch - Mozilla Firefox$"] move workspace $ws1
-for_window [title="^Home Page - Select or create a notebook - Mozilla Firefox$"] move workspace $ws1
+
+# jupyter notebook
+#for_window [title="^Home Page - Select or create a notebook - Mozilla Firefox$"] move workspace $ws1
 
 # qtractor in a single window
 for_window [class="(?i)Qtractor" instance="(?i)Qtractor"] floating disable

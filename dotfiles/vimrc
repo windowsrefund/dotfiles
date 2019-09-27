@@ -2,6 +2,7 @@
 set nocompatible
 filetype off
 
+" Vundle plugins {{{1
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -10,29 +11,113 @@ call vundle#begin()
 " let Vundle manage itself, required
 Plugin 'VundleVim/Vundle.vim'
 
-" other plugins on github
-Plugin 'jamessan/vim-gnupg'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
+" Plugins on github
+
+" https://github.com/tpope/vim-vinegar
 Plugin 'tpope/vim-vinegar'
+
+" https://github.com/tpope/vim-surround
+Plugin 'tpope/vim-surround'
+
+" https://github.com/jamessan/vim-gnupg
+Plugin 'jamessan/vim-gnupg'
+let g:GPGPreferArmor=1
+
+" https://github.com/tomtom/tcomment_vim
+Plugin 'tomtom/tcomment_vim'
+
+" https://github.com/skywind3000/asyncrun.vim
+Plugin 'skywind3000/asyncrun.vim'
+
+" https://github.com/tpope/vim-repeat
+Plugin 'tpope/vim-repeat'
+
+" https://github.com/tmhedberg/SimpylFold
 Plugin 'tmhedberg/SimpylFold'
-" Check syntax on save
-Plugin 'vim-syntastic/syntastic'
+
+" Better than syntastic when we run Vim8
+" https://github.com/w0rp/ale
+Plugin 'w0rp/ale'
+
 " PEP 8 checking
+" https://github.com/nvie/vim-flake8
 Plugin 'nvie/vim-flake8'
-" python auto-indentation improvement
+
+" Python auto-indentation improvement
+" https://github.com/vim-scripts/indentpython.vim
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe'
 
 " All plugins must be added before this line
 call vundle#end()
 
 filetype plugin indent on   " required
 
+"}}}1
 
-" settings according to categories defined in :options {{{1
+" vim-plugin {{{1
+call plug#begin('~/.vim/vim-plug')
+
+" https://github.com/itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
+
+" https://github.com/sheerun/vim-polyglot
+Plug 'sheerun/vim-polyglot'
+let g:python_highlight_all=1
+
+" vim-one theme
+" https://github.com/joshdick/onedark.vim
+Plug 'joshdick/onedark.vim'
+
+" ncm2 auto-completion {{{2
+" https://github.com/ncm2/ncm2
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+" Completion sources must be installed
+" See https://github.com/ncm2/ncm2/wiki for sources
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-jedi'
+
+" au User Ncm2Plugin call ncm2#register_source({
+"   \'name': 'python',
+"   \'priority': 9,
+"   \'subscope_enable': 1,
+"   \'scope': ['python'],
+"   \'mark': 'python',
+"   \'word_pattern': '[\w\-]+',
+"   \'complete_pattern': '\.',
+"   \'on_complete': [ncm2#on_complete#delay', 3000, 'ncm2#on_complete#omni', 'python3complete#Complete'],
+"   \ })
+
+" enable in all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+"
+" :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+set shortmess+=c
+inoremap <c-c> <ESC>
+
+" Navigate the popup menu with TAB and Shift+TAB rather than C-n and C-p
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" When <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line
+" inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+" }}}}2
+
+" gruvbox theme {{{2
+" https://github.com/morhetz/gruvbox
+Plug 'morhetz/gruvbox'
+" }}}2
+call plug#end()
+" }}}1
+
+" settings from :options {{{1
 " important {{{2
+set cpoptions+=$
 set nocompatible        " do not behave like vi
 " moving around, searching and patterns {{{2
 set incsearch           " highlight as we type
@@ -54,10 +139,12 @@ set wrap                " long lines wrap
 set cmdheight=1         " number of lines used for the command-line
 set list                " show <Tab> as ^I and end-of-line as $
 set listchars=tab:>\ ,trail:~,extends:>,precedes:<,nbsp:+
-set display+=lastline   " taken from sensible plugin
 " syntax, highlighting and spelling {{{2
 set hlsearch            " highlights search results
 set background=dark
+if (has("termguicolors"))
+  set termguicolors
+endif
 set cursorline
 set cursorcolumn
 set colorcolumn=80
@@ -89,13 +176,12 @@ endif
 "
 " message and info {{{2
 set showcmd                         " show command sequences as typed
-set shortmess=aoOtI
+set shortmess+=aoOtI
 " selecting text {{{2
 "
 " editing text {{{2
 set nrformats-=octal            " 0-prefixed numbers are still decimal
 set backspace=indent,eol,start  " proper backspacing
-set complete-=i                 " taken from sensible pluin???
 set textwidth=79                " line length above which to break a line
 
                           " formatoptions - default is 'tcq'
@@ -120,11 +206,6 @@ set foldenable          " auto fold code
 set foldmethod=marker
 " diff mode {{{2
 "
-" mapping {{{2
-set timeout                         " fixes slow O inserts
-set timeoutlen=1000                 " fixes slow O inserts
-set ttimeout                        " taken from sensible plugin
-set ttimeoutlen=100                 " fixes slow O inserts
 " reading and writing files {{{2
 set nobackup
 set autoread      " automattically read file when modified outside of Vim
@@ -148,21 +229,18 @@ set encoding=utf-8      " used when displaying file
 if &modifiable
   set fileencoding=utf-8  " used when writing file
 endif
-" various {{{2
 set gdefault                  " use g flag with :substitute
-set sessionoptions-=options   " taken from sensible plugin
 if !empty(&viminfo)
   set viminfo^=!
 endif
+" }}}1
+
 " mappings {{{1
 " DO NOT COMMENT ON SAME LINE AS MAPPING
 
 " formatting
 nmap Q gq
 vmap Q gq
-
-" save keystrokes
-nnoremap ; :
 
 " yank from cursor to end of line
 nnoremap Y y$
@@ -175,6 +253,9 @@ nnoremap <leader>v :tabe $MYVIMRC<cr>
 
 " disable highlights
 nnoremap <leader><space> :noh<cr>
+
+" YouCompleteMe
+map <leader>g :YouCompleter GotoDefinitionElseDeclaration<cr>
 
 " spacebar toggles folding
 nnoremap <space> za
@@ -190,23 +271,10 @@ nmap t <Plug>VinegarTabUp
 nnoremap j gj
 nnoremap k gk
 
-" move up and down through context menu
-"imap <Tab> <c-n>
-"imap <s-Tab> <c-p>
-
 " save the file using sudo
 cmap w!! w !sudo tee % > /dev/null<cr>
 
 " }}}1
-" plugin settings {{{1
-
-if v:version >= 700
-  let g:is_bash = 1
-endif
-let g:mirodark_disable_color_approximation=1
-let g:mirodark_enable_higher_contrast_mode=0
-let g:GPGPreferArmor=1
-let g:pydiction_location='/home/akosmin/.vim/bundle/pydiction/complete-dict'
 
 " autocommands {{{1
 if has("autocmd")
@@ -249,11 +317,14 @@ if has("autocmd")
     au FileType python setlocal expandtab
     au FileType python setlocal autoindent
     au FileType python setlocal fileformat=unix
+    au FileType let $PYTHONUNBUFFERED=1
     au BufWritePre *.py if !filereadable(expand('%')) | let b:is_new = 1 | endif
     au BufWritePost *.py if get(b:, 'is_new', 0) | silent execute '!chmod +x %' | endif
   augroup END
 
 endif
+"}}}1
+
 " functions {{{1
 " MyTabLine {{{2
 function! MyTabLine()
@@ -306,4 +377,13 @@ if filereadable(expand("$MYVIMRC.local"))
   source $MYVIMRC.local
 endif
 
-colorscheme mirodark
+" let g:mirodark_disable_color_approximation=1
+" let g:mirodark_enable_higher_contrast_mode=0
+" colorscheme mirodark
+" colorscheme gruvbox
+let g:onedark_terminal_italics=1
+let g:onedark_hide_endofbuffer=1
+let g:lightline = {
+  \ 'colorscheme': 'onedark',
+  \ }
+colorscheme onedark

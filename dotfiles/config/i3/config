@@ -112,8 +112,8 @@ for_window [urgent=latest] focus
 #smart_gaps on
 
 # these are not working ATM
-bindkeys $mod+g gaps inner current set 0; gaps outer current set 0
-bindkeys $mod+Shift+g gaps inner current set 15; gaps outer current set 15
+#bindsym $mod+g gaps inner current set 0; gaps outer current set 0
+#bindsym $mod+Shift+g gaps inner current set 15; gaps outer current set 15
 # vim:filetype=i3
 set $mode_system System: (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 set $mode_i3 i3wm (r)eload, (R)estart, (e)xit, (t)ermite config
@@ -269,8 +269,12 @@ bar {
 # Firefox
 assign [class="^Firefox$"] $ws2
 for_window [title="^Twitch - Mozilla Firefox$"] move workspace $ws1
+
+# Twitch chat
 #for_window [title="^mtf8_music - Twitch - Mozilla Firefox$"] move workspace $ws1
-for_window [title="^Home Page - Select or create a notebook - Mozilla Firefox$"] move workspace $ws1
+
+# jupyter notebook
+#for_window [title="^Home Page - Select or create a notebook - Mozilla Firefox$"] move workspace $ws1
 
 # qtractor in a single window
 for_window [class="(?i)Qtractor" instance="(?i)Qtractor"] floating disable
