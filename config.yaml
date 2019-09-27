@@ -63,3 +63,6 @@ profiles:
     - f_vimrc
     - d_colors
     - d_vundle.vim
+  libretop:
+    dotfiles:
+    - f_vimrc

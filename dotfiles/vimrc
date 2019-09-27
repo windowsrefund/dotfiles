@@ -1,72 +1,13 @@
 " ~/.vimrc
 set nocompatible
-filetype off
-
-" Vundle plugins {{{1
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-
-" let Vundle manage itself, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Plugins on github
-
-" https://github.com/tpope/vim-vinegar
-Plugin 'tpope/vim-vinegar'
-
-" https://github.com/tpope/vim-surround
-Plugin 'tpope/vim-surround'
-
-" https://github.com/jamessan/vim-gnupg
-Plugin 'jamessan/vim-gnupg'
-let g:GPGPreferArmor=1
-
-" https://github.com/tomtom/tcomment_vim
-Plugin 'tomtom/tcomment_vim'
-
-" https://github.com/skywind3000/asyncrun.vim
-Plugin 'skywind3000/asyncrun.vim'
-
-" https://github.com/tpope/vim-repeat
-Plugin 'tpope/vim-repeat'
-
-" https://github.com/tmhedberg/SimpylFold
-Plugin 'tmhedberg/SimpylFold'
-
-" Better than syntastic when we run Vim8
-" https://github.com/w0rp/ale
-Plugin 'w0rp/ale'
-
-" PEP 8 checking
-" https://github.com/nvie/vim-flake8
-Plugin 'nvie/vim-flake8'
-
-" Python auto-indentation improvement
-" https://github.com/vim-scripts/indentpython.vim
-Plugin 'vim-scripts/indentpython.vim'
-
-" All plugins must be added before this line
-call vundle#end()
-
-filetype plugin indent on   " required
-
-"}}}1
 
 " vim-plugin {{{1
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin('~/.vim/vim-plug')
-
-" https://github.com/itchyny/lightline.vim'
-Plug 'itchyny/lightline.vim'
-
-" https://github.com/sheerun/vim-polyglot
-Plug 'sheerun/vim-polyglot'
-let g:python_highlight_all=1
-
-" vim-one theme
-" https://github.com/joshdick/onedark.vim
-Plug 'joshdick/onedark.vim'
 
 " ncm2 auto-completion {{{2
 " https://github.com/ncm2/ncm2
@@ -90,16 +31,19 @@ Plug 'ncm2/ncm2-jedi'
 "   \ })
 
 " enable in all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-"
-" :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
-set shortmess+=c
-inoremap <c-c> <ESC>
+if has("nvim")
 
-" Navigate the popup menu with TAB and Shift+TAB rather than C-n and C-p
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  autocmd BufEnter * call ncm2#enable_for_buffer()
+
+  " :help Ncm2PopupOpen for more information
+  set completeopt=noinsert,menuone,noselect
+  set shortmess+=c
+  inoremap <c-c> <ESC>
+
+  " Navigate the popup menu with TAB and Shift+TAB rather than C-n and C-p
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+endif
 
 " When <Enter> key is pressed while the popup menu is visible, it only
 " hides the menu. Use this mapping to close the menu and also start a new
@@ -108,10 +52,51 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " }}}}2
 
-" gruvbox theme {{{2
-" https://github.com/morhetz/gruvbox
-Plug 'morhetz/gruvbox'
-" }}}2
+" https://github.com/itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
+
+" https://github.com/sheerun/vim-polyglot
+Plug 'sheerun/vim-polyglot'
+let g:python_highlight_all=1
+
+" vim-one theme
+" https://github.com/joshdick/onedark.vim
+Plug 'joshdick/onedark.vim'
+
+" https://github.com/tpope/vim-vinegar
+Plug 'tpope/vim-vinegar'
+
+" https://github.com/tpope/vim-surround
+Plug 'tpope/vim-surround'
+
+" https://github.com/jamessan/vim-gnupg
+Plug 'jamessan/vim-gnupg'
+let g:GPGPreferArmor=1
+
+" https://github.com/tomtom/tcomment_vim
+Plug 'tomtom/tcomment_vim'
+
+" https://github.com/skywind3000/asyncrun.vim
+Plug 'skywind3000/asyncrun.vim'
+
+" https://github.com/tpope/vim-repeat
+Plug 'tpope/vim-repeat'
+
+" https://github.com/tmhedberg/SimpylFold
+Plug 'tmhedberg/SimpylFold'
+
+" Better than syntastic when we run Vim8
+" https://github.com/w0rp/ale
+Plug 'w0rp/ale'
+
+" PEP 8 checking
+" https://github.com/nvie/vim-flake8
+Plug 'nvie/vim-flake8'
+
+" Python auto-indentation improvement
+" https://github.com/vim-scripts/indentpython.vim
+Plug 'vim-scripts/indentpython.vim'
+
 call plug#end()
 " }}}1
 
@@ -352,25 +337,12 @@ function! MyTabLine()
   return s
 endfunction
 
+" }}}2
 " }}}
-" }}}
-
-filetype plugin indent on
-
-" allow color schemes to do bright colors without forcing bold
-if &t_Co == 8 && $TERM !~# '^linux'
-  set t_Co=16
-else
-  set t_Co=256         " number of colors
-endif
 
 " load matchit.vim, but only if the user hasn't installed a newer version
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
-endif
-
-if has('syntax') && !exists('g:syntax_on')
-  syntax enable
 endif
 
 if filereadable(expand("$MYVIMRC.local"))
