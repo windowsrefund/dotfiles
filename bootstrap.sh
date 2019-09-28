@@ -13,8 +13,12 @@ go() {
 		sudo $REMOVE $PACKAGES_REMOVE
 		sudo $INSTALL $PACKAGES_INSTALL
 	}
-	read -p "Install dotdrop? (y/N): "
-	[[ "$REPLY" == [Yy] ]] && pip3 install --user dotdrop
+  read -p "Install python packages? (y/N): "
+	[[ "$REPLY" == [Yy] ]] && {
+    pip3 install --user \
+    dotdrop \
+    python-language-server[all]
+  }
 }
 
 [ -f /etc/debian_version ] && {
