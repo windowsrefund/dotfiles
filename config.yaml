@@ -47,6 +47,9 @@ dotfiles:
   d_vundle.vim:
     src: vim/bundle/Vundle.vim
     dst: ~/.vim/bundle/Vundle.vim
+  f_systemd-optimize.sh:
+    src: bin/systemd-optimize.sh
+    dst: ~/bin/systemd-optimize.sh
 profiles:
   mtf8:
     dotfiles:
@@ -63,6 +66,7 @@ profiles:
     - f_vimrc
     - d_colors
     - d_vundle.vim
+    - f_systemd-optimize.sh
   libretop:
     dotfiles:
     - f_vimrc
