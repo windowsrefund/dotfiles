@@ -1,0 +1,8 @@
+alias mutt-adamkosmin='MUTT_PROFILE=adamkosmin mutt'
+alias mutt-mtf8='MUTT_PROFILE=mtf8 mutt'
+alias mutt-nycpatriot='MUTT_PROFILE=nycpatriot mutt'
+alias xprop="/usr/bin/xprop | awk '/WM_CLASS/{print $4}'"
+alias vim="nvim"
+alias vimdiff="nvim -d"
+alias gs="git status -sb"
+
