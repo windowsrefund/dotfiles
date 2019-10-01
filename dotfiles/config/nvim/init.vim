@@ -28,6 +28,11 @@ let g:lightline = { 'colorscheme': 'onedark' }
 " {{{ statusline
 Plug 'itchyny/lightline.vim'
 " }}}
+" {{{ git gutter
+" https://github.com/mhinz/vim-signify
+Plug 'mhinz/vim-signify'
+let g:signify_vcs_list = ['git']
+" }}}
 " {{{ file manager
 " https://github.com/tpope/vim-vinegar
 Plug 'tpope/vim-vinegar'
