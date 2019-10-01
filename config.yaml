@@ -47,6 +47,9 @@ dotfiles:
   f_bash_aliases:
     src: bash_aliases
     dst: ~/.bash_aliases
+  f_init.vim:
+    src: config/nvim/init.vim
+    dst: ~/.config/nvim/init.vim
 profiles:
   mtf8:
     dotfiles:
@@ -63,3 +66,4 @@ profiles:
     - f_systemd-optimize.sh
     - f_bash_prompt
     - f_bash_aliases
+    - f_init.vim
