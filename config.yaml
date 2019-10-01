@@ -50,6 +50,9 @@ dotfiles:
   f_init.vim:
     src: config/nvim/init.vim
     dst: ~/.config/nvim/init.vim
+  f_tmux.conf:
+    src: tmux.conf
+    dst: ~/.tmux.conf
 profiles:
   mtf8:
     dotfiles:
@@ -67,3 +70,4 @@ profiles:
     - f_bash_prompt
     - f_bash_aliases
     - f_init.vim
+    - f_tmux.conf
