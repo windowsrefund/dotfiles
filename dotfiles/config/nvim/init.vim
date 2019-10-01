@@ -62,6 +62,10 @@ Plug 'mhinz/vim-startify'
 " https://github.com/sheerun/vim-polyglot
 Plug 'sheerun/vim-polyglot'
 " }}}
+" {{{ better whitespace highlighting
+" https://github.com/ntpeters/vim-better-whitespace
+Plug 'ntpeters/vim-better-whitespace'
+" }}}
 " {{{ surround
 " https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
@@ -69,6 +73,7 @@ Plug 'tpope/vim-surround'
 " {{{ Insert or delete brackets, parens, quotes, in pairs
 " https://github.com/jiangmiao/auto-pairs
 Plug 'jiangmiao/auto-pairs'
+let g:AutoPairsMapCR=0
 " }}}
 " {{{ language server client
 Plug 'autozimu/LanguageClient-neovim', {
@@ -173,8 +178,6 @@ set shiftround
 " folding {{{
 set foldenable
 set foldcolumn=2
-set foldlevel=1
-set foldmethod=syntax
 " }}}
 " diff mode {{{
 " }}}
