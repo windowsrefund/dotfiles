@@ -53,6 +53,9 @@ dotfiles:
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
+  f_dir_colors:
+    src: dir_colors
+    dst: ~/.dir_colors
 profiles:
   mtf8:
     dotfiles:
@@ -71,3 +74,4 @@ profiles:
     - f_bash_aliases
     - f_init.vim
     - f_tmux.conf
+    - f_dir_colors
