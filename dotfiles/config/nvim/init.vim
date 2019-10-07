@@ -100,6 +100,11 @@ Plug 'honza/vim-snippets'
 " {{{ quick run
 " https://github.com/thinca/vim-quickrun
 Plug 'thinca/vim-quickrun'
+let g:quickrun_config = {
+\ '_': {
+\   'outputter/buffer/close_on_empty': 1
+\ }
+\ }
 " }}}
 " {{{ easy align
 " https://github.com/junegunn/vim-easy-align
