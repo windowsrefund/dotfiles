@@ -69,23 +69,20 @@ bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
-# split orientation
-bindsym $mod+s split toggle
-
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
+# split orientation
+bindsym $mod+s split toggle
+
 # toggle between splitv and splith layouts
-bindsym $mod+e layout toggle splitv splith
+bindsym $mod+Shift+s layout toggle splitv splith
 
 # toggle tiling vs. floating
 bindsym $mod+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+Shift+space focus mode_toggle
-
-# toggle sticky
-bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
 #bindsym $mod+a focus parent
@@ -295,10 +292,6 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 assign [class="^Zrythm$"] $ws4
 
 assign [class="^obs$"] $ws1
-# vim:filetype=i3
-
-bindsym $mod+w layout toggle all
-
 # vim:filetype=i3
 
 # on every restart
