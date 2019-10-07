@@ -9,27 +9,7 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 call plug#begin('~/.local/share/nvim/site/plugged')
 " }}}
-" {{{ onedark theme
-" https://github.com/joshdick/onedark.vim
-" Plug 'joshdick/onedark.vim'
-" let g:onedark_terminal_italics=1
-" let g:onedark_hide_endofbuffer=1
-" if &rtp =~ 'lightline'
-"   if empty(glob('~/.local/share/nvim/site/plugged/lightline.vim/autoload/lightline/colorscheme/onedark.vim'))
-"     silent !cp ~/.local/share/nvim/site/plugged/onedark.vim/autoload/lightline/colorscheme/onedark.vim ~/.local/share/nvim/site/plugged/lightline.vim/autoload/lightline/colorscheme
-"   endif
-" endif
-" let g:lightline = {
-"   \ 'colorscheme': 'onedark',
-"   \ 'active': {
-"   \   'left': [ [ 'mode', 'paste' ],
-"   \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-"   \ },
-"   \ 'component_function': {
-"   \   'cocstatus': 'coc#status',
-"   \   'currentfunction': 'CocCurrentFunction'
-"   \ },
-"   \ }
+" {{{ nord theme
 " " https://github.com/arcticicestudio/nord-vim
 Plug 'arcticicestudio/nord-vim'
 let g:nord_uniform_diff_background=1
@@ -75,7 +55,7 @@ Plug 'farmergreg/vim-lastplace'
 " {{{ decrypt and edit gpg encrypted files
 " https://github.com/jamessan/vim-gnupg
 Plug 'jamessan/vim-gnupg'
-let g:GPGPreferArmor=1
+" let g:GPGPreferArmor=1
 
 " }}}
 " {{{ commenting
@@ -135,7 +115,13 @@ Plug 'tpope/vim-rhubarb'
 " https://github.com/liuchengxu/vim-which-key
 Plug 'liuchengxu/vim-which-key'
 " }}}
-" {{{
+" {{{ python folding
+" https://github.com/tmhedberg/SimpylFold
+" 2019-10-07: Not folding defs correctly and not folding class at all
+" Plug 'tmhedberg/simpylfold'
+" https://github.com/kalekundert/vim-coiled-snake
+Plug 'kalekundert/vim-coiled-snake'
+Plug 'konfekt/fastfold'
 " }}}
 " {{{
 " }}}
@@ -263,12 +249,12 @@ augroup text_files
 augroup END
 " }}}
 " {{{ python files
-augroup python_files
-  au!
-  au BufNewFile,BufRead *.py setlocal ft=python
-  au FileType python setlocal tabstop=4 shiftwidth=4 expandtab softtabstop=4
-        \ foldmethod=indent textwidth=79
-augroup END
+" augroup python_files
+"   au!
+"   au BufNewFile,BufRead *.py setlocal ft=python
+"   au FileType python setlocal tabstop=4 shiftwidth=4 expandtab softtabstop=4
+"         \ foldmethod=indent textwidth=79
+" augroup END
 
 " }}}
 " {{{ json files
@@ -381,7 +367,7 @@ map <space> \
 
 " vim-specific
 nnoremap <leader>v :so $MYVIMRC<cr>
-nnoremap <leader>ve :e $MYVIMRC<cr>
+nnoremap <leader>ve :tabedit $MYVIMRC<cr>
 
 " don't use Ex mode, use Q for formatting
 nnoremap Q gq
@@ -391,10 +377,6 @@ nnoremap <leader>w <c-w>
 
 " disable highligting
 nnoremap <leader>h :noh<cr>
-
-" folding
-nnoremap <leader>f za
-nnoremap <leader>fx zX
 
 " tab navigation prev/next
 nnoremap <c-n> gt
@@ -477,9 +459,6 @@ endfunction
 
 " }}}1
 
-if &rtp =~ 'onedark'
-  colorscheme onedark
-endif
 if &rtp =~ 'nord'
   colorscheme nord
 endif
