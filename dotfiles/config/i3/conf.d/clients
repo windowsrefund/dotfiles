@@ -1,5 +1,3 @@
-# vim:filetype=i3
-
 # Firefox
 assign [class="^Firefox$"] $ws2
 for_window [title="^Twitch - Mozilla Firefox$"] move workspace $ws1

@@ -32,9 +32,6 @@ dotfiles:
   f_settings.ini:
     src: config/gtk-3.0/settings.ini
     dst: ~/.config/gtk-3.0/settings.ini
-  f_config:
-    src: config/termite/config
-    dst: ~/.config/termite/config
   f_redshift.conf:
     src: config/redshift/redshift.conf
     dst: ~/.config/redshift/redshift.conf
@@ -56,6 +53,12 @@ dotfiles:
   f_dir_colors:
     src: dir_colors
     dst: ~/.dir_colors
+  d_termite:
+    src: config/termite
+    dst: ~/.config/termite
+  d_rofi:
+    src: config/rofi
+    dst: ~/.config/rofi
 profiles:
   mtf8:
     dotfiles:
@@ -67,7 +70,6 @@ profiles:
     - f_userchrome.css
     - d_i3
     - f_settings.ini
-    - f_config
     - f_redshift.conf
     - f_systemd-optimize.sh
     - f_bash_prompt
@@ -75,3 +77,5 @@ profiles:
     - f_init.vim
     - f_tmux.conf
     - f_dir_colors
+    - d_termite
+    - d_rofi

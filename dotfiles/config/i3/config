@@ -2,7 +2,6 @@
 #### Edit the files in /home/akosmin/.config/i3/conf.d
 #### Then run /home/akosmin/.config/i3/i3_config reload|restart
 
-# vim:filetype=i3
 set $mod Mod1
 set $left h
 set $down j
@@ -14,15 +13,13 @@ set $ws1 1
 set $ws2 2
 set $ws3 3
 set $ws4 4
-# vim:filetype=i3
-
 # don't follow mouse for window focus
 focus_follows_mouse no
 
 floating_modifier $mod
 
 bindsym $mod+Return exec --no-startup-id termite
-# vim:filetype=i3
+# vim: set ft=conf :
 set_from_resource $black i3wm.color0 #000000
 set_from_resource $black_h i3wm.color8 #000000
 set_from_resource $red  i3wm.color1  #000000
@@ -41,15 +38,27 @@ set_from_resource $white i3wm.color7 #ffffff
 set_from_resource $white_h i3wm.color15 #ffffff
 
 # class                 border  backgrd text    indicator child_border
-client.focused          $black  $black  $white  $purple      $black_h
+client.focused          $black  $black  $white  $yellow   $black_h
 client.focused_inactive $black  $black  $white  $black    $black
 client.unfocused        $black  $black  $white  $black    $black
-client.urgent           $black  $black  $white  $black    $black
+client.urgent           $purple $black  $white  $purle  $purple
 client.placeholder      $black  $black  $white  $black    $black
 
-client.background $black
-# vim:filetype=i3
+#client.background $black
 
+# green gruvbox
+# class                 border|backgr|text|indicator|child_border
+#client.focused          $green $green $darkgray $purple $darkgray
+#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+#client.urgent           $red $red $white $red $red
+
+# blue gruvbox
+# class                 border|backgr|text|indicator|child_border
+#client.focused          $blue $blue $darkgray $purple $darkgray
+#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+#client.urgent           $red $red $white $red $red
 new_window pixel 3
 new_float normal
 floating_modifier $mod
@@ -103,7 +112,6 @@ for_window [class="Xfburn"] floating enable
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
-# vim:filetype=i3
 #gaps inner 15
 #gaps outer 15
 #smart_gaps on
@@ -111,7 +119,6 @@ for_window [urgent=latest] focus
 # these are not working ATM
 #bindsym $mod+g gaps inner current set 0; gaps outer current set 0
 #bindsym $mod+Shift+g gaps inner current set 15; gaps outer current set 15
-# vim:filetype=i3
 set $mode_system System: (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 set $mode_i3 i3wm (r)eload, (R)estart, (e)xit, (t)ermite config
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -185,7 +192,6 @@ mode "$mode_gaps_outer" {
   bindsym Escape mode "default"
 }
 
-# vim:filetype=i3
 workspace $ws1 output $monitor-left
 workspace $ws2 output $monitor-right
 workspace $ws3 output $monitor-left
@@ -222,7 +228,6 @@ bindsym $mod+Control+4 move container to workspace $ws4; workspace $ws4
 # move workspace between screens
 bindsym $mod+bracketleft move workspace to output left
 bindsym $mod+bracketright move workspace to output right
-# vim:filetype=i3
 bar {
   status_command i3blocks
   position top
@@ -235,10 +240,10 @@ bar {
     separator $white
     background $black
     statusline $white
-    focused_workspace $black $purple $black
+    focused_workspace $black $green $black
     active_workspace  $black  $black  $white
     inactive_workspace  $black  $black  $white
-    urgent_workspace  $black  $white $black
+    urgent_workspace  $black  $purple $black
   }
   # Take a screenshot by right clicking on the bar
   # bindsym --release button3 exec --no-startup-id import /tmp/latest-screenshot.png
@@ -258,11 +263,9 @@ bar {
     focused_workspace $black $green $black
     active_workspace  $black  $black  $white
     inactive_workspace  $black  $black  $white
-    urgent_workspace  $black  $red  $black
+    urgent_workspace  $black  $purple  $black
   }
 }
-# vim:filetype=i3
-
 # Firefox
 assign [class="^Firefox$"] $ws2
 for_window [title="^Twitch - Mozilla Firefox$"] move workspace $ws1
@@ -292,7 +295,5 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 assign [class="^Zrythm$"] $ws4
 
 assign [class="^obs$"] $ws1
-# vim:filetype=i3
-
 # on every restart
 exec_always --no-startup-id xrdb -merge ~/.Xresources

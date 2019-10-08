@@ -18,24 +18,13 @@ let g:nord_italic_comments=1
 let g:nord_bold=1
 let g:nord_italic=1
 let g:nord_underline=1
-if &rtp =~ 'lightline'
-  if empty(glob('~/.local/share/nvim/site/plugged/lightline.vim/autoload/lightline/colorscheme/nord.vim'))
-    silent !cp ~/.local/share/nvim/site/plugged/nord.vim/autoload/lightline/colorscheme/nord.vim ~/.local/share/nvim/site/plugged/lightline.vim/autoload/lightline/colorscheme
-  endif
-endif
-let g:lightline = {
-  \ 'colorscheme': 'nord',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-  \ },
-  \ 'component_function': {
-  \   'cocstatus': 'coc#status',
-  \   'currentfunction': 'CocCurrentFunction'
-  \ },
-  \ }
 " }}}
-" {{{ statusline
+" {{{ theme
+" https://github.com/morhetz/gruvbox
+Plug 'morhetz/gruvbox'
+let g:gruvbox_italic = 1
+" }}}
+" {{{ theme: status line
 Plug 'itchyny/lightline.vim'
 " }}}
 " {{{ fancy start screen
@@ -177,7 +166,7 @@ set hidden
 " terminal {{{
 " }}}
 " using the mouse {{{
-set mouse=a
+set mouse=
 " }}}
 " printing {{{
 " }}}
@@ -366,6 +355,13 @@ endif
 
 " }}}
 " {{{ Others
+
+" toggle spellcheck
+" nnoremap <silent> <F10> :set spell!<cr> :set spell?<cr>
+nnoremap <silent> <F9> :set spell!<cr>:set spell?<cr>
+" c-o can be used from insert mode to execute a normal mode command
+inoremap <F9> <C-O>:set spell!<cr>:set spell?<cr>
+
 " shorten leader timeout from default of 1000
 set timeoutlen=500
 map <space> \
@@ -464,6 +460,36 @@ endfunction
 
 " }}}1
 
-if &rtp =~ 'nord'
-  colorscheme nord
+" {{{1 theme
+if &rtp =~ 'gruvbox'
+  colorscheme gruvbox
+else
+  colorscheme slate
 endif
+" }}}1
+" {{{1 lightline theme
+if &rtp =~ 'lightline'
+  let lightline_theme_dst = '~/.local/share/nvim/site/plugged/lightline.vim/autoload/lightline/colorscheme/'
+  if &rtp =~ 'nord-vim'
+    let lightline_theme_src = '~/.local/share/nvim/site/plugged/nord-vim/autoload/lightline/colorscheme/nord.vim'
+  endif
+  if &rtp =~ 'gruvbox'
+    let lightline_theme_src = '~/.local/share/nvim/site/plugged/gruvbox/autoload/lightline/colorscheme/gruvbox.vim'
+  endif
+  let lightline_theme_dst = lightline_theme_dst . split(lightline_theme_src, '/')[-1]
+  if empty(glob(lightline_theme_dst))
+    silent execute "!cp " . lightline_theme_src . " " . lightline_theme_dst
+  endif
+  let g:lightline = {
+    \ 'colorscheme': 'gruvbox',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'cocstatus': 'coc#status',
+    \   'currentfunction': 'CocCurrentFunction'
+    \ },
+    \ }
+endif
+" }}}}1

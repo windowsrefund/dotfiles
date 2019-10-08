@@ -1,4 +1,3 @@
-# vim:filetype=i3
 bar {
   status_command i3blocks
   position top
@@ -11,10 +10,10 @@ bar {
     separator $white
     background $black
     statusline $white
-    focused_workspace $black $purple $black
+    focused_workspace $black $green $black
     active_workspace  $black  $black  $white
     inactive_workspace  $black  $black  $white
-    urgent_workspace  $black  $white $black
+    urgent_workspace  $black  $purple $black
   }
   # Take a screenshot by right clicking on the bar
   # bindsym --release button3 exec --no-startup-id import /tmp/latest-screenshot.png
@@ -34,6 +33,6 @@ bar {
     focused_workspace $black $green $black
     active_workspace  $black  $black  $white
     inactive_workspace  $black  $black  $white
-    urgent_workspace  $black  $red  $black
+    urgent_workspace  $black  $purple  $black
   }
 }

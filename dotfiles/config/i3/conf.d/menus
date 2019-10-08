@@ -1,4 +1,3 @@
-# vim:filetype=i3
 set $mode_system System: (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 set $mode_i3 i3wm (r)eload, (R)estart, (e)xit, (t)ermite config
 set $mode_gaps Gaps: (o) outer, (i) inner
