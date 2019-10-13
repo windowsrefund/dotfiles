@@ -41,7 +41,7 @@ set_from_resource $white_h i3wm.color15 #ffffff
 client.focused          $black  $black  $white  $yellow   $black_h
 client.focused_inactive $black  $black  $white  $black    $black
 client.unfocused        $black  $black  $white  $black    $black
-client.urgent           $purple $black  $white  $purle  $purple
+client.urgent           $purple $black  $white  $purple  $purple
 client.placeholder      $black  $black  $white  $black    $black
 
 #client.background $black
@@ -119,8 +119,10 @@ for_window [urgent=latest] focus
 # these are not working ATM
 #bindsym $mod+g gaps inner current set 0; gaps outer current set 0
 #bindsym $mod+Shift+g gaps inner current set 15; gaps outer current set 15
+# vim: set ft=conf :
+
 set $mode_system System: (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-set $mode_i3 i3wm (r)eload, (R)estart, (e)xit, (t)ermite config
+set $mode_i3 i3: (r)eload, (R)estart, (e)xit, (t)ermite config
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -179,6 +181,7 @@ mode "$mode_gaps_inner" {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
+
 mode "$mode_gaps_outer" {
   bindsym plus  gaps outer current plus 5
   bindsym minus gaps outer current minus 5
@@ -285,7 +288,6 @@ assign [class="(?i)Qtractor" instance="(?i)Qtractor"] $ws4
 
 # key-mon
 for_window [instance="key-mon"] floating enable
-bindsym $mod+m exec --no-startup-id "key-mon --nomouse -t big-letters"
 
 # rofi
 #bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"

@@ -10,3 +10,5 @@ alias gs="git status -sb"
 # tmux
 alias tl='tmuxp load'
 alias ta='tmux attach -t'
+# key-mon
+alias km='key-mon --nomouse -t big-letters'

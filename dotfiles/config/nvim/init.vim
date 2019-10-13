@@ -9,16 +9,6 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 call plug#begin('~/.local/share/nvim/site/plugged')
 " }}}
-" {{{ nord theme
-" " https://github.com/arcticicestudio/nord-vim
-Plug 'arcticicestudio/nord-vim'
-let g:nord_uniform_diff_background=1
-let g:nord_italic_comments=1
-" good with markdown
-let g:nord_bold=1
-let g:nord_italic=1
-let g:nord_underline=1
-" }}}
 " {{{ theme
 " https://github.com/morhetz/gruvbox
 Plug 'morhetz/gruvbox'
@@ -71,21 +61,6 @@ Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsFlyMode=1
 let g:AutoPairsMapCR=0
 " }}}
-" {{{ auto completion
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-" github autocomplete for markdown files
-Plug 'ncm2/ncm2-github'
-" https://github.com/wellle/tmux-complete.vim
-Plug 'wellle/tmux-complete.vim'
-" https://github.com/neoclide/coc.nvim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" set completeopt=noinsert,menuone,noselect,preview
-" }}}
-" {{{ snippets
-" https://github.com/honza/vim-snippets
-Plug 'honza/vim-snippets'
-" }}}
 " {{{ quick run
 " https://github.com/thinca/vim-quickrun
 Plug 'thinca/vim-quickrun'
@@ -116,6 +91,40 @@ Plug 'liuchengxu/vim-which-key'
 " https://github.com/kalekundert/vim-coiled-snake
 Plug 'kalekundert/vim-coiled-snake'
 Plug 'konfekt/fastfold'
+" }}}
+" {{{ autocomplete with deoplete
+" https://github.com/Shougo/deoplete.nvim
+" pip install pynvim jedi
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#sources#syntax#min_keyword_length = 2
+au InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+Plug 'zchee/deoplete-jedi'
+" better than using the preview window
+Plug 'ncm2/float-preview.nvim'
+set completeopt=menu
+" }}}
+" {{{ code-jump and more with jedi-vim
+" https://github.com/davidhalter/jedi-vim
+Plug 'davidhalter/jedi-vim'
+" disable autocomplete
+let g:jedi#completions_enabled = 0
+" do not allow jedi-vim to autoconfigure options
+let g:jedi#auto_vim_configuration = 0
+"
+" }}}
+" {{{ snippets with UltiSnips
+" https://github.com/sirver/UltiSnips
+" the engine
+Plug 'sirver/UltiSnips'
+" the snippets
+Plug 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-n>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 " }}}
 " {{{
 " }}}
@@ -242,14 +251,15 @@ augroup text_files
   au BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == "" | set ft=text | endif
 augroup END
 " }}}
-" {{{ python files
-" augroup python_files
-"   au!
-"   au BufNewFile,BufRead *.py setlocal ft=python
-"   au FileType python setlocal tabstop=4 shiftwidth=4 expandtab softtabstop=4
-"         \ foldmethod=indent textwidth=79
-" augroup END
-
+" {{{ quickrun
+" https://github.com/thinca/vim-quickrun/issues/177
+augroup QuickRunTerminalOutputBuffer
+  au!
+  au CursorMoved *
+  \ if &buftype ==# 'terminal' |
+  \   setl nornu nonu nocuc nocul fdc=0 |
+  \ endif
+  augroup END
 " }}}
 " {{{ json files
 " Correct comment highligting for :CocConfig
@@ -320,6 +330,10 @@ endif
 
 " }}}
 " {{{ Plugin-specific mappings
+if &rtp =~ 'jedi-vim'
+  let g:jedi#rename_command = '<leader>rn'
+endif
+
 if &rtp =~ 'vim-which-key'
   let g:which_key_vertical=0
   nnoremap <silent> <leader> :<c-u>WhichKey '\'<cr>
@@ -456,7 +470,7 @@ endfunction
 " let s .= '%T%#TabLineFill#%='
 " let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
 " return s
-"ndfunction
+"endfunction
 
 " }}}1
 
