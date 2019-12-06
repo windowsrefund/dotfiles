@@ -50,7 +50,6 @@ dotfiles:
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
-<<<<<<< HEAD
   f_vimrc:
     src: vimrc
     dst: ~/.vimrc
@@ -60,7 +59,6 @@ dotfiles:
   d_colors:
     src: vim/colors
     dst: ~/.vim/colors
-=======
   f_dir_colors:
     src: dir_colors
     dst: ~/.dir_colors
@@ -73,7 +71,6 @@ dotfiles:
   f_asoundrc:
     src: asoundrc
     dst: ~/.asoundrc
->>>>>>> 37c9921d2ea1a8b043238ff4665f22e559c59a74
 profiles:
   mtf8:
     dotfiles:
@@ -91,15 +88,12 @@ profiles:
     - f_bash_aliases
     - f_init.vim
     - f_tmux.conf
-<<<<<<< HEAD
   libretop:
     dotfiles:
     - f_vimrc
     - d_vundle.vim
     - d_colors
-=======
     - f_dir_colors
     - d_termite
     - d_rofi
     - f_asoundrc
->>>>>>> 37c9921d2ea1a8b043238ff4665f22e559c59a74
