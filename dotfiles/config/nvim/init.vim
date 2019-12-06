@@ -98,12 +98,18 @@ Plug 'konfekt/fastfold'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
+let g:deoplete#sources = {}
 let g:deoplete#sources#syntax#min_keyword_length = 2
 au InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 Plug 'zchee/deoplete-jedi'
 " better than using the preview window
 Plug 'ncm2/float-preview.nvim'
-set completeopt=menu
+set pumheight=10
+set completeopt=longest,menu
+" }}}
+" {{{ supertab
+" https://github.com/metalelf0/supertab
+" Plug 'metalelf0/supertab'
 " }}}
 " {{{ code-jump and more with jedi-vim
 " https://github.com/davidhalter/jedi-vim
@@ -121,6 +127,7 @@ Plug 'sirver/UltiSnips'
 " the snippets
 Plug 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<tab>"
+" inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<Tab>"
 " let g:UltiSnipsJumpForwardTrigger="<c-n>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -315,10 +322,10 @@ if &rtp =~ 'coc\.nvim'
   nmap <leader>q <Plug>(coc-format-selected)
 else
   " Use <CR> to confirm completion
-  inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  " inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
   " Use <TAB> and <S-Tab> to navigate the completion list
-  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
   " Use <TAB> in normal and visual modes to navigate selection ranges
   " needs server support, like: coc-python
