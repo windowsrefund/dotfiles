@@ -53,6 +53,15 @@ dotfiles:
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
+  f_vimrc:
+    src: vimrc
+    dst: ~/.vimrc
+  d_vundle.vim:
+    src: vim/bundle/Vundle.vim
+    dst: ~/.vim/bundle/Vundle.vim
+  d_colors:
+    src: vim/colors
+    dst: ~/.vim/colors
 profiles:
   mtf8:
     dotfiles:
@@ -71,3 +80,8 @@ profiles:
     - f_bash_aliases
     - f_init.vim
     - f_tmux.conf
+  libretop:
+    dotfiles:
+    - f_vimrc
+    - d_vundle.vim
+    - d_colors
