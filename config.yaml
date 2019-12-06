@@ -32,9 +32,6 @@ dotfiles:
   f_settings.ini:
     src: config/gtk-3.0/settings.ini
     dst: ~/.config/gtk-3.0/settings.ini
-  f_config:
-    src: config/termite/config
-    dst: ~/.config/termite/config
   f_redshift.conf:
     src: config/redshift/redshift.conf
     dst: ~/.config/redshift/redshift.conf
@@ -53,6 +50,7 @@ dotfiles:
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
+<<<<<<< HEAD
   f_vimrc:
     src: vimrc
     dst: ~/.vimrc
@@ -62,6 +60,20 @@ dotfiles:
   d_colors:
     src: vim/colors
     dst: ~/.vim/colors
+=======
+  f_dir_colors:
+    src: dir_colors
+    dst: ~/.dir_colors
+  d_termite:
+    src: config/termite
+    dst: ~/.config/termite
+  d_rofi:
+    src: config/rofi
+    dst: ~/.config/rofi
+  f_asoundrc:
+    src: asoundrc
+    dst: ~/.asoundrc
+>>>>>>> 37c9921d2ea1a8b043238ff4665f22e559c59a74
 profiles:
   mtf8:
     dotfiles:
@@ -73,15 +85,21 @@ profiles:
     - f_userchrome.css
     - d_i3
     - f_settings.ini
-    - f_config
     - f_redshift.conf
     - f_systemd-optimize.sh
     - f_bash_prompt
     - f_bash_aliases
     - f_init.vim
     - f_tmux.conf
+<<<<<<< HEAD
   libretop:
     dotfiles:
     - f_vimrc
     - d_vundle.vim
     - d_colors
+=======
+    - f_dir_colors
+    - d_termite
+    - d_rofi
+    - f_asoundrc
+>>>>>>> 37c9921d2ea1a8b043238ff4665f22e559c59a74

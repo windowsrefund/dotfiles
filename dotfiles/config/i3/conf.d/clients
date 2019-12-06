@@ -1,5 +1,3 @@
-# vim:filetype=i3
-
 # Firefox
 assign [class="^Firefox$"] $ws2
 for_window [title="^Twitch - Mozilla Firefox$"] move workspace $ws1
@@ -19,7 +17,6 @@ assign [class="(?i)Qtractor" instance="(?i)Qtractor"] $ws4
 
 # key-mon
 for_window [instance="key-mon"] floating enable
-bindsym $mod+m exec --no-startup-id "key-mon --nomouse -t big-letters"
 
 # rofi
 #bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"

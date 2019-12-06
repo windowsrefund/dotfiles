@@ -1,4 +1,4 @@
-# vim:filetype=i3
+# vim: set ft=conf :
 set_from_resource $black i3wm.color0 #000000
 set_from_resource $black_h i3wm.color8 #000000
 set_from_resource $red  i3wm.color1  #000000
@@ -17,10 +17,24 @@ set_from_resource $white i3wm.color7 #ffffff
 set_from_resource $white_h i3wm.color15 #ffffff
 
 # class                 border  backgrd text    indicator child_border
-client.focused          $black  $black  $white  $purple      $black_h
+client.focused          $black  $black  $white  $yellow   $black_h
 client.focused_inactive $black  $black  $white  $black    $black
 client.unfocused        $black  $black  $white  $black    $black
-client.urgent           $black  $black  $white  $black    $black
+client.urgent           $purple $black  $white  $purple  $purple
 client.placeholder      $black  $black  $white  $black    $black
 
-client.background $black
+#client.background $black
+
+# green gruvbox
+# class                 border|backgr|text|indicator|child_border
+#client.focused          $green $green $darkgray $purple $darkgray
+#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+#client.urgent           $red $red $white $red $red
+
+# blue gruvbox
+# class                 border|backgr|text|indicator|child_border
+#client.focused          $blue $blue $darkgray $purple $darkgray
+#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+#client.urgent           $red $red $white $red $red

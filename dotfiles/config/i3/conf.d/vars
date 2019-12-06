@@ -1,4 +1,3 @@
-# vim:filetype=i3
 set $mod Mod1
 set $left h
 set $down j

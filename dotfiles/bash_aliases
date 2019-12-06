@@ -2,9 +2,15 @@ alias mutt-adamkosmin='MUTT_PROFILE=adamkosmin mutt'
 alias mutt-mtf8='MUTT_PROFILE=mtf8 mutt'
 alias mutt-nycpatriot='MUTT_PROFILE=nycpatriot mutt'
 alias xprop="/usr/bin/xprop | awk '/WM_CLASS/{print $4}'"
+alias vi="nvim"
 alias vim="nvim"
-alias vimdiff="nvim -d"
+alias vip="nvim -p"
+alias vid="nvim -d"
 alias gs="git status -sb"
 # tmux
 alias tl='tmuxp load'
 alias ta='tmux attach -t'
+# key-mon
+alias km='key-mon --nomouse -t big-letters'
+# virtualbox fix
+alias virtualbox='QT_QPA_PLATFORMTHEME=qt5ct-style virtualbox'

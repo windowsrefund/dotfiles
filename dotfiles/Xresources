@@ -2,5 +2,5 @@
 
 ! xrdb -merge ~/.Xresources
 
-#include ".Xresources.d/colors"
+#include ".Xresources.d/gruvbox-dark"
 !# include ".Xresources.d/rofi"

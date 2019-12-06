@@ -1,4 +1,3 @@
-# vim:filetype=i3
 workspace $ws1 output $monitor-left
 workspace $ws2 output $monitor-right
 workspace $ws3 output $monitor-left

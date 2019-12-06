@@ -9,29 +9,17 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 call plug#begin('~/.local/share/nvim/site/plugged')
 " }}}
-" {{{ open focus to last place of file
-" https://github.com/farmergreg/vim-lastplace
-Plug 'farmergreg/vim-lastplace'
-" }}}
 " {{{ theme
-" https://github.com/joshdick/onedark.vim
-Plug 'joshdick/onedark.vim'
-let g:onedark_terminal_italics=1
-let g:onedark_hide_endofbuffer=1
-if &rtp =~ 'lightline'
-  if empty(glob('~/.local/share/nvim/site/plugged/lightline.vim/autoload/lightline/colorscheme/onedark.vim'))
-    silent !cp ~/.local/share/nvim/site/plugged/onedark.vim/autoload/lightline/colorscheme/onedark.vim ~/.local/share/nvim/site/plugged/lightline.vim/autoload/lightline/colorscheme
-  endif
-endif
-let g:lightline = { 'colorscheme': 'onedark' }
+" https://github.com/morhetz/gruvbox
+Plug 'morhetz/gruvbox'
+let g:gruvbox_italic = 1
 " }}}
-" {{{ statusline
+" {{{ theme: status line
 Plug 'itchyny/lightline.vim'
 " }}}
-" {{{ git gutter
-" https://github.com/mhinz/vim-signify
-Plug 'mhinz/vim-signify'
-let g:signify_vcs_list = ['git']
+" {{{ fancy start screen
+" https://github.com/mhinz/vim-startify
+Plug 'mhinz/vim-startify'
 " }}}
 " {{{ file manager
 " https://github.com/tpope/vim-vinegar
@@ -39,10 +27,14 @@ Plug 'tpope/vim-vinegar'
 " starts with dot files hidden. Use gh to toggle this
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 " }}}
+" {{{ open focus to last place of file
+" https://github.com/farmergreg/vim-lastplace
+Plug 'farmergreg/vim-lastplace'
+" }}}
 " {{{ decrypt and edit gpg encrypted files
 " https://github.com/jamessan/vim-gnupg
 Plug 'jamessan/vim-gnupg'
-let g:GPGPreferArmor=1
+" let g:GPGPreferArmor=1
 
 " }}}
 " {{{ commenting
@@ -55,18 +47,6 @@ Plug 'cbaumhardt/vim-commentary-boxed'
 " https://github.com/tpope/vim-repeat
 Plug 'tpope/vim-repeat'
 " }}}
-" {{{ folding for python
-" https://github.com/tmhedberg/SimpylFold
-Plug 'tmhedberg/SimpylFold'
-" }}}
-" {{{ fancy start screen
-" https://github.com/mhinz/vim-startify
-Plug 'mhinz/vim-startify'
-" }}}
-" {{{ syntax highlighting for various languages
-" https://github.com/sheerun/vim-polyglot
-Plug 'sheerun/vim-polyglot'
-" }}}
 " {{{ better whitespace highlighting
 " https://github.com/ntpeters/vim-better-whitespace
 Plug 'ntpeters/vim-better-whitespace'
@@ -75,47 +55,90 @@ Plug 'ntpeters/vim-better-whitespace'
 " https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
 " }}}
-" {{{ Insert or delete brackets, parens, quotes, in pairs
+" {{{ auto pairs
 " https://github.com/jiangmiao/auto-pairs
 Plug 'jiangmiao/auto-pairs'
+let g:AutoPairsFlyMode=1
 let g:AutoPairsMapCR=0
-" }}}
-" {{{ language server client
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-" Automatic start of language servers
-let g:LanguageClient_autostart=1
-" These servers must be installed 
-let g:LanguageClient_serverCommands = {
-	\ 'python': ['pyls'],
-	\ }
-" }}}
-" {{{ auto completion
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-" github autocomplete for markdown files
-Plug 'ncm2/ncm2-github'
-" this is better than ncm2-tmux
-" https://github.com/wellle/tmux-complete.vim
-Plug 'wellle/tmux-complete.vim'
-
-" :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
 " }}}
 " {{{ quick run
 " https://github.com/thinca/vim-quickrun
 Plug 'thinca/vim-quickrun'
+let g:quickrun_config = {
+\ '_': {
+\   'outputter/buffer/close_on_empty': 1
+\ }
+\ }
+" }}}
+" {{{ easy align
+" https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+" }}}
+" {{{ git integration plugins
+" https://github.com/tpope/vim-fugitive
+Plug 'tpope/vim-fugitive'
+" https://github.com/tpope/vim-rhubarb
+Plug 'tpope/vim-rhubarb'
+" }}}
+" {{{ show keybindings in popup
+" https://github.com/liuchengxu/vim-which-key
+Plug 'liuchengxu/vim-which-key'
+" }}}
+" {{{ python folding
+" https://github.com/tmhedberg/SimpylFold
+" 2019-10-07: Not folding defs correctly and not folding class at all
+" Plug 'tmhedberg/simpylfold'
+" https://github.com/kalekundert/vim-coiled-snake
+Plug 'kalekundert/vim-coiled-snake'
+Plug 'konfekt/fastfold'
+" }}}
+" {{{ autocomplete with deoplete
+" https://github.com/Shougo/deoplete.nvim
+" pip install pynvim jedi
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#sources = {}
+let g:deoplete#sources#syntax#min_keyword_length = 2
+au InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+Plug 'zchee/deoplete-jedi'
+" better than using the preview window
+Plug 'ncm2/float-preview.nvim'
+set pumheight=10
+set completeopt=longest,menu
+" }}}
+" {{{ supertab
+" https://github.com/metalelf0/supertab
+" Plug 'metalelf0/supertab'
+" }}}
+" {{{ code-jump and more with jedi-vim
+" https://github.com/davidhalter/jedi-vim
+Plug 'davidhalter/jedi-vim'
+" disable autocomplete
+let g:jedi#completions_enabled = 0
+" do not allow jedi-vim to autoconfigure options
+let g:jedi#auto_vim_configuration = 0
+"
+" }}}
+" {{{ snippets with UltiSnips
+" https://github.com/sirver/UltiSnips
+" the engine
+Plug 'sirver/UltiSnips'
+" the snippets
+Plug 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<tab>"
+" inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<Tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-n>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 " }}}
 " {{{
 " }}}
 
 call plug#end()
 " }}}1
-"
+
 " Settings from :options {{{1
 " important {{{
 " }}}
@@ -127,11 +150,13 @@ set regexpengine=1
 " tags {{{
 " }}}
 " displaying text {{{
+" help fo-table for definitions of options
+set formatoptions=qrnj1c
 set number
 set relativenumber
 set cmdheight=2
 set sidescrolloff=1 sidescroll=1
-set conceallevel=2 concealcursor=nivc
+set concealcursor=nivc
 set lazyredraw
 set showbreak=↪
 set fillchars+=diff:⣿
@@ -157,7 +182,7 @@ set hidden
 " terminal {{{
 " }}}
 " using the mouse {{{
-set mouse=a
+set mouse=
 " }}}
 " printing {{{
 " }}}
@@ -175,9 +200,15 @@ set undolevels=10000
 set undoreload=1000
 " }}}
 " tabs and indenting {{{
-set tabstop=2 softtabstop=2
-set shiftwidth=2 textwidth=80
-set smarttab expandtab
+set textwidth=80
+set tabstop=2
+" Indentation amount for < and > commands
+set shiftwidth=2
+" Insert spaces when TAB is pressed.
+set expandtab
+" Number of spaces TAB counts for in Insert mode
+set softtabstop=2
+" Round indent to multiple of shiftwidth. Used for < and >
 set shiftround
 " }}}
 " folding {{{
@@ -190,11 +221,15 @@ set foldcolumn=2
 " }}}
 " reading and writing files {{{
 set modeline modelines=10
-set backup writebackup
-set backupdir=~/.config/nvim/backup
+" Some LSP servers have issues with backup files
+" See https://github.com/neoclide/coc.nvim/issues/649
+set nobackup
+set nowritebackup
 " }}}
 " the swap file {{{
 set noswapfile
+" coc.nvim suggests this over default 4000
+set updatetime=300
 " }}}
 " command line editing {{{
 " }}}
@@ -208,24 +243,14 @@ set noswapfile
 set encoding=utf-8
 " }}}
 " various {{{
-set signcolumn=yes
+set signcolumn=auto:2
 " }}}
 " }}}1
-" Debugging help {{{
-if exists('$DEBUG')
-	set verbose=3
-	let &verbosefile=expand('$HOME/.config/nvim/logs/runtime.log')
-	let $NVIM_PYTHON_LOG_FILE=expand("$HOME/.config/nvim/logs/python.log")
-endif
-" }}}
 " {{{1 Augroups
 " {{{ all files
-augroup all_files
-  au!
-  if &rtp =~ 'ncm2'
-    au BufEnter * call ncm2#enable_for_buffer()
-  endif
-augroup END
+" augroup all_files
+"   au!
+" augroup END
 " }}}
 " {{{ text files
 augroup text_files
@@ -233,38 +258,156 @@ augroup text_files
   au BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == "" | set ft=text | endif
 augroup END
 " }}}
-" {{{ python files
-augroup python_files
+" {{{ quickrun
+" https://github.com/thinca/vim-quickrun/issues/177
+augroup QuickRunTerminalOutputBuffer
   au!
-  au BufNewFile,BufRead *.py setlocal ft=python
-  au FileType python setlocal tabstop=4 shiftwidth=4 expandtab softtabstop=4
-        \ foldmethod=indent textwidth=79 autoindent
-augroup END
-
+  au CursorMoved *
+  \ if &buftype ==# 'terminal' |
+  \   setl nornu nonu nocuc nocul fdc=0 |
+  \ endif
+  augroup END
+" }}}
+" {{{ json files
+" Correct comment highligting for :CocConfig
+" augroup json_files
+"   au!
+"   au FileType json syntax match Comment +\/\/.\+$+
+" augroup END
 " }}}
 " }}}1
 " {{{1 Mappings
-" navigate splits the way I like
-nnoremap <leader>w <c-w>
-" disable highligting
-nnoremap <leader><space> :noh<cr>
+" :verbose imap <tab>
+" {{{ Popup menu
+if &rtp =~ 'coc\.nvim'
+  " The only working solution I've found is here
+  " https://github.com/neoclide/coc.nvim/issues/606
+
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+
+  inoremap <silent><expr> <S-Tab>
+        \ pumvisible() ? "\<C-p>" :
+        \ <SID>check_back_space() ? "\<S-Tab>" :
+        \ coc#refresh()
+
+  " Use <cr> to confirm completion, '<c-g>u means break undo chain at current
+  " position'
+  inoremap <silent><expr> <CR>
+        \ pumvisible() ? "\<C-y>" :
+        \ "\<C-g>u\<CR>"
+
+  let g:coc_snippet_next = '<Tab>'
+  let g:coc_snippet_prev = '<S-Tab>'
+
+  " remap for gotos
+  "
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+
+  " rename current word
+  nnoremap <leader>n <Plug>(coc-rename)
+
+  " format selected region
+  xmap <leader>q <Plug>(coc-format-selected)
+  nmap <leader>q <Plug>(coc-format-selected)
+else
+  " Use <CR> to confirm completion
+  " inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  " Use <TAB> and <S-Tab> to navigate the completion list
+  " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+  " Use <TAB> in normal and visual modes to navigate selection ranges
+  " needs server support, like: coc-python
+  " nmap <silent> <Tab> <Plug>(coc-range-select)
+  " xmap <silent> <Tab> <Plug>(coc-range-select)
+  " xmap <silent> <S-Tab> <Plug>(coc-range-select-backward)
+  " nnomap <Tab> <shift>[
+endif
+
+" }}}
+" {{{ Plugin-specific mappings
+if &rtp =~ 'jedi-vim'
+  let g:jedi#rename_command = '<leader>rn'
+endif
+
+if &rtp =~ 'vim-which-key'
+  let g:which_key_vertical=0
+  nnoremap <silent> <leader> :<c-u>WhichKey '\'<cr>
+  nnoremap <silent> <leader>g :<c-u>WhichKey 'g'<cr>
+endif
+
+if &rtp =~ 'vim-better-whitespace'
+  nnoremap <leader>s :StripWhitespace<cr>
+else
+  nnoremap <leader>s :echo 'Install vim-better-whitespace'<cr>
+endif
+
+if &rtp =~ 'vim-easy-align'
+  " Start interactive EasyAlign in visual mode (e.g. vipga)
+  xnoremap <leader>e <Plug>(EasyAlign)
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nnoremap <leader>e <Plug>(EasyAlign)
+else
+  nnoremap <leader>e :echo 'Install vim-easy-align'<cr>
+endif
 
 if &rtp =~ 'vim-commentary-boxed'
   nnoremap <leader>b :<c-u>call ToggleBox()<cr>
+else
+  nnoremap <leader>b :echo 'Install vim-commentary-boxed'<cr>
 endif
 
 if &rtp =~ 'vim-vinegar'
   nmap t <Plug>VinegarTabUp
 else
-  nmap t :echo 'Install vim-vinegar plugin'<cr>
+  nnoremap t :echo 'Install vim-vinegar plugin'<cr>
 endif
 
-" spacebar toggles folding
-nnoremap <space> za
+" }}}
+" {{{ Others
 
-" navigate to next/prev tab
+" toggle spellcheck
+" nnoremap <silent> <F10> :set spell!<cr> :set spell?<cr>
+nnoremap <silent> <F9> :set spell!<cr>:set spell?<cr>
+" c-o can be used from insert mode to execute a normal mode command
+inoremap <F9> <C-O>:set spell!<cr>:set spell?<cr>
+
+" shorten leader timeout from default of 1000
+set timeoutlen=500
+map <space> \
+
+" vim-specific
+nnoremap <leader>v :so $MYVIMRC<cr>
+nnoremap <leader>ve :tabedit $MYVIMRC<cr>
+
+" don't use Ex mode, use Q for formatting
+nnoremap Q gq
+
+" navigate splits the way I like
+nnoremap <leader>w <c-w>
+
+" disable highligting
+nnoremap <leader>h :noh<cr>
+
+" tab navigation prev/next
 nnoremap <c-n> gt
 nnoremap <c-p> gT
+
+" better vertical movement for wrapped lines
+" does not play nicely with relativenumber
+" nnoremap j gj
+" nnoremap k gk
 
 " ensure we can ESC out of Insert Mode
 inoremap <c-c> <esc>
@@ -272,14 +415,43 @@ inoremap <c-c> <esc>
 " save the file using sudo
 cmap w!! w !sudo tee % > /dev/null<cr>
 
-" {{{ Popup menu
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" sort lines in alphabetical order
+vnoremap <leader>s :'<,'>!sort -f<cr>
+
+" Quickly insert a timestamp
+nnoremap <leader>t "=strftime("%F %T%z")<cr>p
+
+" Toggle quickfix window
+nnoremap <leader><leader> :call ToggleQuickfix()<cr>
+
+nnoremap <silent> K :call <SID>show_documentation()<cr>
 " }}}
 
 " }}}1
 " {{{1 Functions
+
+
+function! s:show_documentation()
+  if (index(['vim', 'help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    if &rtp =~ 'coc\.nvim'
+      call CocAction('doHover')
+    endif
+  endif
+endfunction
+
+function! ToggleQuickfix()
+  for buffer in tabpagebuflist()
+    if bufname(buffer) == ''
+      " then it has to be the quickfix window
+      cclose
+      return
+    endif
+  endfor
+
+  copen
+endfunction
 
 " MyTabLine
 "function! MyTabLine()
@@ -305,10 +477,40 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " let s .= '%T%#TabLineFill#%='
 " let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
 " return s
-"ndfunction
+"endfunction
 
 " }}}1
 
-if &rtp =~ 'onedark'
-  colorscheme onedark
+" {{{1 theme
+if &rtp =~ 'gruvbox'
+  colorscheme gruvbox
+else
+  colorscheme slate
 endif
+" }}}1
+" {{{1 lightline theme
+if &rtp =~ 'lightline'
+  let lightline_theme_dst = '~/.local/share/nvim/site/plugged/lightline.vim/autoload/lightline/colorscheme/'
+  if &rtp =~ 'nord-vim'
+    let lightline_theme_src = '~/.local/share/nvim/site/plugged/nord-vim/autoload/lightline/colorscheme/nord.vim'
+  endif
+  if &rtp =~ 'gruvbox'
+    let lightline_theme_src = '~/.local/share/nvim/site/plugged/gruvbox/autoload/lightline/colorscheme/gruvbox.vim'
+  endif
+  let lightline_theme_dst = lightline_theme_dst . split(lightline_theme_src, '/')[-1]
+  if empty(glob(lightline_theme_dst))
+    silent execute "!cp " . lightline_theme_src . " " . lightline_theme_dst
+  endif
+  let g:lightline = {
+    \ 'colorscheme': 'gruvbox',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'cocstatus': 'coc#status',
+    \   'currentfunction': 'CocCurrentFunction'
+    \ },
+    \ }
+endif
+" }}}}1
