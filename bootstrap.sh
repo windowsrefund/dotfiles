@@ -5,7 +5,7 @@ error() {
   exit 1
 }
 
-[ -f /etc/debian_version ] && ./debian.conf
+[ -f /etc/debian_version ] && . debian.conf
 
 case $OS in
   debian)
