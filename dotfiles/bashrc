@@ -1,0 +1,124 @@
+#-------------------------------------------------
+# ~/.bashrc
+# vim:foldmethod=marker:nu:ai:si:et:ft=sh:
+# -------------------------------------------------
+HISTSIZE= HISTFILESIZE= # Infinate history
+
+# Variables {{{1
+export PATH=${HOME}/bin:${HOME}/.local/bin:$PATH
+export EDITOR=nvim
+export TERMINAL=termite
+export TERM=xterm-256color
+export SSH_AGENT_ENV="${HOME}/.ssh/agent.env"
+export NOSE_REDNOSE=1
+export MYGPGKEY=0xE8746802481AF0AE
+export BROWSER=links
+export PAGER=less
+export QT_SELECT=5
+export QT_QPA_PLATFORMTHEME="gtk2"
+export BROWSER=firefox
+command -v qutebrowser > /dev/null 2>&1 && export BROWSER=qutebrowser
+[ -n "$DISPLAY" ] && export BROWSER="firefox"
+# }}}1
+# Functions {{{1
+# {{{2 Directory size
+dirsize ()
+{
+du -shx * .[a-zA-Z0-9_]* 2> /dev/null | \
+egrep '^ *[0-9.]*[MG]' | sort -n > /tmp/list
+egrep '^ *[0-9.]*M' /tmp/list
+egrep '^ *[0-9.]*G' /tmp/list
+rm /tmp/list
+}
+# }}}2
+# {{{2 Extract Files
+
+extract () {
+  if [ -f $1 ] ; then
+      case $1 in
+          *.tar.bz2)   tar xvjf $1    ;;
+          *.tar.gz)    tar xvzf $1    ;;
+          *.tar.xz)    tar xvJf $1    ;;
+          *.bz2)       bunzip2 $1     ;;
+          *.rar)       unrar x $1     ;;
+          *.gz)        gunzip $1      ;;
+          *.tar)       tar xvf $1     ;;
+          *.tbz2)      tar xvjf $1    ;;
+          *.tgz)       tar xvzf $1    ;;
+          *.zip)       unzip $1       ;;
+          *.Z)         uncompress $1  ;;
+          *.7z)        7z x $1        ;;
+          *.xz)        unxz $1        ;;
+          *.exe)       cabextract $1  ;;
+          *)           echo "\`$1': unrecognized file compression" ;;
+      esac
+  else
+      echo "\`$1' is not a valid file"
+  fi
+}
+# }}}2
+# {{{2 move/copy then follow
+goto() { [ -d "$1" ] && cd "$1" || cd "$(dirname "$1")"; }
+cpf() { cp "$@" && goto "$_"; }
+mvf() { mv "$@" && goto "$_"; }
+# }}}2
+# {{{ Query wikipedia
+wiki() { dig +short txt $1.wp.dg.cx; }
+# }}}2
+# {{{2 Nice mount output
+nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2=$4="";1') | column -t; }
+# }}}2
+# {{{2 Simple notes
+n() { 
+    mkdir ~/.notes 2> /dev/null 
+    $EDITOR ~/.notes/"$*".txt 
+}
+nls() { ls -c ~/.notes | grep "$*" ;}
+# }}}2
+# {{{2 vim files
+function vf() {
+    vi `find ${1:-.} -type f | grep -v ".svn"`
+}
+# }}}2
+# {{{2 Start ssh-agent
+ssh_agent() {
+  eval $(ssh-agent | tee $SSH_AGENT_ENV)
+  ssh-add
+}
+# }}}2
+# {{{2 external IP
+myip() { printf "External IP: %s\n" $(curl -s http://ifconfig.me) ;}
+# }}}2
+# {{{2 i3 theme loader
+i3load() {
+  [ -d themes ] || { echo "No themes directory in $PWD"; return; }
+  python i3wm-themer.py --config config.yaml --load themes/$1.json
+}
+
+
+# }}}1
+# Source files {{{1
+if [ -f $HOME/.gpg-agent-info ]; then
+  . $HOME/.gpg-agent-info
+  export GPG_AGENT_INFO
+fi
+
+if [ -f $HOME/.dotdrop.sh-completion.bash ]; then
+  . $HOME/.dotdrop.sh-completion.bash
+fi
+
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+  . /usr/share/bash-completion/bash_completion
+fi
+
+[[ -f ~/.dir_colors ]] && eval $(dircolors ~/.dir_colors)
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+[[ -f ~/.git-prompt ]] && . ~/.git-prompt
+[[ -f ~/.bash_prompt ]] && . ~/.bash_prompt
+# }}}1
+
+if command -v direnv > /dev/null 2>&1; then
+  eval "$(direnv hook bash 2> /dev/null)"
+fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

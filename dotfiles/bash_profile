@@ -1,0 +1,17 @@
+#-------------------------------------------------
+# ~/.bash_profile - Runs on login
+# vim:foldmethod=marker:nu:ai:si:et:ft=sh:
+# -------------------------------------------------
+
+echo "hit profile" >> ~/profile.log
+[ -f ~/.bashrc ] && . ~/.bashrc
+# ssh-agent {{{1
+if [ -f $SSH_AGENT_ENV ]; then
+  . $SSH_AGENT_ENV > /dev/null
+  if ! kill -0 $SSH_AGENT_PID > /dev/null 2>&1; then
+    ssh_agent
+  fi
+else
+  ssh_agent
+fi
+# 1}}}

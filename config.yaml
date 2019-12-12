@@ -68,6 +68,12 @@ dotfiles:
   f_asoundrc:
     src: asoundrc
     dst: ~/.asoundrc
+  f_bash_profile:
+    src: bash_profile
+    dst: ~/.bash_profile
+  f_bashrc:
+    src: bashrc
+    dst: ~/.bashrc
 profiles:
   mtf8:
     dotfiles:
@@ -85,6 +91,8 @@ profiles:
     - f_bash_aliases
     - f_init.vim
     - f_tmux.conf
+    - f_bash_profile
+    - f_bashrc
   libretop:
     dotfiles:
     - f_vimrc
