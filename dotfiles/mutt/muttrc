@@ -1,0 +1,97 @@
+# vim:nu:ai:si:et:ts=4:sw=4:ft=muttrc
+
+# directories and commands
+set header_cache        = ~/.mutt/cache/headers # cache headers for speed
+set message_cachedir    = ~/.mutt/cache/bodies  # cache bodies for speed
+set certificate_file    = ~/.mutt/certificates  # where to store certificates
+set mailcap_path        = ~/.mutt/mailcap.muttrc
+set tmpdir              = ~/.mutt/temp          # where to keep temp files
+set editor              = "/usr/bin/vim -c '+/^--.$/-1'"
+set ispell              = "/usr/bin/aspell -e -c"
+set print_command       = /usr/bin/enscript
+
+# main options
+# set query_command   = "abook --mutt-query '%s'" # abook
+set beep_new                                    # bell on new mail
+set reverse_alias                               # show names from alias file in index
+set delete                                      # delete selected message
+set quit                                        # Prompt to confirm quit
+set nomark_old                                  # do not mark any messages as old
+set copy                                        # Keep copies of outgoing mail...
+set pipe_decode                                 # strip headers and eval mimes when piping
+set thorough_search                             # strip headers and eval mimes before searching
+unset help
+set move                = no                    # do not move message from the spool
+set timeout             = 15                    # idle time before scanning
+set mail_check          = 60                    # scan for mail every N seconds
+set sort_alias          = alias                 # sort alias file by alias
+set include             = yes                   # Default to including previous message in reply
+set hostname            = "example.com"         # Complete addresses with @example.com instead of @`hostname`
+set markers             = no                    # do not display + at the beginnging of wrapped lines
+set smart_wrap          = no                    # do not wrap at word boundries
+set mail_check          = 120                   # how often to check for new mail (time in seconds)
+#set sidebar_visible     = no
+
+# index options
+set sort_re                                                 # thread based on regex
+set uncollapse_jump                                         # do not collapse on an unread message
+set sort                = threads                           # sort by threads
+set strict_threads      = yes
+set sort_aux            = reverse-last-date-received        # like gmail
+set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# pager options
+auto_view text/html                                         # view html automatically
+auto_view text/calendar                                     # view ical
+alternative_order text/plain text/enriched text/html text/*
+set status_on_top
+set pager_stop                                              # do not go to the next message automatically
+set smart_wrap                                              # do not split words
+set pager_context       = 5                                 # do not scroll off the pager by 4 lines
+set pager_index_lines   = 2                                 # Set the pager size
+set menu_scroll                                             # scroll in menus
+set tilde                                                   # show tildes like in vim
+set quote_regexp        = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+unset markers                                               # no ugly + signs
+
+# formats
+set alias_format        = "%4n %t %-20a %r"
+set date_format         = "%m/%d/%y at %I:%M%P"
+set index_format        = "%?M?+& ?%2M %Z %D   %-25.25L %s %> %c"
+set pager_format        = "Reading message %C of %m %> %lL (%P)" # pager statusbar
+set folder_format       = "%2C %t %N %8s %d %f"                 # mailbox list view
+set status_format       = "-%r-%v--[%?M?%M/?%m msgs%?n?, %n new?%?d?, %d del?%?F?, %F flag?%?t?, %t tag?%?p?, %p postp?%?b?, %b inc?%?l?, %l?]--(%f)--%s-%>-%P-"
+
+# composing mail
+set envelope_from                                # which from?
+set sig_dashes                                   # dashes before my sig... sweet
+set edit_headers                                 # show headers when composing
+set fast_reply                                   # skip to compose when replying
+set sendmail_wait       = -1                     # don't wait for sending... to complete
+set askcc                                        # ask for CC:
+set fcc_attach                                   # save attachments with the body
+unset mime_forward                               # forward attachments as part of body
+set forward_format      = "Fwd: %s"              # format for subject when forwarding
+set forward_decode                               # decode when forwarding
+set attribution         = "On %d, %n wrote:"     # set the attribution
+set reply_to                                     # reply to Reply to: field
+set reverse_name                                 # reply as whomever it was to
+set include                                      # include message in replies
+set forward_quote                                # include message in forwards
+set sleep_time = 0                               # speed up folder switch
+set preconnect = "ssh -f -N -q -L 8025:localhost:25 -p 5554 nycpatriot.org \
+sleep 5 < /dev/null > /dev/null"
+
+
+
+# headers to show
+ignore *
+unignore date: from: to: cc: subject:
+hdr_order from: to: cc: date: subject:
+
+# always source
+source ~/.mutt/256colors.muttrc
+source ~/.mutt/keys.muttrc                       # all bind and macro commands
+source ~/.mutt/imap.muttrc
+source ~/.mutt/gpg.muttrc
+source "safe.sh -o mutt_config |"

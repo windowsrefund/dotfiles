@@ -1,0 +1,59 @@
+# all bind and macro commands are listed here by map
+#
+# Valid Strings are:
+#  '\t', '<Tab>', '\t', '\n', '\e', '<esc>', '<up>', '<down>', '<left>',
+#  '<right>', '<pagedown>', '<pageup>', '<backspace>', '<delete>', '<insert>',
+#  '<enter>', '<home>', '<end>', '<Space>', '<F1{2,3,n}>' and '<f1{,2,3,n}>'.
+#
+# See http://www.mutt.org/doc/manual/manual-6.html#functions
+
+# generic
+  bind generic q exit
+  macro generic \em "<shell-escape>less /usr/share/doc/mutt/manual.txt"
+  macro index \es "<shell-escape>~/bin/sendresume.sh<enter>"            "send my resume"
+
+# index map
+  bind index i noop
+  bind index D delete-pattern
+  bind index \$ imap-fetch-mail
+  bind index gg first-entry
+  bind index G last-entry
+  bind index j next-entry
+  bind index k previous-entry
+  bind index - collapse-thread
+  bind index _ collapse-all
+  bind index x sync-mailbox
+  bind index n next-unread
+  bind index p previous-unread
+  bind index R group-reply
+  macro index \cr "<enter-command>source ~/.mutt/muttrc<enter>"         "Reload muttrc"
+  macro index \er "<tag-prefix><clear-flag>N"                           "mark tagged messages as read"
+  # macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
+
+# pager map
+  bind pager x sync-mailbox
+  bind pager \cd noop
+  bind pager \cd noop
+  bind pager b previous-page
+  bind pager R group-reply
+  bind pager n next-unread
+  bind pager p previous-unread
+
+# alias map
+
+# attach map
+  bind attach <Return> view-mailcap
+  bind attach i exit
+
+# browser map
+
+# editor map
+  bind editor <Tab> complete-query
+
+# compose map
+  bind compose p pgp-menu
+
+# pgp map
+
+# postpone map
+

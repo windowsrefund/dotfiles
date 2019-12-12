@@ -1,0 +1,5 @@
+# global IMAP settings
+
+set imap_passive              # allow mutt to open new imap connection automatically
+set imap_keepalive = 60         # keep imap connection alive with polling (time in seconds)
+set imap_check_subscribed      # check for all subscribed IMAP folders (as if all were added with a mailboxes line)

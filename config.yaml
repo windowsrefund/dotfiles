@@ -77,6 +77,21 @@ dotfiles:
   d_backgrounds:
     src: backgrounds
     dst: ~/backgrounds
+  f_muttrc:
+    src: mutt/muttrc
+    dst: ~/.mutt/muttrc
+  f_256colors.muttrc:
+    src: mutt/256colors.muttrc
+    dst: ~/.mutt/256colors.muttrc
+  f_keys.muttrc:
+    src: mutt/keys.muttrc
+    dst: ~/.mutt/keys.muttrc
+  f_imap.muttrc:
+    src: mutt/imap.muttrc
+    dst: ~/.mutt/imap.muttrc
+  f_gpg.muttrc:
+    src: mutt/gpg.muttrc
+    dst: ~/.mutt/gpg.muttrc
 profiles:
   mtf8:
     dotfiles:
@@ -97,6 +112,11 @@ profiles:
     - f_bash_profile
     - f_bashrc
     - d_backgrounds
+    - f_muttrc
+    - f_256colors.muttrc
+    - f_keys.muttrc
+    - f_imap.muttrc
+    - f_gpg.muttrc
   libretop:
     dotfiles:
     - f_vimrc

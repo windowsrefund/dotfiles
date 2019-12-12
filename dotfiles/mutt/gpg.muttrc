@@ -1,0 +1,24 @@
+# use gpgme
+set crypt_use_gpgme = yes
+
+# use gpg-agent
+set pgp_use_gpg_agent = yes
+
+# various options
+set pgp_auto_decode = yes
+
+# sign all outgoing messages
+set crypt_autosign = yes
+
+# automatically encrypt outgoing messages
+set crypt_autoencrypt = no
+
+# encrypt replies to encrypted messages
+set crypt_replyencrypt = yes
+
+# encrypt and replies to encrypted and signed messages
+set crypt_replysignencrypted = yes
+
+# try to verify all signatures
+set crypt_verify_sig = yes
+
