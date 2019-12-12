@@ -101,6 +101,18 @@ dotfiles:
   f_mutt_profile_mtf8.sig:
     src: mutt/mutt_profile_mtf8.sig
     dst: ~/.mutt/mutt_profile_mtf8.sig
+  f_mutt_profile_adamkosmin:
+    src: mutt/mutt_profile_adamkosmin
+    dst: ~/.mutt/mutt_profile_adamkosmin
+  f_mutt_profile_adamkosmin.sig:
+    src: mutt/mutt_profile_adamkosmin.sig
+    dst: ~/.mutt/mutt_profile_adamkosmin.sig
+  f_mutt_profile_nycpatriot:
+    src: mutt/mutt_profile_nycpatriot
+    dst: ~/.mutt/mutt_profile_nycpatriot
+  f_mutt_profile_nycpatriot.sig:
+    src: mutt/mutt_profile_nycpatriot.sig
+    dst: ~/.mutt/mutt_profile_nycpatriot.sig
 profiles:
   mtf8:
     dotfiles:
@@ -129,6 +141,10 @@ profiles:
     - f_colors
     - f_mutt_profile_mtf8
     - f_mutt_profile_mtf8.sig
+    - f_mutt_profile_adamkosmin
+    - f_mutt_profile_adamkosmin.sig
+    - f_mutt_profile_nycpatriot
+    - f_mutt_profile_nycpatriot.sig
   libretop:
     dotfiles:
     - f_vimrc
