@@ -33,6 +33,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 }
 
 mkdir ~/bin 2> /dev/null
+mkdir ~/.ssh 2> /dev/null
+
 wget -q -O ~/bin/safe.sh https://raw.githubusercontent.com/windowsrefund/safe/master/safe.sh
 
 dotdrop install -p libretop
