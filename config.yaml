@@ -92,6 +92,9 @@ dotfiles:
   f_gpg.muttrc:
     src: mutt/gpg.muttrc
     dst: ~/.mutt/gpg.muttrc
+  f_colors:
+    src: mutt/colors
+    dst: ~/.mutt/colors
 profiles:
   mtf8:
     dotfiles:
@@ -117,6 +120,7 @@ profiles:
     - f_keys.muttrc
     - f_imap.muttrc
     - f_gpg.muttrc
+    - f_colors
   libretop:
     dotfiles:
     - f_vimrc
