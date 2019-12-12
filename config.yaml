@@ -53,9 +53,6 @@ dotfiles:
   f_vimrc:
     src: vimrc
     dst: ~/.vimrc
-  d_vundle.vim:
-    src: vim/bundle/Vundle.vim
-    dst: ~/.vim/bundle/Vundle.vim
   d_colors:
     src: vim/colors
     dst: ~/.vim/colors
@@ -91,7 +88,6 @@ profiles:
   libretop:
     dotfiles:
     - f_vimrc
-    - d_vundle.vim
     - d_colors
     - f_dir_colors
     - d_termite
