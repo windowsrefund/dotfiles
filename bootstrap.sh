@@ -16,7 +16,7 @@ case $OS in
     [[ "$REPLY" == [Yy] ]] && {
         sudo $REMOVE $PACKAGES_REMOVE
         sudo $INSTALL $PACKAGES_INSTALL
-
+    }
     read -p "Install python packages? (y/N): "
     [[ "$REPLY" == [Yy] ]] && ./pip-packages.sh
 
