@@ -32,12 +32,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 /usr/bin/vim.basic +PLuginInstall +qall
 }
 
-read -p "Configure neovim? (y/N): "
-[[ "$REPLY" == [Yy] ]] && {
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-}
-
 mkdir ~/bin 2> /dev/null
 wget -q -O ~/bin/safe.sh https://raw.githubusercontent.com/windowsrefund/safe/master/safe.sh
 
@@ -45,3 +39,9 @@ sudo systemctl disable lightdm
 
 dotdrop install -p libretop
 dotdrop install -p mtf8
+
+echo Things to do manually
+* Compile and configure latest neovim from source
+  * Setup vim-plug 
+
+* Configure sudoers
