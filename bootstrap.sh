@@ -34,3 +34,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 mkdir ~/bin 2> /dev/null
 wget -q -O ~/bin/safe.sh https://raw.githubusercontent.com/windowsrefund/safe/master/safe.sh
+
+sudo systemctl disable lightdm
+
+dotdrop install -p libretop
+dotdrop install -p mtf8
