@@ -40,8 +40,11 @@ sudo systemctl disable lightdm
 dotdrop install -p libretop
 dotdrop install -p mtf8
 
-echo Things to do manually
-* Compile and configure latest neovim from source
-  * Setup vim-plug 
+cat <<EOF
+Things to do manually:
 
-* Configure sudoers
+  * Compile and configure latest neovim from source
+    * Setup vim-plug 
+
+  * Configure sudoers
+EOF
