@@ -95,6 +95,12 @@ dotfiles:
   f_colors:
     src: mutt/colors
     dst: ~/.mutt/colors
+  f_mutt_profile_mtf8:
+    src: mutt/mutt_profile_mtf8
+    dst: ~/.mutt/mutt_profile_mtf8
+  f_mutt_profile_mtf8.sig:
+    src: mutt/mutt_profile_mtf8.sig
+    dst: ~/.mutt/mutt_profile_mtf8.sig
 profiles:
   mtf8:
     dotfiles:
@@ -121,6 +127,8 @@ profiles:
     - f_imap.muttrc
     - f_gpg.muttrc
     - f_colors
+    - f_mutt_profile_mtf8
+    - f_mutt_profile_mtf8.sig
   libretop:
     dotfiles:
     - f_vimrc

@@ -1,0 +1,32 @@
+# more examples at http://aperiodic.net/phil/configs/mutt/colors
+color status    white default
+
+# The indicator object does not accept a list of flags
+color indicator black    white
+color tree      black    default
+
+# deleted messages
+color index black default "!~N ~D"
+
+set query_command   = "abook --mutt-query '%s' --datafile ~/.abook/addressbook-adamkosmin"
+set from      = "mtf8@mtf8.info"
+set realname  = "mtf8"
+set imap_user = "mtf8@mtf8.info"
+set imap_pass = $my_pass_mtf8
+set folder    = "imaps://imaps.adamkosmin.info"
+set signature = ~/.mutt/mutt_profile_mtf8.sig
+set spoolfile = "+INBOX"
+set record    = "+INBOX.Sent"
+#set trash     = "+INBOX.Trash"
+set status_format = "$imap_user [%?M?%M/?%m msgs%?n?, %n new?%?d?, %d del?%?F?, %F flag?%?t?, %t tag?%?p?, %p postp?%?b?, %b inc?%?l?, %l?] (%f) %s"
+unset ssl_verify_host
+
+# smtp
+set smtp_url  = smtp://$imap_user@localhost:8025
+set smtp_pass = $imap_pass
+
+unmy_hdr *
+my_hdr Reply-To: mtf8 <mtf8@mtf8.info>
+
+# key bindings
+macro index,pager A "<pipe-message>abook --add-email-quiet --datafile ~/.abook/addressbook-adamkosmin<return>" "add the sender address to abook"
