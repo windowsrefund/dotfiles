@@ -74,6 +74,9 @@ dotfiles:
   f_bashrc:
     src: bashrc
     dst: ~/.bashrc
+  d_backgrounds:
+    src: backgrounds
+    dst: ~/backgrounds
 profiles:
   mtf8:
     dotfiles:
@@ -93,6 +96,7 @@ profiles:
     - f_tmux.conf
     - f_bash_profile
     - f_bashrc
+    - d_backgrounds
   libretop:
     dotfiles:
     - f_vimrc
