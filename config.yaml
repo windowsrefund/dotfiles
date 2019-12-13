@@ -113,6 +113,9 @@ dotfiles:
   f_mutt_profile_nycpatriot.sig:
     src: mutt/mutt_profile_nycpatriot.sig
     dst: ~/.mutt/mutt_profile_nycpatriot.sig
+  f_monitor.sh:
+    src: bin/monitor.sh
+    dst: ~/bin/monitor.sh
 profiles:
   mtf8:
     dotfiles:
@@ -145,6 +148,7 @@ profiles:
     - f_mutt_profile_adamkosmin.sig
     - f_mutt_profile_nycpatriot
     - f_mutt_profile_nycpatriot.sig
+    - f_monitor.sh
   libretop:
     dotfiles:
     - f_vimrc
