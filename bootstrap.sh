@@ -41,6 +41,11 @@ wget -q -O ~/bin/safe.sh https://raw.githubusercontent.com/windowsrefund/safe/ma
 dotdrop install -p libretop
 dotdrop install -p mtf8
 
+# https://github.com/asdf-vm/asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+cd ~/.asdf
+git checkout "$(git describe --abbrev=0 --tags)"
+
 cat <<EOF
 Things to do manually:
 
