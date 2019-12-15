@@ -116,6 +116,9 @@ dotfiles:
   f_monitor.sh:
     src: bin/monitor.sh
     dst: ~/bin/monitor.sh
+  f_dotdrop.sh-completion.bash:
+    src: dotdrop.sh-completion.bash
+    dst: ~/.dotdrop.sh-completion.bash
 profiles:
   mtf8:
     dotfiles:
@@ -149,6 +152,7 @@ profiles:
     - f_mutt_profile_nycpatriot
     - f_mutt_profile_nycpatriot.sig
     - f_monitor.sh
+    - f_dotdrop.sh-completion.bash
   libretop:
     dotfiles:
     - f_vimrc
