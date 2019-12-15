@@ -117,8 +117,9 @@ fi
 [[ -f ~/.bash_prompt ]] && . ~/.bash_prompt
 
 # https://github.com/asdf-vm/asdf
-if [ -d ~/.asdf ]; then
-  ~/.asdf/asdf.sh
-  ~/.asdf/completions/asdf.bash
+if [ -d $HOME/.asdf ]; then
+  export PATH="$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
+  $HOME/.asdf/completions/asdf.bash
 fi
 # }}}1
+
