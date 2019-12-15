@@ -45,6 +45,8 @@ dotdrop install -p mtf8
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 cd ~/.asdf
 git checkout "$(git describe --abbrev=0 --tags)"
+chmod u+x ~/.asdf/asdf.sh
+chmod u+x ~/.asdf/completions/asdf.bash
 
 cat <<EOF
 Things to do manually:
