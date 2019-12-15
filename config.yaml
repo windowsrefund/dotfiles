@@ -153,6 +153,7 @@ profiles:
     - f_mutt_profile_nycpatriot.sig
     - f_monitor.sh
     - f_dotdrop.sh-completion.bash
+    - f_dir_colors
   libretop:
     dotfiles:
     - f_vimrc
