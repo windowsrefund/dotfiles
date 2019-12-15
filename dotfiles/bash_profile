@@ -3,7 +3,6 @@
 # vim:foldmethod=marker:nu:ai:si:et:ft=sh:
 # -------------------------------------------------
 
-echo "hit profile" >> ~/profile.log
 [ -f ~/.bashrc ] && . ~/.bashrc
 # ssh-agent {{{1
 if [ -f $SSH_AGENT_ENV ]; then
