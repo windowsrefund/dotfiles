@@ -119,6 +119,9 @@ dotfiles:
   f_dotdrop.sh-completion.bash:
     src: dotdrop.sh-completion.bash
     dst: ~/.dotdrop.sh-completion.bash
+  f_saferc:
+    src: saferc
+    dst: ~/.saferc
 profiles:
   mtf8:
     dotfiles:
@@ -162,3 +165,6 @@ profiles:
     - d_termite
     - d_rofi
     - f_asoundrc
+  dstiltop:
+    dotfiles:
+    - f_saferc
