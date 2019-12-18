@@ -1,0 +1,20 @@
+session_name: k8slab
+before_script: VBoxManage startvm --type headless k8smaster k8snode1 k8snode2 && sleep 10
+start_directory: /home/akosmin
+windows:
+- window_name: k8smaster
+  options:
+    automatic-rename: 'off'
+  panes:
+  - shell_command: ssh 192.168.1.100
+    focus: true
+- window_name: k8snode1
+  options:
+    automatic-rename: 'off'
+  panes:
+  - shell_command: ssh 192.168.1.101
+- window_name: k8snode2
+  options:
+    automatic-rename: 'off'
+  panes:
+  - shell_command: ssh 192.168.1.102

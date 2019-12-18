@@ -119,6 +119,9 @@ dotfiles:
   f_dotdrop.sh-completion.bash:
     src: dotdrop.sh-completion.bash
     dst: ~/.dotdrop.sh-completion.bash
+  d_tmuxp:
+    src: tmuxp
+    dst: ~/.tmuxp
 profiles:
   mtf8:
     dotfiles:
@@ -154,6 +157,7 @@ profiles:
     - f_monitor.sh
     - f_dotdrop.sh-completion.bash
     - f_dir_colors
+    - d_tmuxp
   libretop:
     dotfiles:
     - f_vimrc
