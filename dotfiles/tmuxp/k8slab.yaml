@@ -1,5 +1,4 @@
 session_name: k8slab
-before_script: VBoxManage startvm --type headless k8smaster k8snode1 k8snode2 && sleep 10
 start_directory: /home/akosmin
 windows:
 - window_name: k8smaster

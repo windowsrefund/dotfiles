@@ -122,6 +122,9 @@ dotfiles:
   d_tmuxp:
     src: tmuxp
     dst: ~/.tmuxp
+  f_k8slab.sh:
+    src: bin/k8slab.sh
+    dst: ~/bin/k8slab.sh
 profiles:
   mtf8:
     dotfiles:
@@ -158,6 +161,7 @@ profiles:
     - f_dotdrop.sh-completion.bash
     - f_dir_colors
     - d_tmuxp
+    - f_k8slab.sh
   libretop:
     dotfiles:
     - f_vimrc
