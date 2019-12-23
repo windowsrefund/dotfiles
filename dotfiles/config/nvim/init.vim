@@ -133,6 +133,10 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 " }}}
+" saltstack {{{
+" https://github.com/saltstack/salt-vim
+Plug 'saltstack/salt-vim'
+" }}}
 " {{{
 " }}}
 
