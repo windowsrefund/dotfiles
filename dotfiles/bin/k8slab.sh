@@ -11,6 +11,7 @@ EOF
 case $1 in
   up)
     VBoxManage startvm --type headless k8smaster k8snode1 k8snode2
+    sleep 5
     tmuxp load k8slab
     ;;
   down)
