@@ -13,4 +13,3 @@ alias ta='tmux attach -t'
 alias km='key-mon --nomouse -t big-letters'
 # virtualbox fix
 alias virtualbox='QT_QPA_PLATFORMTHEME=qt5ct-style virtualbox'
-alias vbm="VBoxManage"
