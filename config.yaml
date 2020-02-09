@@ -128,6 +128,18 @@ dotfiles:
   f_vimrc-basic:
     src: vimrc-basic
     dst: ~/.vimrc-basic
+  f_config:
+    src: config/vis/config
+    dst: ~/.config/vis/config
+  d_vis_colors:
+    src: config/vis/colors
+    dst: ~/.config/vis/colors
+  f_mopidy.conf:
+    src: config/mopidy/mopidy.conf
+    dst: ~/.config/mopidy/mopidy.conf
+  f_ncmpcpp_config:
+    src: ncmpcpp/config
+    dst: ~/.ncmpcpp/config
 profiles:
   mtf8:
     dotfiles:
@@ -165,6 +177,10 @@ profiles:
     - f_dir_colors
     - d_tmuxp
     - f_vimrc-basic
+    - f_config
+    - d_vis_colors
+    - f_mopidy.conf
+    - f_ncmpcpp_config
   libretop:
     dotfiles:
     - f_vimrc
