@@ -24,7 +24,7 @@ bar {
   position top
   modifier None
   font pango:FontAwesome 14
-  output DVI-D-2
+  output DisplayPort-1
   binding_mode_indicator no
   colors {
     separator $white

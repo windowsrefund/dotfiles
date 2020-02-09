@@ -1,0 +1,20 @@
+session_name: lab-salt
+start_directory: /home/akosmin
+windows:
+- window_name: salt
+  options:
+    automatic-rename: 'off'
+  panes:
+  - shell_command: ssh salt
+    focus: true
+- window_name: salt
+  options:
+    automatic-rename: 'off'
+  panes:
+  - shell_command: ssh salt
+    focus: true
+- window_name: minion1
+  options:
+    automatic-rename: 'off'
+  panes:
+  - shell_command: ssh minion1
