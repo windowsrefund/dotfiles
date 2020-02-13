@@ -140,6 +140,9 @@ dotfiles:
   f_ncmpcpp_config:
     src: ncmpcpp/config
     dst: ~/.ncmpcpp/config
+  f_lab-salt.sh:
+    src: bin/lab-salt.sh
+    dst: ~/bin/lab-salt.sh
 profiles:
   mtf8:
     dotfiles:
@@ -181,6 +184,7 @@ profiles:
     - d_vis_colors
     - f_mopidy.conf
     - f_ncmpcpp_config
+    - f_lab-salt.sh
   libretop:
     dotfiles:
     - f_vimrc
