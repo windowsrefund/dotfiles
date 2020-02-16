@@ -143,6 +143,9 @@ dotfiles:
   f_lab-salt.sh:
     src: bin/lab-salt.sh
     dst: ~/bin/lab-salt.sh
+  f_init_min.vim:
+    src: config/nvim/init_min.vim
+    dst: ~/.config/nvim/init_min.vim
 profiles:
   mtf8:
     dotfiles:
@@ -185,6 +188,7 @@ profiles:
     - f_mopidy.conf
     - f_ncmpcpp_config
     - f_lab-salt.sh
+    - f_init_min.vim
   libretop:
     dotfiles:
     - f_vimrc

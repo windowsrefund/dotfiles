@@ -41,7 +41,7 @@ Plug 'jamessan/vim-gnupg'
 " https://github.com/tpope/vim-commentary
 Plug 'tpope/vim-commentary'
 " https://github.com/cbaumhardt/vim-commentary-boxed
-Plug 'cbaumhardt/vim-commentary-boxed'
+" Plug 'cbaumhardt/vim-commentary-boxed'
 " }}}
 " {{{ improve repeating with .
 " https://github.com/tpope/vim-repeat
@@ -107,6 +107,10 @@ Plug 'ncm2/float-preview.nvim'
 set pumheight=10
 set completeopt=longest,menu
 " }}}
+" {{{ syntax highlighting for Salt files
+" https://github.com/saltstack/salt-vim
+Plug 'saltstack/salt-vim'
+" }}}
 " {{{ supertab
 " https://github.com/metalelf0/supertab
 " Plug 'metalelf0/supertab'
@@ -132,6 +136,10 @@ let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+" }}}
+" {{{ Tame the quickfix window
+" https://github.com/romainl/vim-qf
+Plug 'romainl/vim-qf'
 " }}}
 " {{{
 " }}}
@@ -210,6 +218,9 @@ set expandtab
 set softtabstop=2
 " Round indent to multiple of shiftwidth. Used for < and >
 set shiftround
+" More natural split openings
+set splitbelow
+set splitright
 " }}}
 " folding {{{
 set foldenable
