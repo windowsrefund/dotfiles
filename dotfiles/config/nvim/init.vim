@@ -10,9 +10,12 @@ endif
 call plug#begin('~/.local/share/nvim/site/plugged')
 " }}}
 " {{{ theme
-" https://github.com/morhetz/gruvbox
-Plug 'morhetz/gruvbox'
-let g:gruvbox_italic = 1
+" https://github.com/jacoborus/tender.vim
+Plug 'jacoborus/tender.vim'
+" https://github.com/flrnd/plastic.vim
+Plug 'flrnd/plastic.vim'
+" https://github.com/rafi/awesome-vim-colorschemes
+Plug 'rafi/awesome-vim-colorschemes'
 " }}}
 " {{{ theme: status line
 Plug 'itchyny/lightline.vim'
@@ -146,7 +149,6 @@ Plug 'romainl/vim-qf'
 
 call plug#end()
 " }}}1
-
 " Settings from :options {{{1
 " important {{{
 " }}}
@@ -491,37 +493,21 @@ endfunction
 "endfunction
 
 " }}}1
-
-" {{{1 theme
-if &rtp =~ 'gruvbox'
-  colorscheme gruvbox
-else
-  colorscheme slate
-endif
-" }}}1
-" {{{1 lightline theme
-if &rtp =~ 'lightline'
-  let lightline_theme_dst = '~/.local/share/nvim/site/plugged/lightline.vim/autoload/lightline/colorscheme/'
-  if &rtp =~ 'nord-vim'
-    let lightline_theme_src = '~/.local/share/nvim/site/plugged/nord-vim/autoload/lightline/colorscheme/nord.vim'
-  endif
-  if &rtp =~ 'gruvbox'
-    let lightline_theme_src = '~/.local/share/nvim/site/plugged/gruvbox/autoload/lightline/colorscheme/gruvbox.vim'
-  endif
-  let lightline_theme_dst = lightline_theme_dst . split(lightline_theme_src, '/')[-1]
-  if empty(glob(lightline_theme_dst))
-    silent execute "!cp " . lightline_theme_src . " " . lightline_theme_dst
-  endif
-  let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ 'component_function': {
-    \   'cocstatus': 'coc#status',
-    \   'currentfunction': 'CocCurrentFunction'
-    \ },
-    \ }
-endif
-" }}}}1
+" " {{{1 themes
+let g:lightline = {
+  \ 'colorscheme': 'gruvbox',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'FugitiveHead',
+  \ },
+  \ }
+" " }}}}1
+colorscheme gruvbox
+" colorscheme deus
+" colorscheme snow
+" colorscheme one
+" colorscheme jellybeans
+" colorscheme tender

@@ -146,6 +146,9 @@ dotfiles:
   f_init_min.vim:
     src: config/nvim/init_min.vim
     dst: ~/.config/nvim/init_min.vim
+  f_tender:
+    src: Xresources.d/tender
+    dst: ~/.Xresources.d/tender
 profiles:
   mtf8:
     dotfiles:
@@ -189,6 +192,7 @@ profiles:
     - f_ncmpcpp_config
     - f_lab-salt.sh
     - f_init_min.vim
+    - f_tender
   libretop:
     dotfiles:
     - f_vimrc
