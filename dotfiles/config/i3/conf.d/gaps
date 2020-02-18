@@ -1,6 +1,6 @@
-#gaps inner 15
-#gaps outer 15
-#smart_gaps on
+gaps inner 15
+gaps outer 15
+smart_gaps on
 
 # these are not working ATM
 #bindsym $mod+g gaps inner current set 0; gaps outer current set 0

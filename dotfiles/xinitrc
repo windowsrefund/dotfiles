@@ -30,8 +30,11 @@ start-pulseaudio-x11 &
 # jackdbus starter
 autojack > /tmp/autojack.log 2>&1 < /dev/null &
 
+# composite manager
+compton -b &
+
 # backgrounds
-nitrogen --restore &
+wal -R
 
 # blue light
 redshift-gtk &

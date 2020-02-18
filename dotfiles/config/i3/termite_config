@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-TERMITE_DIR=~/.config/termite
-TERMITE_THEME=$(readlink -f $TERMITE_DIR/theme)
-TERMITE_BASE=${TERMITE_DIR}/config.base
-TERMITE_CONFIG=${TERMITE_DIR}/config
-
-cat $TERMITE_BASE $TERMITE_THEME > $TERMITE_CONFIG

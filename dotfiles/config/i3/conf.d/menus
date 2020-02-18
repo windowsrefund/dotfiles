@@ -24,7 +24,6 @@ mode "$mode_system" {
 }
 
 mode "$mode_i3" {
-  bindsym t exec --no-startup-id ~/.config/i3/termite_config
   bindsym r exec --no-startup-id ~/.config/i3/i3_config reload
   bindsym Shift+r exec --no-startup-id ~/.config/i3/i3_config restart
   bindsym e exec --no-startup-id "i3-msg exit"

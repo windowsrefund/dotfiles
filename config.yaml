@@ -149,6 +149,9 @@ dotfiles:
   f_tender:
     src: Xresources.d/tender
     dst: ~/.Xresources.d/tender
+  f_wall.tmux:
+    src: tmux/wall.tmux
+    dst: ~/.tmux/wall.tmux
 profiles:
   mtf8:
     dotfiles:
@@ -193,6 +196,7 @@ profiles:
     - f_lab-salt.sh
     - f_init_min.vim
     - f_tender
+    - f_wall.tmux
   libretop:
     dotfiles:
     - f_vimrc

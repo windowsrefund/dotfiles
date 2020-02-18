@@ -10,15 +10,29 @@ endif
 call plug#begin('~/.local/share/nvim/site/plugged')
 " }}}
 " {{{ theme
-" https://github.com/jacoborus/tender.vim
-Plug 'jacoborus/tender.vim'
-" https://github.com/flrnd/plastic.vim
-Plug 'flrnd/plastic.vim'
-" https://github.com/rafi/awesome-vim-colorschemes
-Plug 'rafi/awesome-vim-colorschemes'
+" https://github.com/dylanaraps/wal.vim
+Plug 'dylanaraps/wal.vim'
 " }}}
 " {{{ theme: status line
 Plug 'itchyny/lightline.vim'
+" http://github.com/edkolev/tmuxline.vim
+Plug 'edkolev/tmuxline.vim'
+
+" #S session name
+" #W window name
+" #h hostname (short)
+
+
+let g:tmuxline_preset = {
+  \'a'    : '#S',
+  \'b'    : '#W',
+  \'c'    : '#H',
+  \'win'  : '#I #W',
+  \'cwin' : '#I #W',
+  \'x'    : '%a',
+  \'y'    : '#W %R',
+  \'z'    : '#h'}
+
 " }}}
 " {{{ fancy start screen
 " https://github.com/mhinz/vim-startify
@@ -180,8 +194,11 @@ set listchars+=nbsp:⋅
 set listchars+=tab:\|\
 " }}}
 " syntax, highlighting and spelling {{{
-set termguicolors guicursor=
-set cursorline cursorcolumn
+" next line makes wal.vim plugin work
+set notermguicolors
+set guicursor=
+set cursorline
+" set cursorcolumn
 " }}}
 " multiple windows {{{
 set laststatus=2
@@ -291,62 +308,68 @@ augroup QuickRunTerminalOutputBuffer
 " }}}1
 " {{{1 Mappings
 " :verbose imap <tab>
-" {{{ Popup menu
-if &rtp =~ 'coc\.nvim'
-  " The only working solution I've found is here
-  " https://github.com/neoclide/coc.nvim/issues/606
+"
+" <space> as leader key
+let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
+"
+" repeat last command line used
+nnoremap <leader>r @:<CR>
 
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-  endfunction
+" toggle spellcheck
+" nnoremap <silent> <F10> :set spell!<cr> :set spell?<cr>
+nnoremap <silent> <F9> :set spell!<cr>:set spell?<cr>
+" c-o can be used from insert mode to execute a normal mode command
+inoremap <F9> <C-O>:set spell!<cr>:set spell?<cr>
 
-  inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
+" shorten leader timeout from default of 1000
+set timeoutlen=500
+" map <space> \
 
-  inoremap <silent><expr> <S-Tab>
-        \ pumvisible() ? "\<C-p>" :
-        \ <SID>check_back_space() ? "\<S-Tab>" :
-        \ coc#refresh()
+" vim-specific
+nnoremap <leader>v :so $MYVIMRC<cr>
+nnoremap <leader>ve :tabedit $MYVIMRC<cr>
 
-  " Use <cr> to confirm completion, '<c-g>u means break undo chain at current
-  " position'
-  inoremap <silent><expr> <CR>
-        \ pumvisible() ? "\<C-y>" :
-        \ "\<C-g>u\<CR>"
+" don't use Ex mode, use Q for formatting
+nnoremap Q gq
 
-  let g:coc_snippet_next = '<Tab>'
-  let g:coc_snippet_prev = '<S-Tab>'
+" navigate splits the way I like
+nnoremap <leader>w <c-w><c-w>
 
-  " remap for gotos
-  "
-  nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> gy <Plug>(coc-type-definition)
-  nmap <silent> gi <Plug>(coc-implementation)
-  nmap <silent> gr <Plug>(coc-references)
+" disable highligting
+nnoremap <leader>h :noh<cr>
 
-  " rename current word
-  nnoremap <leader>n <Plug>(coc-rename)
+" tab navigation prev/next
+nnoremap <c-n> gt
+nnoremap <c-p> gT
 
-  " format selected region
-  xmap <leader>q <Plug>(coc-format-selected)
-  nmap <leader>q <Plug>(coc-format-selected)
-else
-  " Use <CR> to confirm completion
-  " inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-  " Use <TAB> and <S-Tab> to navigate the completion list
-  " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" better vertical movement for wrapped lines
+" does not play nicely with relativenumber
+" nnoremap j gj
+" nnoremap k gk
 
-  " Use <TAB> in normal and visual modes to navigate selection ranges
-  " needs server support, like: coc-python
-  " nmap <silent> <Tab> <Plug>(coc-range-select)
-  " xmap <silent> <Tab> <Plug>(coc-range-select)
-  " xmap <silent> <S-Tab> <Plug>(coc-range-select-backward)
-  " nnomap <Tab> <shift>[
-endif
+" ensure we can ESC out of Insert Mode
+inoremap <c-c> <esc>
+
+" save the file using sudo
+cmap w!! w !sudo tee % > /dev/null<cr>
+
+" sort lines in alphabetical order
+vnoremap <leader>s :'<,'>!sort -f<cr>
+
+" Quickly insert a timestamp
+nnoremap <leader>t "=strftime("%F %T%z")<cr>p
+
+" Toggle quickfix window
+nnoremap <leader><leader> :call ToggleQuickfix()<cr>
+
+nnoremap <silent> K :call <SID>show_documentation()<cr>
+
+" resize splits faster
+map <leader>> <C-w>10>
+map <leader>< <C-w>10<
+map <leader>= <C-w>5+
+map <leader>- <C-w>5-
 
 " }}}
 " {{{ Plugin-specific mappings
@@ -388,59 +411,6 @@ else
 endif
 
 " }}}
-" {{{ Others
-
-" toggle spellcheck
-" nnoremap <silent> <F10> :set spell!<cr> :set spell?<cr>
-nnoremap <silent> <F9> :set spell!<cr>:set spell?<cr>
-" c-o can be used from insert mode to execute a normal mode command
-inoremap <F9> <C-O>:set spell!<cr>:set spell?<cr>
-
-" shorten leader timeout from default of 1000
-set timeoutlen=500
-map <space> \
-
-" vim-specific
-nnoremap <leader>v :so $MYVIMRC<cr>
-nnoremap <leader>ve :tabedit $MYVIMRC<cr>
-
-" don't use Ex mode, use Q for formatting
-nnoremap Q gq
-
-" navigate splits the way I like
-nnoremap <leader>w <c-w>
-
-" disable highligting
-nnoremap <leader>h :noh<cr>
-
-" tab navigation prev/next
-nnoremap <c-n> gt
-nnoremap <c-p> gT
-
-" better vertical movement for wrapped lines
-" does not play nicely with relativenumber
-" nnoremap j gj
-" nnoremap k gk
-
-" ensure we can ESC out of Insert Mode
-inoremap <c-c> <esc>
-
-" save the file using sudo
-cmap w!! w !sudo tee % > /dev/null<cr>
-
-" sort lines in alphabetical order
-vnoremap <leader>s :'<,'>!sort -f<cr>
-
-" Quickly insert a timestamp
-nnoremap <leader>t "=strftime("%F %T%z")<cr>p
-
-" Toggle quickfix window
-nnoremap <leader><leader> :call ToggleQuickfix()<cr>
-
-nnoremap <silent> K :call <SID>show_documentation()<cr>
-" }}}
-
-" }}}1
 " {{{1 Functions
 
 
@@ -495,7 +465,7 @@ endfunction
 " }}}1
 " " {{{1 themes
 let g:lightline = {
-  \ 'colorscheme': 'gruvbox',
+  \ 'colorscheme': 'wal',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -505,9 +475,4 @@ let g:lightline = {
   \ },
   \ }
 " " }}}}1
-colorscheme gruvbox
-" colorscheme deus
-" colorscheme snow
-" colorscheme one
-" colorscheme jellybeans
-" colorscheme tender
+colorscheme wal
