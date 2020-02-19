@@ -6,7 +6,7 @@ set message_cachedir    = ~/.mutt/cache/bodies  # cache bodies for speed
 set certificate_file    = ~/.mutt/certificates  # where to store certificates
 set mailcap_path        = ~/.mutt/mailcap.muttrc
 set tmpdir              = ~/.mutt/temp          # where to keep temp files
-set editor              = "/usr/bin/vim -c '+/^--.$/-1'"
+set editor              = "nvim -c '+/^--.$/-1'"
 set ispell              = "/usr/bin/aspell -e -c"
 set print_command       = /usr/bin/enscript
 
