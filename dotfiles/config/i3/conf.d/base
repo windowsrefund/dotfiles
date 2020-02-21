@@ -3,4 +3,5 @@ focus_follows_mouse no
 
 floating_modifier $mod
 
-bindsym $mod+Return exec --no-startup-id kitty
+bindsym $mod+Return splith; exec --no-startup-id kitty
+bindsym $mod+space splitv; exec --no-startup-id kitty
