@@ -152,6 +152,9 @@ dotfiles:
   f_wall.tmux:
     src: tmux/wall.tmux
     dst: ~/.tmux/wall.tmux
+  f_lab-kvm.sh:
+    src: bin/lab-kvm.sh
+    dst: ~/bin/lab-kvm.sh
 profiles:
   mtf8:
     dotfiles:
@@ -197,6 +200,7 @@ profiles:
     - f_init_min.vim
     - f_tender
     - f_wall.tmux
+    - f_lab-kvm.sh
   libretop:
     dotfiles:
     - f_vimrc
