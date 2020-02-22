@@ -14,3 +14,8 @@ else
   ssh_agent
 fi
 # 1}}}
+
+[ -d ~/.ssh ] || exit 0
+
+
+find .ssh/ -name "id_*_*" | grep -v pub | xargs ssh-add
