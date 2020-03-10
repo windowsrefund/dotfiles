@@ -6,6 +6,7 @@ alias xprop="/usr/bin/xprop | awk '/WM_CLASS/{print $4}'"
 alias vip="nvim -p"
 alias vid="nvim -d"
 alias gs="git status -sb"
+alias gl="git log --oneline"
 # tmux
 alias tl='tmuxp load'
 alias ta='tmux attach -t'
