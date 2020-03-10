@@ -155,6 +155,9 @@ dotfiles:
   f_lab-kvm.sh:
     src: bin/lab-kvm.sh
     dst: ~/bin/lab-kvm.sh
+  f_ssh_config:
+    src: ssh/config
+    dst: ~/.ssh/config
 profiles:
   mtf8:
     dotfiles:
@@ -201,6 +204,7 @@ profiles:
     - f_tender
     - f_wall.tmux
     - f_lab-kvm.sh
+    - f_ssh_config
   libretop:
     dotfiles:
     - f_vimrc

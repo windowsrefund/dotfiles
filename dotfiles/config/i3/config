@@ -18,8 +18,8 @@ focus_follows_mouse no
 
 floating_modifier $mod
 
-bindsym $mod+Return splith; exec --no-startup-id kitty
-bindsym $mod+space splitv; exec --no-startup-id kitty
+bindsym $mod+Return splith; exec --no-startup-id termite
+bindsym $mod+space splitv; exec --no-startup-id termite
 # vim: set ft=conf :
 set_from_resource $black i3wm.color0 #000000
 set_from_resource $black_h i3wm.color8 #000000
@@ -89,10 +89,10 @@ bindsym $mod+s split toggle
 bindsym $mod+Shift+s layout toggle splitv splith
 
 # toggle tiling vs. floating
-# bindsym $mod+Tab floating toggle
+bindsym $mod+Tab floating toggle
 
 # change focus between tiling / floating windows
-#bindsym $mod+Shift+Tab focus mode_toggle
+bindsym $mod+Shift+Tab focus mode_toggle
 
 # focus the parent container
 #bindsym $mod+a focus parent

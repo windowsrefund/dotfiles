@@ -1,7 +1,4 @@
 ! vim: set filetype=xdefaults
 
 ! xrdb -merge ~/.Xresources
-
-! #include ".Xresources.d/gruvbox-dark"
-#include ".Xresources.d/tender"
-!# include ".Xresources.d/rofi"
+st.alpha: 0.78

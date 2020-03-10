@@ -17,5 +17,7 @@ fi
 
 [ -d ~/.ssh ] || exit 0
 
-
-find .ssh/ -name "id_*_*" | grep -v pub | xargs ssh-add
+[ -f /tmp/keys_added ] || {
+  find .ssh/ -name "id_*_*" | grep -v pub | xargs ssh-add
+  touch /tmp/keys_added
+}

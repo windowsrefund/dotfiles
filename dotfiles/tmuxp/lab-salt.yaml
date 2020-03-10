@@ -1,30 +1,15 @@
 session_name: lab-salt
 windows:
-- options:
-    automatic-rename: 'off'
-  panes:
-  - focus: 'true'
-    shell_command: ssh salt
-  start_directory: /home/akosmin
-  window_name: master
-- options:
-    automatic-rename: 'off'
-  panes:
-  - focus: 'true'
-    shell_command: ssh minion1
-  start_directory: /home/akosmin
-  window_name: minion1
-- options:
-    automatic-rename: 'off'
-  panes:
-  - focus: 'true'
-    shell_command: ssh minion2
-  start_directory: /home/akosmin
-  window_name: minion2
 - focus: 'true'
-  options:
-    automatic-rename: 'off'
+  options: {}
   panes:
   - pane
   start_directory: /home/akosmin/projects/lab-salt
-  window_name: vim
+  window_name: nvim
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: ssh salt1
+  start_directory: /home/akosmin
+  window_name: salt1
