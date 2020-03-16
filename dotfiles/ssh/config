@@ -31,3 +31,6 @@ Host github.com-ds
   User git
   ProxyCommand nc -x localhost:9999 %h %p
   IdentityFile ~/.ssh/id_rsa_dstillery
+Host salt03 salt04
+  User root
+  IdentityFile ~/.ssh/id_rsa_saltssh

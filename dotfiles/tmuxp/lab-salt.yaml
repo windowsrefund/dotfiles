@@ -13,3 +13,10 @@ windows:
     shell_command: ssh salt1
   start_directory: /home/akosmin
   window_name: salt1
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: ssh minion1
+  start_directory: /home/akosmin
+  window_name: minion1
