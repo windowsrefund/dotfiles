@@ -32,42 +32,22 @@ check_supported_lab() {
       exit 1
       ;;
   esac
-
-  TMUX_PROFILE=~/.tmuxp/lab-$2.yaml
 }
 
-# order will matter depending on operation
-case $1 in
-  start)
-    manage_service $1
-    manage_domains $1 $DOMAINS
-    ;;
-  stop)
-    manage_domains shutdown $DOMAINS
-    manage_service $1
-
-    # dnsmasq may still be running
-    sudo killall -u libvirt-dnsmasq
-    ;;
-  *)
-    usage
-    exit 1
-    ;;
-esac
-
+create_tmuxp_profile() {
 # dynamically create a tmuxp profile
 # first time only
-[ -f $TMUX_PROFILE ] && exit
+TMUX_PROFILE=~/.tmuxp/lab-$1.yaml
+[ -f $TMUX_PROFILE ] && return
 
 cat << EOF > $TMUX_PROFILE
-session_name: lab-$2
+session_name: lab-$1
 windows:
 - focus: 'true'
   options: {}
-
   panes:
   - pane
-  start_directory: /home/akosmin/projects/lab-$2
+  start_directory: /home/akosmin/projects/lab-$1
   window_name: nvim
 EOF
 
@@ -82,3 +62,26 @@ cat << EOF >> $TMUX_PROFILE
   window_name: $d
 EOF
 done
+}
+
+# order will matter depending on operation
+case $1 in
+  start)
+    manage_service $1
+    manage_domains $1 $DOMAINS
+    create_tmuxp_profile $2
+    tmuxp load lab-$2
+    ;;
+  stop)
+    manage_domains shutdown $DOMAINS
+    manage_service $1
+
+    # dnsmasq may still be running
+    sudo killall -u libvirt-dnsmasq
+    ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac
+
