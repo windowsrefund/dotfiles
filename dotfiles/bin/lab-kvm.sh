@@ -2,6 +2,7 @@
 
 SERVICES="libvirtd libvirt-guests virtlogd"
 LAB_SALT="salt1 minion1"
+LAB_CEPH="ceph-admin mon1 osd1 osd2 osd3 client"
 
 usage() {
 cat << EOF
@@ -26,6 +27,9 @@ check_supported_lab() {
   case $2 in
     salt)
       DOMAINS=$LAB_SALT
+      ;;
+    ceph)
+      DOMAINS=$LAB_CEPH
       ;;
     *)
       usage
