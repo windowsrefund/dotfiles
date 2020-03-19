@@ -75,7 +75,7 @@ Plug 'tpope/vim-surround'
 " {{{ auto pairs
 " https://github.com/jiangmiao/auto-pairs
 Plug 'jiangmiao/auto-pairs'
-let g:AutoPairsFlyMode=1
+let g:AutoPairsFlyMode=0
 let g:AutoPairsMapCR=0
 " }}}
 " {{{ quick run
