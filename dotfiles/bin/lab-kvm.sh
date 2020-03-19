@@ -6,11 +6,9 @@ LAB_CEPH="ceph-admin mon1 osd1 osd2 osd3 client"
 
 usage() {
 cat << EOF
-$(basename $0) start|stop salt
+$(basename $0) start|stop salt|ceph
 EOF
 }
-
-[ $# -eq 2 ] || { usage; exit 1; }
 
 # support additional labs in the future
 manage_domains() {
@@ -24,7 +22,7 @@ manage_service() {
 }
 
 check_supported_lab() {
-  case $2 in
+  case $1 in
     salt)
       DOMAINS=$LAB_SALT
       ;;
@@ -61,12 +59,16 @@ cat << EOF >> $TMUX_PROFILE
     automatic-rename: 'off'
   panes:
   - focus: 'true'
-    shell_command: ssh $d
+    shell_command: ssh $d.lab
   start_directory: /home/akosmin
   window_name: $d
 EOF
 done
 }
+
+
+[ $# -eq 2 ] || { usage; exit 1; }
+check_supported_lab $2
 
 # order will matter depending on operation
 case $1 in
