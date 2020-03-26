@@ -112,6 +112,10 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
   . /usr/share/bash-completion/bash_completion
 fi
 
+for i in ctx ns tail; do
+  [ -f $HOME/kube${i}.bash ] && . $HOME/kube${i}.bash
+done
+
 [[ -f ~/.dir_colors ]] && eval $(dircolors ~/.dir_colors)
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 [[ -f ~/.git-prompt ]] && . ~/.git-prompt

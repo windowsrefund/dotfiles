@@ -158,6 +158,15 @@ dotfiles:
   f_ny7:
     src: bin/ny7
     dst: ~/bin/ny7
+  f_kubectx.bash:
+    src: kubectx.bash
+    dst: ~/kubectx.bash
+  f_kubens.bash:
+    src: kubens.bash
+    dst: ~/kubens.bash
+  f_kubetail.bash:
+    src: kubetail.bash
+    dst: ~/kubetail.bash
 profiles:
   mtf8:
     dotfiles:
@@ -205,6 +214,9 @@ profiles:
     - f_lab-kvm.sh
     - f_ssh_config
     - f_ny7
+    - f_kubectx.bash
+    - f_kubens.bash
+    - f_kubetail.bash
   libretop:
     dotfiles:
     - f_vimrc
