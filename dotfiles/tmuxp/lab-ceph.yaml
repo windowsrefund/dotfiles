@@ -1,0 +1,50 @@
+session_name: lab-ceph
+windows:
+- focus: 'true'
+  options: {}
+  panes:
+  - pane
+  start_directory: /home/akosmin/projects/lab-ceph
+  window_name: nvim
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: ssh ceph-admin.lab
+  start_directory: /home/akosmin
+  window_name: ceph-admin
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: ssh mon1.lab
+  start_directory: /home/akosmin
+  window_name: mon1
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: ssh osd1.lab
+  start_directory: /home/akosmin
+  window_name: osd1
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: ssh osd2.lab
+  start_directory: /home/akosmin
+  window_name: osd2
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: ssh osd3.lab
+  start_directory: /home/akosmin
+  window_name: osd3
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: ssh client.lab
+  start_directory: /home/akosmin
+  window_name: client

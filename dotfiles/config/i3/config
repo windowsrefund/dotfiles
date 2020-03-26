@@ -296,6 +296,10 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 # zrythm
 assign [class="^Zrythm$"] $ws4
 
+# OBS
 assign [class="^obs$"] $ws1
+
+# VirtualBox
+assign [class="^VirtualBox Manager$"] $ws3
 # on every restart
 exec_always --no-startup-id xrdb -merge ~/.Xresources

@@ -25,4 +25,8 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 # zrythm
 assign [class="^Zrythm$"] $ws4
 
+# OBS
 assign [class="^obs$"] $ws1
+
+# VirtualBox
+assign [class="^VirtualBox Manager$"] $ws3

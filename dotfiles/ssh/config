@@ -15,6 +15,7 @@ Host nyc
   Port 5554
   # 20180911 - See systemd --user list-unit-files
   RemoteForward 7777 localhost:22
+  LocalForward 8025 localhost:25
   ServerAliveInterval 30
   ServerAliveCountMax 3
 Host adamkosmin.info
@@ -26,6 +27,8 @@ Host pf84
 Host login.pipelane.net
   IdentityFile ~/.ssh/id_rsa_dstillery
   DynamicForward 9999
+Host *.pvt
+  IdentityFile ~/.ssh/id_rsa_dstillery
 Host github.com-ds
   Hostname github.com
   User git
