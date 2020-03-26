@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+SEARCH_STOP="lan"
+SEARCH_START="lan,eq.pl.pvt,sd.pl.pvt,hadoop.pvt,mgt.pvt"
+INTERFACE=br0
+
+usage() {
+cat << EOF
+$(basename $0) up|down
+EOF
+}
+
+config() {
+  sshoot $1 ny7
+  sudo nmcli con mod $INTERFACE ipv4.dns-search $2
+  sudo systemctl restart NetworkManager
+}
+
+[ $# -eq 1 ] || { usage; exit 1; }
+
+case $1 in
+  up)
+    config start $SEARCH_START
+    ;;
+  down)
+    config stop $SEARCH_STOP
+    ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac

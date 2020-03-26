@@ -155,6 +155,9 @@ dotfiles:
   f_ssh_config:
     src: ssh/config
     dst: ~/.ssh/config
+  f_ny7:
+    src: bin/ny7
+    dst: ~/bin/ny7
 profiles:
   mtf8:
     dotfiles:
@@ -201,6 +204,7 @@ profiles:
     - f_wall.tmux
     - f_lab-kvm.sh
     - f_ssh_config
+    - f_ny7
   libretop:
     dotfiles:
     - f_vimrc
