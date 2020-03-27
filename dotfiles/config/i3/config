@@ -114,7 +114,7 @@ for_window [class="Xfburn"] floating enable
 for_window [urgent=latest] focus
 
 gaps inner 15
-gaps outer 15
+# gaps outer 5
 smart_gaps on
 
 # these are not working ATM
