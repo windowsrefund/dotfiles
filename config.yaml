@@ -167,6 +167,12 @@ dotfiles:
   f_kubetail.bash:
     src: kubetail.bash
     dst: ~/kubetail.bash
+  f_sequences:
+    src: cache/wal/sequences
+    dst: ~/.cache/wal/sequences
+  f_colors-tty.sh:
+    src: cache/wal/colors-tty.sh
+    dst: ~/.cache/wal/colors-tty.sh
 profiles:
   mtf8:
     dotfiles:
@@ -217,6 +223,8 @@ profiles:
     - f_kubectx.bash
     - f_kubens.bash
     - f_kubetail.bash
+    - f_sequences
+    - f_colors-tty.sh
   libretop:
     dotfiles:
     - f_vimrc
