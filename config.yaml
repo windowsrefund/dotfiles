@@ -173,6 +173,9 @@ dotfiles:
   f_colors-tty.sh:
     src: cache/wal/colors-tty.sh
     dst: ~/.cache/wal/colors-tty.sh
+  f_inputrc:
+    src: inputrc
+    dst: ~/.inputrc
 profiles:
   mtf8:
     dotfiles:
@@ -225,6 +228,7 @@ profiles:
     - f_kubetail.bash
     - f_sequences
     - f_colors-tty.sh
+    - f_inputrc
   libretop:
     dotfiles:
     - f_vimrc
