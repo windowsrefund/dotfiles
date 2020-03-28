@@ -7,6 +7,7 @@ alias vip="nvim -p"
 alias vid="nvim -d"
 alias gs="git status -sb"
 alias gl="git log --oneline"
+alias grep="grep --color=auto"
 # tmux
 alias tl='tmuxp load'
 alias ta='tmux attach -t'

@@ -1,11 +1,19 @@
+# https://catonmat.net/ftp/bash-vi-editing-mode-cheat-sheet.txt
 $include /etc/inputrc
 
+# to reload
+# bind -f ~/..inputrc
+
 set bell-style none
-set editing-mode vi
 set show-mode-in-prompt on
 
-set vi-cmd-mode-string "\1\e[1 q\2"
-set vi-ins-mode-string "\1\e[5 q\2"
+# default is 500ms
+set keyseq-timeout 1
+
+# define cursor for command mode
+set vi-cmd-mode-string "\1\e[3 q\2"
+# define cursor for insert mode
+set vi-ins-mode-string "\1\e[2 q\2"
 
 # [0 -> blinking block.
 # [1 -> blinking block (default)
@@ -14,3 +22,12 @@ set vi-ins-mode-string "\1\e[5 q\2"
 # [4 -> steady underline
 # [5 -> blinking bar (xterm)
 # [6 -> steady bar (xterm)
+
+set editing-mode vi
+$if mode=vi
+set keymap vi-insert
+# these are for insert mode
+"\e.": yank-last-arg
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+$endif

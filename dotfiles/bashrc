@@ -4,6 +4,7 @@
 # -------------------------------------------------
 HISTSIZE= HISTFILESIZE= # Infinate history
 
+stty -ixon # disable ctrl-s and ctrl-q
 # Variables {{{1
 export PATH=${HOME}/bin:${HOME}/.local/bin:$PATH
 export EDITOR=nvim
