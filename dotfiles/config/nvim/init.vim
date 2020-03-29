@@ -1,11 +1,13 @@
-" vim: set fdm=marker foldlevel=0
+" vim: fdm=marker foldlevel=0
+let mapleader = ","
 
 " Plugins {{{
-" {{{ setup
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
- silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+" setup {{{
+if ! filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
+  echo "Downloading junegunn/vim-plug to manage plugins..."
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
- autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.local/share/nvim/site/plugged')
 " }}}
@@ -92,10 +94,8 @@ let g:quickrun_config = {
 Plug 'junegunn/vim-easy-align'
 " }}}
 " {{{ git integration plugins
-" https://github.com/tpope/vim-fugitive
-Plug 'tpope/vim-fugitive'
-" https://github.com/tpope/vim-rhubarb
-Plug 'tpope/vim-rhubarb'
+" https://github.com/jreybert/vimagit
+Plug 'jreybert/vimagit'
 " }}}
 " {{{ show keybindings in popup
 " https://github.com/liuchengxu/vim-which-key
@@ -128,10 +128,6 @@ set completeopt=longest,menu
 " https://github.com/saltstack/salt-vim
 Plug 'saltstack/salt-vim'
 " }}}
-" {{{ supertab
-" https://github.com/metalelf0/supertab
-" Plug 'metalelf0/supertab'
-" }}}
 " {{{ code-jump and more with jedi-vim
 " https://github.com/davidhalter/jedi-vim
 Plug 'davidhalter/jedi-vim'
@@ -161,6 +157,9 @@ Plug 'romainl/vim-qf'
 " fast left-right movement{{{
 " https://github.com/unblevable/quick-scope
 Plug 'unblevable/quick-scope'
+"}}}
+" center the text{{{
+Plug 'junegunn/goyo.vim'
 "}}}
 call plug#end()
 " }}}
@@ -278,18 +277,17 @@ set signcolumn=auto:2
 " }}}
 " }}}
 " Augroups {{{
-" {{{ all files
-" augroup all_files
-"   au!
-" augroup END
-" }}}
-" {{{ text files
+augroup all_files
+  au!
+    " disables automatic commenting on new line
+    au FileType * setlocal formatoptions-=cor
+    " automatically deletes all trailing whitespace on save
+    au BufWritePre * %s/\s\+$//e
+augroup END
 augroup text_files
   au!
   au BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == "" | set ft=text | endif
 augroup END
-" }}}
-" {{{ quickrun
 " https://github.com/thinca/vim-quickrun/issues/177
 augroup QuickRunTerminalOutputBuffer
   au!
@@ -298,70 +296,60 @@ augroup QuickRunTerminalOutputBuffer
   \   setl nornu nonu nocuc nocul fdc=0 |
   \ endif
   augroup END
-" }}}
-" {{{ json files
-" Correct comment highligting for :CocConfig
-" augroup json_files
-"   au!
-"   au FileType json syntax match Comment +\/\/.\+$+
-" augroup END
-" }}}
-" quick-scope{{{
+" quick-scope plugin
 augroup qs_colors
-  autocmd!
-  autocmd ColorScheme * highlight QuickScopePrimary gui=underline ctermfg=112
-  autocmd ColorScheme * highlight QuickScopeSecondary gui=underline ctermfg=110
-augroup END"}}}
+  au!
+  au ColorScheme * highlight QuickScopePrimary gui=underline ctermfg=112
+  au ColorScheme * highlight QuickScopeSecondary gui=underline ctermfg=110
+augroup END"
+augroup xresources
+  au!
+  " run xrdb whenever Xdefaults or Xresources are updated
+  au BufWritePost *Xresources, *Xdefaults !xrdb %
+augroup END"
+
+" }}}
 " Mappings {{{
 " :verbose imap <tab>
 "
-" <space> as leader key
-let mapleader = "\<Space>"
-let g:mapleader = "\<Space>"
-"
-" repeat last command line used
-nnoremap <leader>r @:<CR>
-
-" toggle spellcheck
-" nnoremap <silent> <F10> :set spell!<cr> :set spell?<cr>
-nnoremap <silent> <F9> :set spell!<cr>:set spell?<cr>
-" c-o can be used from insert mode to execute a normal mode command
-inoremap <F9> <C-O>:set spell!<cr>:set spell?<cr>
-
 " shorten leader timeout from default of 1000
 set timeoutlen=500
-" map <space> \
 
-" vim-specific
-nnoremap <leader>v :so $MYVIMRC<cr>
-nnoremap <leader>ve :tabedit $MYVIMRC<cr>
+" Goyo plugin makes text more readable when writing prose:
+map <leader>f :Goyo \| set bg=dark \| set linebreak<CR>
+
+" repeat last command line used
+map <leader>r @:<CR>
+
+" toggle spellcheck
+map <leader>o :set spell! spelllang=en_us<CR>
+" check file in spellcheck
+map <leader>s :!clear && spellcheck %<CR>
+
+" edit config in a tab
+map <leader>v :tabedit $MYVIMRC<CR>
 
 " don't use Ex mode, use Q for formatting
-nnoremap Q gq
+map Q gq
 
 " navigate splits the way I like
-nnoremap <leader>w <c-w><c-w>
+map <leader>w <c-w><c-w>
 
 " disable highligting
-nnoremap <leader>h :noh<cr>
+map <leader>h :noh<cr>
 
 " tab navigation prev/next
-nnoremap <c-n> gt
-nnoremap <c-p> gT
-
-" better vertical movement for wrapped lines
-" does not play nicely with relativenumber
-" nnoremap j gj
-" nnoremap k gk
+map <c-n> gt
+map <c-p> gT
 
 " ensure we can ESC out of Insert Mode
-inoremap <c-c> <esc>
+imap <c-c> <esc>
 
 " save the file using sudo
 cmap w!! w !sudo tee % > /dev/null<cr>
 
 " sort lines in alphabetical order
-vnoremap <leader>s :'<,'>!sort -f<cr>
+vnoremap <leader>a :'<,'>!sort -f<cr>
 
 " Quickly insert a timestamp
 nnoremap <leader>t "=strftime("%F %T%z")<cr>p
@@ -378,36 +366,28 @@ map <leader>= <C-w>5+
 map <leader>- <C-w>5-
 " }}}
 " Plugin-specific mappings {{{
-if &rtp =~ 'jedi-vim'
-  let g:jedi#rename_command = '<leader>rn'
-endif
+" if &rtp =~ 'jedi-vim'
+"   let g:jedi#rename_command = '<leader>rn'
+" endif
+"   let g:which_key_vertical=0
+"   nnoremap <silent> <leader> :<c-u>WhichKey '\'<cr>
+"   nnoremap <silent> <leader>? :<c-u>WhichKey 'g'<cr>
+" endif
 
-if &rtp =~ 'vim-which-key'
-  let g:which_key_vertical=0
-  nnoremap <silent> <leader> :<c-u>WhichKey '\'<cr>
-  nnoremap <silent> <leader>g :<c-u>WhichKey 'g'<cr>
-endif
+" if &rtp =~ 'vim-better-whitespace'
+"   nnoremap <leader>s :StripWhitespace<cr>
+" else
+"   nnoremap <leader>s :echo 'Install vim-better-whitespace'<cr>
+" endif
 
-if &rtp =~ 'vim-better-whitespace'
-  nnoremap <leader>s :StripWhitespace<cr>
-else
-  nnoremap <leader>s :echo 'Install vim-better-whitespace'<cr>
-endif
-
-if &rtp =~ 'vim-easy-align'
-  " Start interactive EasyAlign in visual mode (e.g. vipga)
-  xnoremap <leader>e <Plug>(EasyAlign)
-  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  nnoremap <leader>e <Plug>(EasyAlign)
-else
-  nnoremap <leader>e :echo 'Install vim-easy-align'<cr>
-endif
-
-if &rtp =~ 'vim-commentary-boxed'
-  nnoremap <leader>b :<c-u>call ToggleBox()<cr>
-else
-  nnoremap <leader>b :echo 'Install vim-commentary-boxed'<cr>
-endif
+" if &rtp =~ 'vim-easy-align'
+"   " Start interactive EasyAlign in visual mode (e.g. vipga)
+"   xnoremap <leader>e <Plug>(EasyAlign)
+"   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+"   nnoremap <leader>e <Plug>(EasyAlign)
+" else
+"   nnoremap <leader>e :echo 'Install vim-easy-align'<cr>
+" endif
 
 if &rtp =~ 'vim-vinegar'
   nmap t <Plug>VinegarTabUp
