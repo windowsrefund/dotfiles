@@ -3,5 +3,5 @@ focus_follows_mouse no
 
 floating_modifier $mod
 
-bindsym $mod+Return splith; exec --no-startup-id termite
-bindsym $mod+space splitv; exec --no-startup-id termite
+bindsym $mod+Return splith; exec --no-startup-id st
+bindsym $mod+space splitv; exec --no-startup-id st

@@ -18,8 +18,8 @@ focus_follows_mouse no
 
 floating_modifier $mod
 
-bindsym $mod+Return splith; exec --no-startup-id termite
-bindsym $mod+space splitv; exec --no-startup-id termite
+bindsym $mod+Return splith; exec --no-startup-id st
+bindsym $mod+space splitv; exec --no-startup-id st
 # vim: set ft=conf :
 set_from_resource $black i3wm.color0 #000000
 set_from_resource $black_h i3wm.color8 #000000

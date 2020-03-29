@@ -176,6 +176,9 @@ dotfiles:
   f_inputrc:
     src: inputrc
     dst: ~/.inputrc
+  f_rofi_config:
+    src: config/rofi/config
+    dst: ~/.config/rofi/config
 profiles:
   mtf8:
     dotfiles:
@@ -229,6 +232,7 @@ profiles:
     - f_sequences
     - f_colors-tty.sh
     - f_inputrc
+    - f_rofi_config
   libretop:
     dotfiles:
     - f_vimrc

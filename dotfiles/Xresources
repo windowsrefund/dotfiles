@@ -2,3 +2,4 @@
 
 ! xrdb -merge ~/.Xresources
 st.alpha: 0.78
+st.font: Monospace-14

@@ -1,6 +1,6 @@
-" vim: set fdm=marker foldlevel=0 :
+" vim: set fdm=marker foldlevel=0
 
-" {{{1 Plugins
+" Plugins {{{
 " {{{ setup
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -158,12 +158,13 @@ let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 " https://github.com/romainl/vim-qf
 Plug 'romainl/vim-qf'
 " }}}
-" {{{
-" }}}
-
+" fast left-right movement{{{
+" https://github.com/unblevable/quick-scope
+Plug 'unblevable/quick-scope'
+"}}}
 call plug#end()
-" }}}1
-" Settings from :options {{{1
+" }}}
+" Settings from :options {{{
 " important {{{
 " }}}
 " moving around, searching and patterns {{{
@@ -197,7 +198,7 @@ set listchars+=tab:\|\
 " next line makes wal.vim plugin work
 set notermguicolors
 set guicursor=
-set cursorline
+" set cursorline
 " set cursorcolumn
 " }}}
 " multiple windows {{{
@@ -275,8 +276,8 @@ set encoding=utf-8
 " various {{{
 set signcolumn=auto:2
 " }}}
-" }}}1
-" {{{1 Augroups
+" }}}
+" Augroups {{{
 " {{{ all files
 " augroup all_files
 "   au!
@@ -305,8 +306,13 @@ augroup QuickRunTerminalOutputBuffer
 "   au FileType json syntax match Comment +\/\/.\+$+
 " augroup END
 " }}}
-" }}}1
-" {{{1 Mappings
+" quick-scope{{{
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary gui=underline ctermfg=112
+  autocmd ColorScheme * highlight QuickScopeSecondary gui=underline ctermfg=110
+augroup END"}}}
+" Mappings {{{
 " :verbose imap <tab>
 "
 " <space> as leader key
@@ -370,9 +376,8 @@ map <leader>> <C-w>10>
 map <leader>< <C-w>10<
 map <leader>= <C-w>5+
 map <leader>- <C-w>5-
-
 " }}}
-" {{{ Plugin-specific mappings
+" Plugin-specific mappings {{{
 if &rtp =~ 'jedi-vim'
   let g:jedi#rename_command = '<leader>rn'
 endif
@@ -409,10 +414,8 @@ if &rtp =~ 'vim-vinegar'
 else
   nnoremap t :echo 'Install vim-vinegar plugin'<cr>
 endif
-
 " }}}
-" {{{1 Functions
-
+" Functions{{{
 
 function! s:show_documentation()
   if (index(['vim', 'help'], &filetype) >= 0)
@@ -461,9 +464,8 @@ endfunction
 " let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
 " return s
 "endfunction
-
-" }}}1
-" " {{{1 themes
+" }}}
+" themes{{{
 let g:lightline = {
   \ 'colorscheme': 'wal',
   \ 'active': {
@@ -473,6 +475,5 @@ let g:lightline = {
   \ 'component_function': {
   \   'gitbranch': 'FugitiveHead',
   \ },
-  \ }
-" " }}}}1
+  \ }"}}}
 colorscheme wal
