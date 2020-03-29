@@ -2,6 +2,7 @@
 # ~/.bashrc
 # vim:foldmethod=marker:nu:ai:si:et:ft=sh:
 # -------------------------------------------------
+# folding cheatsheet: https://gist.github.com/lestoni/8c74da455cce3d36eb68
 HISTSIZE= HISTFILESIZE= # Infinate history
 
 stty -ixon # disable ctrl-s and ctrl-q
@@ -112,6 +113,8 @@ fi
 if [ -f /usr/share/bash-completion/bash_completion ]; then
   . /usr/share/bash-completion/bash_completion
 fi
+
+source <(kubectl completion bash 2> /dev/null)
 
 for i in ctx ns tail; do
   [ -f $HOME/kube${i}.bash ] && . $HOME/kube${i}.bash
