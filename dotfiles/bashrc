@@ -114,7 +114,9 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
   . /usr/share/bash-completion/bash_completion
 fi
 
-source <(kubectl completion bash 2> /dev/null)
+for i in kubectl minikube; do
+  source <($i completion bash 2> /dev/null)
+done
 
 for i in ctx ns tail; do
   [ -f $HOME/kube${i}.bash ] && . $HOME/kube${i}.bash
