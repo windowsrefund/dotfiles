@@ -14,27 +14,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
 " {{{ theme
 " https://github.com/dylanaraps/wal.vim
 Plug 'dylanaraps/wal.vim'
-" }}}
-" {{{ theme: status line
 Plug 'itchyny/lightline.vim'
-" http://github.com/edkolev/tmuxline.vim
-Plug 'edkolev/tmuxline.vim'
-
-" #S session name
-" #W window name
-" #h hostname (short)
-
-
-let g:tmuxline_preset = {
-  \'a'    : '#S',
-  \'b'    : '#W',
-  \'c'    : '#H',
-  \'win'  : '#I #W',
-  \'cwin' : '#I #W',
-  \'x'    : '%a',
-  \'y'    : '#W %R',
-  \'z'    : '#h'}
-
 " }}}
 " {{{ fancy start screen
 " https://github.com/mhinz/vim-startify

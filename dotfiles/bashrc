@@ -71,18 +71,6 @@ wiki() { dig +short txt $1.wp.dg.cx; }
 # {{{2 Nice mount output
 nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2=$4="";1') | column -t; }
 # }}}2
-# {{{2 Simple notes
-n() { 
-    mkdir ~/.notes 2> /dev/null 
-    $EDITOR ~/.notes/"$*".txt 
-}
-nls() { ls -c ~/.notes | grep "$*" ;}
-# }}}2
-# {{{2 vim files
-function vf() {
-    vi `find ${1:-.} -type f | grep -v ".svn"`
-}
-# }}}2
 # {{{2 Start ssh-agent
 ssh_agent() {
   eval $(ssh-agent | tee $SSH_AGENT_ENV)
@@ -92,13 +80,13 @@ ssh_agent() {
 # {{{2 external IP
 myip() { printf "External IP: %s\n" $(curl -s http://ifconfig.me) ;}
 # }}}2
-# {{{2 i3 theme loader
-i3load() {
-  [ -d themes ] || { echo "No themes directory in $PWD"; return; }
-  python i3wm-themer.py --config config.yaml --load themes/$1.json
+# Simple file backup using timestamp
+bak() {
+  [ $# -eq 1 ] || { echo "bak file"; exit 1; }
+  NOW=$(date "+%Y%m%d-%H%M%S")
+  [ -f $1.$NOW ] && { echo "$1.$NOW exists"; exit 1; }
+  cp -v $1 $1.$NOW
 }
-
-
 # }}}1
 # Source files {{{1
 if [ -f $HOME/.gpg-agent-info ]; then
@@ -133,7 +121,6 @@ if [ -d $HOME/.asdf ]; then
   $HOME/.asdf/completions/asdf.bash
 fi
 # }}}1
-
 
 complete -C /home/akosmin/bin/vault vault
 

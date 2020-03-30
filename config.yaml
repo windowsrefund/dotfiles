@@ -146,9 +146,6 @@ dotfiles:
   f_tender:
     src: Xresources.d/tender
     dst: ~/.Xresources.d/tender
-  f_wall.tmux:
-    src: tmux/wall.tmux
-    dst: ~/.tmux/wall.tmux
   f_lab-kvm.sh:
     src: bin/lab-kvm.sh
     dst: ~/bin/lab-kvm.sh
@@ -222,7 +219,6 @@ profiles:
     - f_ncmpcpp_config
     - f_init_min.vim
     - f_tender
-    - f_wall.tmux
     - f_lab-kvm.sh
     - f_ssh_config
     - f_ny7
