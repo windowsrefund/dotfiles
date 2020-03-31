@@ -1,7 +1,8 @@
+set $term alacritty
 # don't follow mouse for window focus
 focus_follows_mouse no
 
 floating_modifier $mod
 
-bindsym $mod+Return splith; exec --no-startup-id st
-bindsym $mod+space splitv; exec --no-startup-id st
+bindsym $mod+Return splith; exec --no-startup-id $term
+bindsym $mod+space splitv; exec --no-startup-id $term

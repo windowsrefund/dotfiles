@@ -13,13 +13,14 @@ set $ws1 1
 set $ws2 2
 set $ws3 3
 set $ws4 4
+set $term alacritty
 # don't follow mouse for window focus
 focus_follows_mouse no
 
 floating_modifier $mod
 
-bindsym $mod+Return splith; exec --no-startup-id st
-bindsym $mod+space splitv; exec --no-startup-id st
+bindsym $mod+Return splith; exec --no-startup-id $term
+bindsym $mod+space splitv; exec --no-startup-id $term
 # vim: set ft=conf :
 set_from_resource $black i3wm.color0 #000000
 set_from_resource $black_h i3wm.color8 #000000
