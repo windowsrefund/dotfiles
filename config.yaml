@@ -179,6 +179,9 @@ dotfiles:
   f_alacritty.yml:
     src: config/alacritty/alacritty.yml
     dst: ~/.config/alacritty/alacritty.yml
+  f_xmodmap:
+    src: Xmodmap
+    dst: ~/.Xmodmap
 profiles:
   mtf8:
     dotfiles:
@@ -233,6 +236,7 @@ profiles:
     - f_inputrc
     - f_rofi_config
     - f_alacritty.yml
+    - f_xmodmap
   libretop:
     dotfiles:
     - f_vimrc
