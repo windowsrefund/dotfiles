@@ -38,12 +38,6 @@ dotfiles:
   f_systemd-optimize.sh:
     src: bin/systemd-optimize.sh
     dst: ~/bin/systemd-optimize.sh
-  f_bash_prompt:
-    src: bash_prompt
-    dst: ~/.bash_prompt
-  f_bash_aliases:
-    src: bash_aliases
-    dst: ~/.bash_aliases
   f_init.vim:
     src: config/nvim/init.vim
     dst: ~/.config/nvim/init.vim
@@ -116,9 +110,6 @@ dotfiles:
   f_monitor.sh:
     src: bin/monitor.sh
     dst: ~/bin/monitor.sh
-  f_dotdrop.sh-completion.bash:
-    src: dotdrop.sh-completion.bash
-    dst: ~/.dotdrop.sh-completion.bash
   f_saferc:
     src: saferc
     dst: ~/.saferc
@@ -155,12 +146,6 @@ dotfiles:
   f_ny7:
     src: bin/ny7
     dst: ~/bin/ny7
-  f_kubectx.bash:
-    src: kubectx.bash
-    dst: ~/kubectx.bash
-  f_kubens.bash:
-    src: kubens.bash
-    dst: ~/kubens.bash
   f_kubetail.bash:
     src: kubetail.bash
     dst: ~/kubetail.bash
@@ -185,6 +170,9 @@ dotfiles:
   f_tmuxline.conf:
     src: tmux/tmuxline.conf
     dst: ~/.tmux/tmuxline.conf
+  d_bashrc.d:
+    src: bashrc.d
+    dst: ~/.bashrc.d
 profiles:
   mtf8:
     dotfiles:
@@ -198,8 +186,6 @@ profiles:
     - f_settings.ini
     - f_redshift.conf
     - f_systemd-optimize.sh
-    - f_bash_prompt
-    - f_bash_aliases
     - f_init.vim
     - f_tmux.conf
     - f_bash_profile
@@ -218,7 +204,6 @@ profiles:
     - f_mutt_profile_nycpatriot
     - f_mutt_profile_nycpatriot.sig
     - f_monitor.sh
-    - f_dotdrop.sh-completion.bash
     - f_dir_colors
     - d_tmuxp
     - f_vimrc-basic
@@ -231,8 +216,6 @@ profiles:
     - f_lab-kvm.sh
     - f_ssh_config
     - f_ny7
-    - f_kubectx.bash
-    - f_kubens.bash
     - f_kubetail.bash
     - f_sequences
     - f_colors-tty.sh
@@ -241,6 +224,7 @@ profiles:
     - f_alacritty.yml
     - f_xmodmap
     - f_tmuxline.conf
+    - d_bashrc.d
   libretop:
     dotfiles:
     - f_vimrc

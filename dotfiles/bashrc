@@ -94,10 +94,6 @@ if [ -f $HOME/.gpg-agent-info ]; then
   export GPG_AGENT_INFO
 fi
 
-if [ -f $HOME/.dotdrop.sh-completion.bash ]; then
-  . $HOME/.dotdrop.sh-completion.bash
-fi
-
 if [ -f /usr/share/bash-completion/bash_completion ]; then
   . /usr/share/bash-completion/bash_completion
 fi
@@ -106,14 +102,12 @@ for i in kubectl minikube; do
   source <($i completion bash 2> /dev/null)
 done
 
-for i in ctx ns tail; do
-  [ -f $HOME/kube${i}.bash ] && . $HOME/kube${i}.bash
-done
-
 [[ -f ~/.dir_colors ]] && eval $(dircolors ~/.dir_colors)
-[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
-[[ -f ~/.git-prompt ]] && . ~/.git-prompt
-[[ -f ~/.bash_prompt ]] && . ~/.bash_prompt
+
+# source everything here
+if [ -d ~/.bashrc.d ]; then
+  find ~/.bashrc.d | sort | xargs source
+fi
 
 # https://github.com/asdf-vm/asdf
 if [ -d $HOME/.asdf ]; then

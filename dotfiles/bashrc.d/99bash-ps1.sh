@@ -21,7 +21,7 @@ set_prompt()
    else
        PS1+="\[$txtblue\]"
    fi
-   PS1+="\u\[$txtwhite\]@\h:\[$txtgreen\]\w$(__git_ps1 ' (%s)')\[$txtwhite\]\n"
+   PS1+="\[$txtblue\]\h:\[$txtgreen\]\w\[$txtpurple\]$(__git_ps1 ' (%s)')\[$txtcyan\] $(kube_ps1)\[$txtwhite\]\n"
    # Line 3: a red or green > depending on return status
    if [[ $? == 0 ]]; then
       PS1+="\[$txtgreen\]"
