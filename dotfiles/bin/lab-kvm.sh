@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
 SERVICES="libvirtd libvirt-guests virtlogd"
+LABS="salt ceph ids"
 LAB_SALT="salt1 minion1"
 LAB_CEPH="ceph-admin mon1 osd1 osd2 osd3 client"
+LAB_IDS="ids1 influx1"
 
 usage() {
 cat << EOF
-$(basename $0) start|stop salt|ceph
+$(basename $0) start|stop|list lab-name
+Use list to see a list of supported labs
 EOF
 }
 
@@ -28,6 +31,9 @@ check_supported_lab() {
       ;;
     ceph)
       DOMAINS=$LAB_CEPH
+      ;;
+    ids)
+      DOMAINS=$LAB_IDS
       ;;
     *)
       usage
@@ -67,18 +73,23 @@ done
 }
 
 
-[ $# -eq 2 ] || { usage; exit 1; }
-check_supported_lab $2
+[ $# -ge 1 ] || { usage; exit 1; }
 
 # order will matter depending on operation
 case $1 in
+  list)
+    echo "Supported labs: $LABS"
+    exit
+    ;;
   start)
+    check_supported_lab $2
     manage_service $1
     manage_domains $1 $DOMAINS
     create_tmuxp_profile $2
     tmuxp load lab-$2
     ;;
   stop)
+    check_supported_lab $2
     manage_domains shutdown $DOMAINS
     manage_service $1
 

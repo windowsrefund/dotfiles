@@ -1,19 +1,19 @@
 session_name: lab-k8s
 start_directory: /home/akosmin
 windows:
-- window_name: k8smaster
+- window_name: k8s-master
   options:
     automatic-rename: 'off'
   panes:
-  - shell_command: ssh 192.168.1.100
+  - shell_command: ssh k8s-master
     focus: true
-- window_name: k8snode1
+- window_name: k8s-node1
   options:
     automatic-rename: 'off'
   panes:
-  - shell_command: ssh 192.168.1.101
-- window_name: k8snode2
+  - shell_command: ssh k8s-node1
+- window_name: k8s-node2
   options:
     automatic-rename: 'off'
   panes:
-  - shell_command: ssh 192.168.1.102
+  - shell_command: ssh k8s-node2

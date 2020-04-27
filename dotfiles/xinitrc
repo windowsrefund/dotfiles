@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# something related to font size & resolution/dpi
+WINIT_X11_SCALE_FACTOR=1
+
 # disable bell
 xset -b
 
@@ -17,6 +20,9 @@ setxkbmap us
 
 # speed xrate up
 xset r rate 300 50 &
+
+# map keys as defined
+xmodmap ~/.Xmodmap
 
 # remove mouse when idle
 unclutter &
@@ -40,6 +46,7 @@ wal -R
 redshift-gtk &
 
 exec i3 -V > /tmp/i3.log
+# exec spectrwm
 # exec bspwm
 # exec i3 -c ~/.config/i3/config.min -V > /tmp/i3.log
 # exec startxfce4

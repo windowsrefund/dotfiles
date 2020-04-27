@@ -182,6 +182,9 @@ dotfiles:
   f_xmodmap:
     src: Xmodmap
     dst: ~/.Xmodmap
+  f_tmuxline.conf:
+    src: tmux/tmuxline.conf
+    dst: ~/.tmux/tmuxline.conf
 profiles:
   mtf8:
     dotfiles:
@@ -237,6 +240,7 @@ profiles:
     - f_rofi_config
     - f_alacritty.yml
     - f_xmodmap
+    - f_tmuxline.conf
   libretop:
     dotfiles:
     - f_vimrc

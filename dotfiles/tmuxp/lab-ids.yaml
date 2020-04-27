@@ -1,0 +1,29 @@
+session_name: lab-ids
+windows:
+- focus: 'true'
+  options: {}
+  panes:
+  - pane
+  start_directory: /home/akosmin/projects/lab-ids
+  window_name: nvim
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: ssh ids1.lab
+  start_directory: /home/akosmin
+  window_name: ids1
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: ssh influx1.lab
+  start_directory: /home/akosmin
+  window_name: influx1
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: ssh selks.lab
+  start_directory: /home/akosmin
+  window_name: selks.lan

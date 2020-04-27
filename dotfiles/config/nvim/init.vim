@@ -16,6 +16,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
 Plug 'dylanaraps/wal.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
+Plug 'edkolev/tmuxline.vim'
 " }}}
 " {{{ fancy start screen
 " https://github.com/mhinz/vim-startify
