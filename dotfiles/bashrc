@@ -104,15 +104,10 @@ done
 
 [[ -f ~/.dir_colors ]] && eval $(dircolors ~/.dir_colors)
 
-# source everything here
-if [ -d ~/.bashrc.d ]; then
-  find ~/.bashrc.d | sort | xargs source
-fi
-
 # https://github.com/asdf-vm/asdf
 if [ -d $HOME/.asdf ]; then
-  export PATH="$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
-  $HOME/.asdf/completions/asdf.bash
+  . $HOME/.asdf/asdf.sh
+  . $HOME/.asdf/completions/asdf.bash
 fi
 # }}}1
 
@@ -120,3 +115,9 @@ complete -C /home/akosmin/bin/vault vault
 
 (cat ~/.cache/wal/sequences &)
 source ~/.cache/wal/colors-tty.sh
+
+if [ -d ~/.bashrc.d ]; then
+  for i in ~/.bashrc.d/*; do
+    source $i
+  done
+fi

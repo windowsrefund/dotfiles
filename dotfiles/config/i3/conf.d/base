@@ -6,4 +6,3 @@ focus_follows_mouse yes
 floating_modifier $mod
 
 bindsym $mod+Return exec --no-startup-id $term
-bindsym $mod+space exec --no-startup-id st

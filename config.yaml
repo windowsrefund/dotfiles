@@ -146,9 +146,6 @@ dotfiles:
   f_ny7:
     src: bin/ny7
     dst: ~/bin/ny7
-  f_kubetail.bash:
-    src: kubetail.bash
-    dst: ~/kubetail.bash
   f_sequences:
     src: cache/wal/sequences
     dst: ~/.cache/wal/sequences
@@ -216,7 +213,6 @@ profiles:
     - f_lab-kvm.sh
     - f_ssh_config
     - f_ny7
-    - f_kubetail.bash
     - f_sequences
     - f_colors-tty.sh
     - f_inputrc

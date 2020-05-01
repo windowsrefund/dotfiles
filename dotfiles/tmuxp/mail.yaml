@@ -1,0 +1,14 @@
+session_name: mail
+start_directory: /home/akosmin
+windows:
+- window_name: mtf8
+  options:
+    automatic-rename: 'off'
+  panes:
+  - shell_command: mutt-mtf8
+    focus: true
+- window_name: adamkosmin
+  options:
+    automatic-rename: 'off'
+  panes:
+  - shell_command: mutt-adamkosmin

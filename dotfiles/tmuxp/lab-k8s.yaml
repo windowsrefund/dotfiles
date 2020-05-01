@@ -1,6 +1,12 @@
 session_name: lab-k8s
 start_directory: /home/akosmin
 windows:
+- window_name: extreme
+  options:
+    automatic-rename: 'off'
+  panes:
+  - shell_command: ssh extreme
+    focus: true
 - window_name: k8s-master
   options:
     automatic-rename: 'off'

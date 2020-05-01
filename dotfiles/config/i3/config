@@ -21,7 +21,6 @@ focus_follows_mouse yes
 floating_modifier $mod
 
 bindsym $mod+Return exec --no-startup-id $term
-bindsym $mod+space exec --no-startup-id st
 # vim: set ft=conf :
 set_from_resource $black i3wm.color0 #000000
 set_from_resource $black_h i3wm.color8 #000000
