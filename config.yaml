@@ -170,6 +170,12 @@ dotfiles:
   d_bashrc.d:
     src: bashrc.d
     dst: ~/.bashrc.d
+  f_init_coc.vim:
+    src: config/nvim/init_coc.vim
+    dst: ~/.config/nvim/init_coc.vim
+  f_coc.vim:
+    src: config/nvim/coc.vim
+    dst: ~/.config/nvim/coc.vim
 profiles:
   mtf8:
     dotfiles:
@@ -221,6 +227,8 @@ profiles:
     - f_xmodmap
     - f_tmuxline.conf
     - d_bashrc.d
+    - f_init_coc.vim
+    - f_coc.vim
   libretop:
     dotfiles:
     - f_vimrc

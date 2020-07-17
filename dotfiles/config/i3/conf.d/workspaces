@@ -10,9 +10,9 @@ bindsym $mod+Tab workspace back_and_forth
 
 # next/prev workspace
 bindsym Control+l workspace next
-bindsym Control+Left workspace next
+#bindsym Control+Left workspace next
 bindsym Control+h workspace prev
-bindsym Control+Right workspace prev
+#bindsym Control+Right workspace prev
 
 # move to workspace
 bindsym $mod+1 workspace $ws1

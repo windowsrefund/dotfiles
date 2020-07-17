@@ -13,10 +13,10 @@ set $ws1 1
 set $ws2 2
 set $ws3 3
 set $ws4 4
-# set $term alacritty
-set $term termite
+set $term alacritty
+# set $term termite
 # follow mouse for window focus
-focus_follows_mouse yes
+# focus_follows_mouse yes
 
 floating_modifier $mod
 
@@ -61,8 +61,10 @@ client.placeholder      $black  $black  $white  $black    $black
 #client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
 #client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
 #client.urgent           $red $red $white $red $red
-new_window pixel 3
-new_float normal
+# new_window pixel 3
+# new_float normal
+default_border pixel 3
+default_floating_border pixel 3
 floating_modifier $mod
 
 # Window kill command
@@ -87,13 +89,13 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s split toggle
 
 # toggle between splitv and splith layouts
-bindsym $mod+Shift+s layout toggle splitv splith
+bindsym $mod+Shift+s layout toggle split
 
 # toggle tiling vs. floating
 # bindsym $mod+Tab floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+Shift+Tab focus mode_toggle
+bindsym $mod+Space floating toggle
 
 # focus the parent container
 #bindsym $mod+a focus parent
@@ -209,9 +211,9 @@ bindsym $mod+Tab workspace back_and_forth
 
 # next/prev workspace
 bindsym Control+l workspace next
-bindsym Control+Left workspace next
+#bindsym Control+Left workspace next
 bindsym Control+h workspace prev
-bindsym Control+Right workspace prev
+#bindsym Control+Right workspace prev
 
 # move to workspace
 bindsym $mod+1 workspace $ws1
@@ -274,7 +276,7 @@ bar {
 }
 # Firefox
 assign [class="^Firefox$"] $ws2
-for_window [title="^Twitch - Mozilla Firefox$"] move workspace $ws1
+# for_window [title="^Twitch - Mozilla Firefox$"] move workspace $ws1
 
 # Twitch chat
 #for_window [title="^mtf8_music - Twitch - Mozilla Firefox$"] move workspace $ws1
@@ -300,7 +302,7 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 assign [class="^Zrythm$"] $ws4
 
 # OBS
-assign [class="^obs$"] $ws1
+# assign [class="^obs$"] $ws1
 
 # VirtualBox
 assign [class="^VirtualBox Manager$"] $ws3

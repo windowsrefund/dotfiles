@@ -10,9 +10,6 @@ Host *
   ControlMaster auto
   ControlPath ~/.ssh/%r@%h:%p
   UseRoaming no
-Host selks
-  Hostname selks.lan
-  User selks-user
 Host nyc
   Hostname nycpatriot.org
   Port 5554
@@ -21,22 +18,13 @@ Host nyc
   LocalForward 8025 localhost:25
   ServerAliveInterval 30
   ServerAliveCountMax 3
+Host *.mylabserver.com
+  User cloud_user
+  IdentityFile ~/.ssh/id_rsa_mylabserver
 Host adamkosmin.info
   Port 5554
-Host pf54
-  Hostname pf54.pipelane.net
-Host pf84
-  Hostname pf84.pipelane.net
-Host login.pipelane.net
-  IdentityFile ~/.ssh/id_rsa_dstillery
-  DynamicForward 9999
-Host *.pvt
-  IdentityFile ~/.ssh/id_rsa_dstillery
 Host github.com-ds
   Hostname github.com
   User git
   ProxyCommand nc -x localhost:9999 %h %p
   IdentityFile ~/.ssh/id_rsa_dstillery
-Host salt03 salt04
-  User root
-  IdentityFile ~/.ssh/id_rsa_saltssh

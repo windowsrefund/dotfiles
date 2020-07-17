@@ -1,13 +1,12 @@
-" vim: fdm=marker foldlevel=0
+" vim: set fdm=marker foldlevel=0:
 let mapleader = ","
 
-" Plugins {{{
-" setup {{{
-if ! filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
-  echo "Downloading junegunn/vim-plug to manage plugins..."
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+" {{{ Plugins
+" {{{ setup
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+ silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+ autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.local/share/nvim/site/plugged')
 " }}}
@@ -25,6 +24,7 @@ Plug 'mhinz/vim-startify'
 " {{{ file manager
 " https://github.com/tpope/vim-vinegar
 Plug 'tpope/vim-vinegar'
+nmap t <Plug>VinegarTabUp
 " starts with dot files hidden. Use gh to toggle this
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 " }}}
@@ -41,116 +41,19 @@ Plug 'jamessan/vim-gnupg'
 " {{{ commenting
 " https://github.com/tpope/vim-commentary
 Plug 'tpope/vim-commentary'
-" https://github.com/cbaumhardt/vim-commentary-boxed
-" Plug 'cbaumhardt/vim-commentary-boxed'
 " }}}
 " {{{ improve repeating with .
 " https://github.com/tpope/vim-repeat
 Plug 'tpope/vim-repeat'
 " }}}
-" {{{ better whitespace highlighting
-" https://github.com/ntpeters/vim-better-whitespace
-Plug 'ntpeters/vim-better-whitespace'
-" }}}
-" {{{ surround
-" https://github.com/tpope/vim-surround
-Plug 'tpope/vim-surround'
-" }}}
-" {{{ auto pairs
-" https://github.com/jiangmiao/auto-pairs
-Plug 'jiangmiao/auto-pairs'
-let g:AutoPairsFlyMode=0
-let g:AutoPairsMapCR=0
-" }}}
-" {{{ quick run
-" https://github.com/thinca/vim-quickrun
-Plug 'thinca/vim-quickrun'
-let g:quickrun_config = {
-\ '_': {
-\   'outputter/buffer/close_on_empty': 1
-\ }
-\ }
-" }}}
-" {{{ easy align
-" https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-" }}}
-" {{{ git integration plugins
-" https://github.com/jreybert/vimagit
-Plug 'jreybert/vimagit'
-" }}}
 " {{{ show keybindings in popup
 " https://github.com/liuchengxu/vim-which-key
 Plug 'liuchengxu/vim-which-key'
 " }}}
-" {{{ python folding
-" https://github.com/tmhedberg/SimpylFold
-" 2019-10-07: Not folding defs correctly and not folding class at all
-" Plug 'tmhedberg/simpylfold'
-" https://github.com/kalekundert/vim-coiled-snake
-Plug 'kalekundert/vim-coiled-snake'
-Plug 'konfekt/fastfold'
+" {{{ https://github.com/neoclide/coc.nvim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " }}}
-" {{{ autocomplete with deoplete
-" https://github.com/Shougo/deoplete.nvim
-" pip install pynvim jedi
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#sources = {}
-let g:deoplete#sources#syntax#min_keyword_length = 2
-au InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-Plug 'zchee/deoplete-jedi'
-" better than using the preview window
-Plug 'ncm2/float-preview.nvim'
-set pumheight=10
-set completeopt=longest,menu
-" }}}
-" {{{ syntax highlighting for Salt files
-" https://github.com/saltstack/salt-vim
-Plug 'saltstack/salt-vim'
-" }}}
-" {{{ code-jump and more with jedi-vim
-" https://github.com/davidhalter/jedi-vim
-Plug 'davidhalter/jedi-vim'
-" disable autocomplete
-let g:jedi#completions_enabled = 0
-" do not allow jedi-vim to autoconfigure options
-let g:jedi#auto_vim_configuration = 0
-"
-" }}}
-" {{{ snippets with UltiSnips
-" https://github.com/sirver/UltiSnips
-" the engine
-Plug 'sirver/UltiSnips'
-" the snippets
-Plug 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger="<tab>"
-" inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<Tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-n>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
-" }}}
-" {{{ Tame the quickfix window
-" https://github.com/romainl/vim-qf
-Plug 'romainl/vim-qf'
-" }}}
-" fast left-right movement{{{
-" https://github.com/unblevable/quick-scope
-" Plug 'unblevable/quick-scope'
-"}}}
-" center the text{{{
-Plug 'junegunn/goyo.vim'
-"}}}
-" vim table mode {{{
-" https://github.com/dhruvasagar/vim-table-mode
-Plug 'dhruvasagar/vim-table-mode'
-"}}}
-" graphviz plugin {{{
-" https://github.com/liuchengxu/graphviz.vim
-Plug 'liuchengxu/graphviz.vim'
-" }}}
+
 call plug#end()
 " }}}
 " Settings from :options {{{
@@ -176,18 +79,19 @@ set showbreak=↪
 set fillchars+=diff:⣿
 set fillchars+=vert:│
 set fillchars+=fold:-
-" show invisible
-set list
-set list listchars=tab:▸\ ,trail:·,precedes:←,extends:→,eol:↲,nbsp:␣
-" hi NonText ctermfg=16 guifg=#4a4a59
-" hi SpecialKey ctermfg=16 guifg=#4a4a59
+set listchars+=eol:¬
+set listchars+=extends:❯
+set listchars+=precedes:❮
+set listchars+=trail:⋅
+set listchars+=nbsp:⋅
+set listchars+=tab:\|\
 " }}}
 " syntax, highlighting and spelling {{{
 " next line makes wal.vim plugin work
 set notermguicolors
 set guicursor=
-" set cursorline
-" set cursorcolumn
+set nocursorline
+set nocursorcolumn
 " }}}
 " multiple windows {{{
 set laststatus=2
@@ -226,9 +130,6 @@ set expandtab
 set softtabstop=2
 " Round indent to multiple of shiftwidth. Used for < and >
 set shiftround
-" More natural split openings
-set splitbelow
-set splitright
 " }}}
 " folding {{{
 set foldenable
@@ -262,7 +163,14 @@ set updatetime=300
 set encoding=utf-8
 " }}}
 " various {{{
-set signcolumn=auto:2
+" always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved
+if has("patch-8.1.1564")
+  " recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 " }}}
 " }}}
 " Augroups {{{
@@ -301,28 +209,28 @@ augroup END"
 " Mappings {{{
 " :verbose imap <tab>
 "
+" toggle spellcheck
+nnoremap <silent> <F9> :set spell!<cr>:set spell?<cr>
+" c-o can be used from insert mode to execute a normal mode command
+inoremap <F9> <C-O>:set spell!<cr>:set spell?<cr>
+
 " shorten leader timeout from default of 1000
 set timeoutlen=500
 
-" Goyo plugin makes text more readable when writing prose:
-map <leader>f :Goyo \| set bg=dark \| set linebreak<CR>
+" source this config
+nnoremap <leader>v :so $MYVIMRC<cr>
+
+" edit this config
+nnoremap <leader>ve :tabedit $MYVIMRC<cr>
 
 " repeat last command line used
 map <leader>r @:<CR>
 
-" toggle spellcheck
-map <leader>o :set spell! spelllang=en_us<CR>
-" check file in spellcheck
-map <leader>s :!clear && spellcheck %<CR>
-
-" edit config in a tab
-map <leader>v :tabedit $MYVIMRC<CR>
-
 " don't use Ex mode, use Q for formatting
-map Q gq
+nnoremap Q gq
 
 " navigate splits the way I like
-map <leader>w <c-w><c-w>
+nnoremap <leader>w <c-w>
 " resize splits faster
 map <leader>> <C-w>10>
 map <leader>< <C-w>10<
@@ -330,20 +238,20 @@ map <leader>= <C-w>5+
 map <leader>- <C-w>5-
 
 " disable highligting
-map <leader>h :noh<cr>
+nnoremap <leader>h :noh<cr>
 
 " tab navigation prev/next
-map <c-n> gt
-map <c-p> gT
+nnoremap <c-n> gt
+nnoremap <c-p> gT
 
 " ensure we can ESC out of Insert Mode
-imap <c-c> <esc>
+inoremap <c-c> <esc>
 
 " save the file using sudo
 cmap w!! w !sudo tee % > /dev/null<cr>
 
 " sort lines in alphabetical order
-vnoremap <leader>a :'<,'>!sort -f<cr>
+vnoremap <leader>s :'<,'>!sort -f<cr>
 
 " Quickly insert a timestamp
 nnoremap <leader>t "=strftime("%F %T%z")<cr>p
@@ -352,37 +260,7 @@ nnoremap <leader>t "=strftime("%F %T%z")<cr>p
 nnoremap <leader><leader> :call ToggleQuickfix()<cr>
 
 " }}}
-" Plugin-specific mappings {{{
-" if &rtp =~ 'jedi-vim'
-"   let g:jedi#rename_command = '<leader>rn'
-" endif
-"   let g:which_key_vertical=0
-"   nnoremap <silent> <leader> :<c-u>WhichKey '\'<cr>
-"   nnoremap <silent> <leader>? :<c-u>WhichKey 'g'<cr>
-" endif
-
-" if &rtp =~ 'vim-better-whitespace'
-"   nnoremap <leader>s :StripWhitespace<cr>
-" else
-"   nnoremap <leader>s :echo 'Install vim-better-whitespace'<cr>
-" endif
-
-" if &rtp =~ 'vim-easy-align'
-"   " Start interactive EasyAlign in visual mode (e.g. vipga)
-"   xnoremap <leader>e <Plug>(EasyAlign)
-"   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-"   nnoremap <leader>e <Plug>(EasyAlign)
-" else
-"   nnoremap <leader>e :echo 'Install vim-easy-align'<cr>
-" endif
-
-if &rtp =~ 'vim-vinegar'
-  nmap t <Plug>VinegarTabUp
-else
-  nnoremap t :echo 'Install vim-vinegar plugin'<cr>
-endif
-" }}}
-" Functions{{{
+" {{{ Functions
 
 function! ToggleQuickfix()
   for buffer in tabpagebuflist()
@@ -421,8 +299,9 @@ endfunction
 " let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
 " return s
 "endfunction
+
 " }}}
-" themes{{{
+" Themes {{{
 let g:lightline = {
   \ 'colorscheme': 'wal',
   \ 'active': {
@@ -433,4 +312,6 @@ let g:lightline = {
   \   'gitbranch': 'FugitiveHead',
   \ },
   \ }"}}}
+
+source $HOME/.config/nvim/coc.vim
 colorscheme wal

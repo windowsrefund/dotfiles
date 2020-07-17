@@ -1,5 +1,7 @@
-new_window pixel 3
-new_float normal
+# new_window pixel 3
+# new_float normal
+default_border pixel 3
+default_floating_border pixel 3
 floating_modifier $mod
 
 # Window kill command
@@ -24,13 +26,13 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s split toggle
 
 # toggle between splitv and splith layouts
-bindsym $mod+Shift+s layout toggle splitv splith
+bindsym $mod+Shift+s layout toggle split
 
 # toggle tiling vs. floating
 # bindsym $mod+Tab floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+Shift+Tab focus mode_toggle
+bindsym $mod+Space floating toggle
 
 # focus the parent container
 #bindsym $mod+a focus parent

@@ -5,7 +5,7 @@
 # folding cheatsheet: https://gist.github.com/lestoni/8c74da455cce3d36eb68
 HISTSIZE= HISTFILESIZE= # Infinate history
 
-stty -ixon # disable ctrl-s and ctrl-q
+# stty -ixon # disable ctrl-s and ctrl-q
 # Variables {{{1
 export PATH=${HOME}/bin:${HOME}/.local/bin:$PATH
 export EDITOR=nvim
