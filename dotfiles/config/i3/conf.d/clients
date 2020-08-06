@@ -9,7 +9,7 @@ assign [class="^Firefox$"] $ws2
 #for_window [title="^Home Page - Select or create a notebook - Mozilla Firefox$"] move workspace $ws1
 
 # qtractor in a single window
-for_window [class="(?i)Qtractor" instance="(?i)Qtractor"] floating disable
+# for_window [class="(?i)Qtractor" instance="(?i)Qtractor"] floating disable
 assign [class="(?i)Qtractor" instance="(?i)Qtractor"] $ws4
 
 # konfyt
@@ -17,6 +17,9 @@ assign [class="(?i)Qtractor" instance="(?i)Qtractor"] $ws4
 
 # key-mon
 for_window [instance="key-mon"] floating enable
+
+# kmag
+for_window [instance="kmag"] floating enable
 
 # rofi
 #bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"

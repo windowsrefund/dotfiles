@@ -1,0 +1,30 @@
+session_name: lab-es
+windows:
+- focus: 'true'
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: ssh akosmin1c.mylabserver.com
+  start_directory: /home/akosmin
+  window_name: master
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: ssh akosmin2c.mylabserver.com
+  start_directory: /home/akosmin
+  window_name: data1
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: ssh akosmin3c.mylabserver.com
+  start_directory: /home/akosmin
+  window_name: data2
+- options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: ssh akosmin4c.mylabserver.com
+  start_directory: /home/akosmin
+  window_name: logstash

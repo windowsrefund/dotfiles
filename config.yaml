@@ -170,12 +170,27 @@ dotfiles:
   d_bashrc.d:
     src: bashrc.d
     dst: ~/.bashrc.d
-  f_init_coc.vim:
-    src: config/nvim/init_coc.vim
-    dst: ~/.config/nvim/init_coc.vim
+  f_settings.vim:
+    src: config/nvim/settings.vim
+    dst: ~/.config/nvim/settings.vim
+  f_vim-plug.vim:
+    src: config/nvim/vim-plug.vim
+    dst: ~/.config/nvim/vim-plug.vim
+  f_functions.vim:
+    src: config/nvim/functions.vim
+    dst: ~/.config/nvim/functions.vim
+  f_mappings.vim:
+    src: config/nvim/mappings.vim
+    dst: ~/.config/nvim/mappings.vim
+  d_plug-config:
+    src: config/nvim/plug-config
+    dst: ~/.config/nvim/plug-config
   f_coc.vim:
-    src: config/nvim/coc.vim
-    dst: ~/.config/nvim/coc.vim
+    src: config/nvim/plug-config/coc.vim
+    dst: ~/.config/nvim/plug-config/coc.vim
+  f_lightline.vim:
+    src: config/nvim/plug-config/lightline.vim
+    dst: ~/.config/nvim/plug-config/lightline.vim
 profiles:
   mtf8:
     dotfiles:
@@ -227,8 +242,13 @@ profiles:
     - f_xmodmap
     - f_tmuxline.conf
     - d_bashrc.d
-    - f_init_coc.vim
+    - f_settings.vim
+    - f_vim-plug.vim
+    - f_functions.vim
+    - f_mappings.vim
+    - d_plug-config
     - f_coc.vim
+    - f_lightline.vim
   libretop:
     dotfiles:
     - f_vimrc
