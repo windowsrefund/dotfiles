@@ -91,11 +91,11 @@ bindsym $mod+s split toggle
 # toggle between splitv and splith layouts
 bindsym $mod+Shift+s layout toggle split
 
-# toggle tiling vs. floating
-bindsym $mod+Tab floating toggle
+# toggle float for a window
+bindsym $mod+Shift+f floating toggle
 
-# change focus between tiling / floating windows
-bindsym $mod+Space floating toggle
+# toggle mode focus (floating vs. tiling)
+bindsym $mod+m focus mode_toggle
 
 # focus the parent container
 #bindsym $mod+a focus parent
@@ -206,12 +206,13 @@ workspace $ws4 output $monitor-right
 
 # workspace back and forth
 workspace_auto_back_and_forth yes
-bindsym Control+k workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 
 # next/prev workspace
-bindsym Control+l workspace next
+# with only 2 monitors, just use back_and_forth
+#bindsym Control+l workspace next
 #bindsym Control+Left workspace next
-bindsym Control+h workspace prev
+#bindsym Control+h workspace prev
 #bindsym Control+Right workspace prev
 
 # move to workspace
