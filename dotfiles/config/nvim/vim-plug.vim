@@ -34,6 +34,10 @@ Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
 Plug 'edkolev/tmuxline.vim'
 
+" Auto pairs for '(', '[', and '{'
+" https://github.com/jiangmiao/auto-pairs
+Plug 'jiangmiao/auto-pairs'
+
 " fancy start screen
 " https://github.com/mhinz/vim-startify
 Plug 'mhinz/vim-startify'

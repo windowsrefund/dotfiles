@@ -14,12 +14,9 @@ map <leader>< <C-w>5<
 map <leader>= <C-w>5+
 map <leader>- <C-w>5-
 
-" disable highligting
-nnoremap <leader>h :noh<cr>
-
-" tab navigation prev/next
-nnoremap <c-n> gt
-nnoremap <c-p> gT
+" navigate prev/next tab
+nnoremap <C-n> gt
+nnoremap <C-p> gT
 
 " ensure we can ESC out of Insert Mode
 inoremap <c-c> <esc>
@@ -33,13 +30,4 @@ if exists('g:vscode')
   nmap <Tab> :Tabnext<CR>
   nmap <S-Tab> :Tabprev<CR>
 
-else
-
-  " Better nav for omnicomplete
-  inoremap <expr> <c-j> ("\<C-n>")
-  inoremap <expr> <c-k>("\<C-p>")
-
-  " TAB completion
-  inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 endif
-
