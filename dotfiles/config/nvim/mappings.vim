@@ -1,29 +1,16 @@
-" :verbose imap <tab>
-
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-
-" toggle spellcheck
-nnoremap <silent> <F9> :set spell!<cr>:set spell?<cr>
-" c-o can be used from insert mode to execute a normal mode command
-inoremap <F9> <C-O>:set spell!<cr>:set spell?<cr>
-
-" source this config
-nnoremap <leader>v :so $MYVIMRC<cr>
-
-" edit this config
-nnoremap <leader>ve :tabedit $MYVIMRC<cr>
-
-" repeat last command line used
-map <leader>r @:<CR>
+" Leader key
+let mapleader=" "
+nnoremap <Space> <Nop>
 
 " don't use Ex mode, use Q for formatting
 nnoremap Q gq
 
-" navigate splits the way I like
+" navigate splits
 nnoremap <leader>w <c-w>
+
 " resize splits faster
-map <leader>> <C-w>10>
-map <leader>< <C-w>10<
+map <leader>> <C-w>5>
+map <leader>< <C-w>5<
 map <leader>= <C-w>5+
 map <leader>- <C-w>5-
 
@@ -40,12 +27,19 @@ inoremap <c-c> <esc>
 " save the file using sudo
 cmap w!! w !sudo tee % > /dev/null<cr>
 
-" sort lines in alphabetical order
-vnoremap <leader>s :'<,'>!sort -f<cr>
+if exists('g:vscode')
 
-" Quickly insert a timestamp
-nnoremap <leader>t "=strftime("%F %T%z")<cr>p
+  " Simulate same TAB behavior in VSCode
+  nmap <Tab> :Tabnext<CR>
+  nmap <S-Tab> :Tabprev<CR>
 
-" Toggle quickfix window
-nnoremap <leader><leader> :call ToggleQuickfix()<cr>
+else
+
+  " Better nav for omnicomplete
+  inoremap <expr> <c-j> ("\<C-n>")
+  inoremap <expr> <c-k>("\<C-p>")
+
+  " TAB completion
+  inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+endif
 

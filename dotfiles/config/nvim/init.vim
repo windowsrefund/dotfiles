@@ -5,3 +5,5 @@ source $HOME/.config/nvim/functions.vim
 source $HOME/.config/nvim/plug-config/lightline.vim
 source $HOME/.config/nvim/plug-config/coc.vim
 colorscheme wal
+
+

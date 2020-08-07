@@ -1,8 +1,4 @@
-" vim: set fdm=marker foldlevel=0:
-let g:mapleader = "\<Space>"
-
 set timeoutlen=500                      " shorten leader timeout from default of 1000
-
 syntax enable           								" Enables syntax highlighting
 set hidden              								" Required to keep multiple buffers open
 set nowrap              								" Display long lines as just one line
@@ -76,4 +72,5 @@ au! BufWritePost *Xresources, *Xdefaults !xrdb %  " run xrdb whenever Xdefaults 
 " set textwidth=80
 " Round indent to multiple of shiftwidth. Used for < and >
 " set shiftround
+
 
