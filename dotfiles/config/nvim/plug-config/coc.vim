@@ -1,4 +1,4 @@
-let g:coc_global_extensions = [
+le g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-actions',
   \ 'coc-lists',
@@ -6,7 +6,6 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-yaml',
   \ 'coc-python',
-  \ 'coc-pyright',
   \ 'coc-prettier',
   \ 'coc-explorer',
   \ 'coc-vimlsp',

@@ -44,12 +44,6 @@ bindsym $mod+m focus mode_toggle
 # If there are multiple scratchpad windows, this command cycles through them.
 #bindsym $mod+minus scratchpad show
 
-# Open specific applications in floating mode
-for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
-for_window [class="Xephyr"] floating disable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus

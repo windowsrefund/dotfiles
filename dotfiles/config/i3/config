@@ -285,7 +285,7 @@ assign [class="^Firefox$"] $ws2
 #for_window [title="^Home Page - Select or create a notebook - Mozilla Firefox$"] move workspace $ws1
 
 # qtractor in a single window
-# for_window [class="(?i)Qtractor" instance="(?i)Qtractor"] floating disable
+#for_window [class="(?i)Qtractor" instance="(?i)Qtractor"] floating enable
 assign [class="(?i)Qtractor" instance="(?i)Qtractor"] $ws4
 
 # konfyt
@@ -309,5 +309,13 @@ assign [class="^Zrythm$"] $ws4
 
 # VirtualBox
 assign [class="^VirtualBox Manager$"] $ws3
+
+for_window [class="Pavucontrol"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="Xfburn"] floating enable
+for_window [class="Xephyr"] floating disable
+for_window [class="Xephyr"] floating disable
+for_window [class="Qtractor"] floating enable border normal
 # on every restart
 exec_always --no-startup-id xrdb -merge ~/.Xresources
