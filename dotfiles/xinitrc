@@ -39,7 +39,8 @@ autojack > /tmp/autojack.log 2>&1 < /dev/null &
 # composite manager
 compton -b &
 
-# backgrounds
+# restore the last colorscheme that was in use
+# see wal --help
 wal -R
 
 # blue light
@@ -48,6 +49,6 @@ redshift-gtk &
 exec i3 -V > /tmp/i3.log
 # exec spectrwm
 # exec bspwm
-# exec i3 -c ~/.config/i3/config.min -V > /tmp/i3.log
+#  exec i3 -c ~/.config/i3/config.min -V > /tmp/i3.log
 #exec startxfce4
 

@@ -7,13 +7,13 @@ bar {
   output primary
   tray_output primary
   colors {
-    separator $white
+    separator $green
     background $black
     statusline $white
-    focused_workspace $black $green $black
-    active_workspace  $black  $black  $white
-    inactive_workspace  $black  $black  $white
-    urgent_workspace  $black  $purple $black
+    focused_workspace   $black  $white    $black
+    active_workspace    $black  $black    $white
+    inactive_workspace  $black  $black_h  $white
+    urgent_workspace    $black  $red      $black
   }
   # Take a screenshot by right clicking on the bar
   # bindsym --release button3 exec --no-startup-id import /tmp/latest-screenshot.png
@@ -30,9 +30,9 @@ bar {
     separator $white
     background $black
     statusline $white
-    focused_workspace $black $green $black
-    active_workspace  $black  $black  $white
-    inactive_workspace  $black  $black  $white
-    urgent_workspace  $black  $purple  $black
+    focused_workspace   $black  $white    $black
+    active_workspace    $black  $black    $white
+    inactive_workspace  $black  $black_h  $white
+    urgent_workspace    $black  $red      $black
   }
 }

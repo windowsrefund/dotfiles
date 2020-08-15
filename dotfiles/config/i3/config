@@ -40,27 +40,12 @@ set_from_resource $white i3wm.color7 #ffffff
 set_from_resource $white_h i3wm.color15 #ffffff
 
 # class                 border  backgrd text    indicator child_border
-client.focused          $black  $black  $white  $yellow   $black_h
+client.focused          $black  $black  $white  $red      $black_h
 client.focused_inactive $black  $black  $white  $black    $black
 client.unfocused        $black  $black  $white  $black    $black
-client.urgent           $purple $black  $white  $purple  $purple
+client.urgent           $purple $black  $white  $purple   $purple
 client.placeholder      $black  $black  $white  $black    $black
 
-#client.background $black
-
-# green gruvbox
-# class                 border|backgr|text|indicator|child_border
-#client.focused          $green $green $darkgray $purple $darkgray
-#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-#client.urgent           $red $red $white $red $red
-
-# blue gruvbox
-# class                 border|backgr|text|indicator|child_border
-#client.focused          $blue $blue $darkgray $purple $darkgray
-#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-#client.urgent           $red $red $white $red $red
 # new_window pixel 3
 # new_float normal
 default_border pixel 3
@@ -107,12 +92,6 @@ bindsym $mod+m focus mode_toggle
 # If there are multiple scratchpad windows, this command cycles through them.
 #bindsym $mod+minus scratchpad show
 
-# Open specific applications in floating mode
-for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
-for_window [class="Xephyr"] floating disable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -245,13 +224,13 @@ bar {
   output primary
   tray_output primary
   colors {
-    separator $white
+    separator $green
     background $black
     statusline $white
-    focused_workspace $black $green $black
-    active_workspace  $black  $black  $white
-    inactive_workspace  $black  $black  $white
-    urgent_workspace  $black  $purple $black
+    focused_workspace   $black  $white    $black
+    active_workspace    $black  $black    $white
+    inactive_workspace  $black  $black_h  $white
+    urgent_workspace    $black  $red      $black
   }
   # Take a screenshot by right clicking on the bar
   # bindsym --release button3 exec --no-startup-id import /tmp/latest-screenshot.png
@@ -268,10 +247,10 @@ bar {
     separator $white
     background $black
     statusline $white
-    focused_workspace $black $green $black
-    active_workspace  $black  $black  $white
-    inactive_workspace  $black  $black  $white
-    urgent_workspace  $black  $purple  $black
+    focused_workspace   $black  $white    $black
+    active_workspace    $black  $black    $white
+    inactive_workspace  $black  $black_h  $white
+    urgent_workspace    $black  $red      $black
   }
 }
 # Firefox

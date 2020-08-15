@@ -17,9 +17,6 @@ dotfiles:
   f_x-color-switch.sh:
     src: bin/x-color-switch.sh
     dst: ~/bin/x-color-switch.sh
-  d_xresources.d:
-    src: Xresources.d
-    dst: ~/.Xresources.d
   d_themes:
     src: themes
     dst: ~/.themes
@@ -131,12 +128,6 @@ dotfiles:
   f_ncmpcpp_config:
     src: ncmpcpp/config
     dst: ~/.ncmpcpp/config
-  f_init_min.vim:
-    src: config/nvim/init_min.vim
-    dst: ~/.config/nvim/init_min.vim
-  f_tender:
-    src: Xresources.d/tender
-    dst: ~/.Xresources.d/tender
   f_lab-kvm.sh:
     src: bin/lab-kvm.sh
     dst: ~/bin/lab-kvm.sh
@@ -146,12 +137,6 @@ dotfiles:
   f_ny7:
     src: bin/ny7
     dst: ~/bin/ny7
-  f_sequences:
-    src: cache/wal/sequences
-    dst: ~/.cache/wal/sequences
-  f_colors-tty.sh:
-    src: cache/wal/colors-tty.sh
-    dst: ~/.cache/wal/colors-tty.sh
   f_inputrc:
     src: inputrc
     dst: ~/.inputrc
@@ -191,13 +176,15 @@ dotfiles:
   f_lightline.vim:
     src: config/nvim/plug-config/lightline.vim
     dst: ~/.config/nvim/plug-config/lightline.vim
+  f_colors-rofi-dark.rasi:
+    src: config/wal/templates/colors-rofi-dark.rasi
+    dst: ~/.config/wal/templates/colors-rofi-dark.rasi
 profiles:
   mtf8:
     dotfiles:
     - f_xinitrc
     - f_xresources
     - f_x-color-switch.sh
-    - d_xresources.d
     - d_themes
     - f_userchrome.css
     - d_i3
@@ -229,13 +216,9 @@ profiles:
     - d_vis_colors
     - f_mopidy.conf
     - f_ncmpcpp_config
-    - f_init_min.vim
-    - f_tender
     - f_lab-kvm.sh
     - f_ssh_config
     - f_ny7
-    - f_sequences
-    - f_colors-tty.sh
     - f_inputrc
     - f_rofi_config
     - f_alacritty.yml
@@ -249,6 +232,7 @@ profiles:
     - d_plug-config
     - f_coc.vim
     - f_lightline.vim
+    - f_colors-rofi-dark.rasi
   libretop:
     dotfiles:
     - f_vimrc

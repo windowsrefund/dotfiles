@@ -28,11 +28,15 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-" theme
-Plug 'dylanaraps/wal.vim'
+" themes
+Plug 'sprockmonty/wal.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
 Plug 'edkolev/tmuxline.vim'
+
+" Markdown Preview
+" https://github.com/iamcco/markdown-preview.nvim
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 
 " Auto pairs for '(', '[', and '{'
 " https://github.com/jiangmiao/auto-pairs
