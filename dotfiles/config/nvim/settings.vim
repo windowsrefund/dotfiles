@@ -39,6 +39,7 @@ if !exists('g:vscode')
   set updatetime=300                      " Faster completion
   set timeoutlen=100                      " By default timeoutlen is 1000 ms
   set noswapfile
+  set clipboard+=unnamedplus              " Use system clipboard"
 
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 endif
