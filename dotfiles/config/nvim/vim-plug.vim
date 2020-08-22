@@ -85,6 +85,11 @@ Plug 'kevinoid/vim-jsonc'
 " https://github.com/honza/vim-snippets
 Plug 'honza/vim-snippets'
 
+" Easy Align
+Plug 'junegunn/vim-easy-align'
+
+" plugs I've tried and do not like or can't figure out
+
 call plug#end()
 
 " Automatically install missing plugins on startup

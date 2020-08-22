@@ -16,7 +16,7 @@ set $ws4 4
 set $term alacritty
 # set $term termite
 # follow mouse for window focus
-# focus_follows_mouse yes
+focus_follows_mouse no
 
 floating_modifier $mod
 
@@ -40,7 +40,7 @@ set_from_resource $white i3wm.color7 #ffffff
 set_from_resource $white_h i3wm.color15 #ffffff
 
 # class                 border  backgrd text    indicator child_border
-client.focused          $black  $black  $white  $red      $black_h
+client.focused          $black  $black  $white  $red      $blue
 client.focused_inactive $black  $black  $white  $black    $black
 client.unfocused        $black  $black  $white  $black    $black
 client.urgent           $purple $black  $white  $purple   $purple

@@ -31,3 +31,8 @@ if exists('g:vscode')
   nmap <S-Tab> :Tabprev<CR>
 
 endif
+
+" Better nav for omnicomplete
+inoremap <expr> <c-j> ("\<C-n>")
+inoremap <expr> <c-k> ("\<C-p>")
+inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"

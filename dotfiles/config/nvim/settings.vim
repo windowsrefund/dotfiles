@@ -29,7 +29,7 @@ if !exists('g:vscode')
   set relativenumber
   set nocursorline                        " Enable highlighting of the current line
   set background=dark                     " Tell vim what the background color looks like
-  set showtabline=2                       " Always show tabs
+  set showtabline=1                       " Show tabline when 2 or more pages open
   set noshowmode                          " We don't need to see things like -- INSERT -- anymore
   set nobackup                            " This is recommended by CoC
   set nowritebackup                       " This is recommended by CoC

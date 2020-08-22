@@ -19,7 +19,7 @@ setxkbmap -option terminate:ctrl_alt_bksp
 setxkbmap us
 
 # speed xrate up
-xset r rate 300 50 &
+xset r rate 300 50
 
 # map keys as defined
 xmodmap ~/.Xmodmap
