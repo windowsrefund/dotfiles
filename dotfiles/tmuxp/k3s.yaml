@@ -1,0 +1,23 @@
+session_name: k3s
+start_directory: ~/projects/lab-k3s
+windows:
+  - window_name: k3s-node1
+    options:
+      automatic-rename: "off"
+    panes:
+      - shell_command: TERM=vt100 ssh k3s-node1
+  - window_name: k3s-node2
+    options:
+      automatic-rename: "off"
+    panes:
+      - shell_command: TERM=vt100 ssh k3s-node2
+  - window_name: k3s-node3
+    options:
+      automatic-rename: "off"
+    panes:
+      - shell_command: TERM=vt100 ssh k3s-node3
+  - window_name: k3s-master
+    options:
+      automatic-rename: "off"
+    panes:
+      - shell_command: TERM=vt100 ssh k3s-master

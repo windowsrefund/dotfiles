@@ -1,0 +1,6 @@
+session_name: cloudmapper
+start_directory: /src/cloudmapper
+windows:
+  - window_name:
+    options:
+      automatic-rename: "off"

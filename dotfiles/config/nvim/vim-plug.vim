@@ -29,64 +29,84 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 
 " themes
-Plug 'sprockmonty/wal.vim'
+Plug 'dylanaraps/wal.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
 Plug 'edkolev/tmuxline.vim'
 
 " Markdown Preview
-" https://github.com/iamcco/markdown-preview.nvim
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 
 " Auto pairs for '(', '[', and '{'
-" https://github.com/jiangmiao/auto-pairs
 Plug 'jiangmiao/auto-pairs'
 
 " fancy start screen
-" https://github.com/mhinz/vim-startify
 Plug 'mhinz/vim-startify'
 
 " file manager
-" https://github.com/tpope/vim-vinegar
 Plug 'tpope/vim-vinegar'
-nmap t <Plug>VinegarTabUp
-" starts with dot files hidden. Use gh to toggle this
-let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 " open focus to last place of file
-" https://github.com/farmergreg/vim-lastplace
 Plug 'farmergreg/vim-lastplace'
 
 " decrypt and edit gpg encrypted files
-" https://github.com/jamessan/vim-gnupg
 Plug 'jamessan/vim-gnupg'
-" let g:GPGPreferArmor=1
+
+" change surroundings
+Plug 'tpope/vim-surround'
 
 " commenting
-" https://github.com/tpope/vim-commentary
 Plug 'tpope/vim-commentary'
 
 " improve repeating with .
-" https://github.com/tpope/vim-repeat
 Plug 'tpope/vim-repeat'
 
 " show keybindings in popup
-" https://github.com/liuchengxu/vim-which-key
 Plug 'liuchengxu/vim-which-key'
 
-" https://github.com/neoclide/coc.nvim
+" golang
+Plug 'fatih/vim-go'
+
+" intellisense
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Syntax highlighting for JSONC
-" https://github.com/kevinoid/vim-jsonc
-Plug 'kevinoid/vim-jsonc'
+" auto set indent settings
+Plug 'tpope/vim-sleuth'
+
+" better syntax support
+let g:polyglot_disabled = ['csv']
+Plug 'sheerun/vim-polyglot'
+
+" cool icons
+Plug 'ryanoasis/vim-devicons'
+
+" smooth scroll
+Plug 'psliwka/vim-smoothie'
+
+" show trailing whitespace
+Plug 'ntpeters/vim-better-whitespace'
+
+" async tasks Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asyncrun.vim'
 
 " Snippets
-" https://github.com/honza/vim-snippets
 Plug 'honza/vim-snippets'
 
 " Easy Align
 Plug 'junegunn/vim-easy-align'
+
+" Graphviz
+Plug 'liuchengxu/graphviz.vim'
+
+" syntax support for JSON comments
+Plug 'neoclide/jsonc.vim'
+
+" handle unicode and digraphs characters
+Plug 'chrisbra/unicode.vim'
+
+" Run terraform fmt on save and other goodies
+Plug 'hashivim/vim-terraform'
+
 
 " plugs I've tried and do not like or can't figure out
 

@@ -1,38 +1,29 @@
-" Leader key
+" Leader keys
 let mapleader=" "
-nnoremap <Space> <Nop>
+let maplocalleader=","
 
 " don't use Ex mode, use Q for formatting
 nnoremap Q gq
-
-" navigate splits
-nnoremap <leader>w <c-w>
-
-" resize splits faster
-map <leader>> <C-w>5>
-map <leader>< <C-w>5<
-map <leader>= <C-w>5+
-map <leader>- <C-w>5-
 
 " navigate prev/next tab
 nnoremap <C-n> gt
 nnoremap <C-p> gT
 
-" ensure we can ESC out of Insert Mode
-inoremap <c-c> <esc>
+" navigate prev/next/last buffer
+nnoremap <silent> <leader>n :bn<CR>
+nnoremap <silent> <leader>p :bp<CR>
+nnoremap <silent> <leader>l :b#<CR>
+" nnoremap <silent> <leader>b :ls<CR>:buffer<Space>
 
 " save the file using sudo
 cmap w!! w !sudo tee % > /dev/null<cr>
 
-if exists('g:vscode')
-
-  " Simulate same TAB behavior in VSCode
-  nmap <Tab> :Tabnext<CR>
-  nmap <S-Tab> :Tabprev<CR>
-
-endif
-
 " Better nav for omnicomplete
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
+inoremap <expr> <c-k> ("\<C-n>")
+inoremap <expr> <c-j> ("\<C-p>")
 inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" navigate items in quickfix list
+" map <silent> <leader>n :cnext<CR>
+" map <silent> <leader>p :cprevious<CR>
+" map <silent> <leader>q :cclose<CR>

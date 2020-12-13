@@ -121,3 +121,5 @@ if [ -d ~/.bashrc.d ]; then
     source $i
   done
 fi
+
+complete -C /home/akosmin/.asdf/installs/terraform/0.13.5/bin/terraform terraform

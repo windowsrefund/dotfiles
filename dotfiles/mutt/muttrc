@@ -79,8 +79,7 @@ set reverse_name                                 # reply as whomever it was to
 set include                                      # include message in replies
 set forward_quote                                # include message in forwards
 set sleep_time = 0                               # speed up folder switch
-# set preconnect = "ssh -f -N -q -L 8025:localhost:25 -p 5554 nycpatriot.org \
-sleep 5 < /dev/null > /dev/null"
+set preconnect = "wal -R > /dev/null; ssh -f -N -q -L 8025:localhost:25 -p 5554 nycpatriot.org sleep 5 > /dev/null"
 
 
 

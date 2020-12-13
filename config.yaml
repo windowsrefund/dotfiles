@@ -14,6 +14,7 @@ dotfiles:
   f_xresources:
     src: Xresources
     dst: ~/.Xresources
+    chmod: '600'
   f_x-color-switch.sh:
     src: bin/x-color-switch.sh
     dst: ~/bin/x-color-switch.sh
@@ -41,6 +42,7 @@ dotfiles:
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
+    chmod: '644'
   f_vimrc:
     src: vimrc
     dst: ~/.vimrc
@@ -62,51 +64,66 @@ dotfiles:
   f_bash_profile:
     src: bash_profile
     dst: ~/.bash_profile
+    chmod: '644'
   f_bashrc:
     src: bashrc
     dst: ~/.bashrc
+    chmod: '644'
   d_backgrounds:
     src: backgrounds
     dst: ~/backgrounds
   f_muttrc:
     src: mutt/muttrc
     dst: ~/.mutt/muttrc
+    chmod: '644'
   f_256colors.muttrc:
     src: mutt/256colors.muttrc
     dst: ~/.mutt/256colors.muttrc
+    chmod: '644'
   f_keys.muttrc:
     src: mutt/keys.muttrc
     dst: ~/.mutt/keys.muttrc
+    chmod: '644'
   f_imap.muttrc:
     src: mutt/imap.muttrc
     dst: ~/.mutt/imap.muttrc
+    chmod: '644'
   f_gpg.muttrc:
     src: mutt/gpg.muttrc
     dst: ~/.mutt/gpg.muttrc
+    chmod: '644'
   f_colors:
     src: mutt/colors
     dst: ~/.mutt/colors
+    chmod: '644'
   f_mutt_profile_mtf8:
     src: mutt/mutt_profile_mtf8
     dst: ~/.mutt/mutt_profile_mtf8
+    chmod: '644'
   f_mutt_profile_mtf8.sig:
     src: mutt/mutt_profile_mtf8.sig
     dst: ~/.mutt/mutt_profile_mtf8.sig
+    chmod: '644'
   f_mutt_profile_adamkosmin:
     src: mutt/mutt_profile_adamkosmin
     dst: ~/.mutt/mutt_profile_adamkosmin
+    chmod: '644'
   f_mutt_profile_adamkosmin.sig:
     src: mutt/mutt_profile_adamkosmin.sig
     dst: ~/.mutt/mutt_profile_adamkosmin.sig
+    chmod: '644'
   f_mutt_profile_nycpatriot:
     src: mutt/mutt_profile_nycpatriot
     dst: ~/.mutt/mutt_profile_nycpatriot
+    chmod: '644'
   f_mutt_profile_nycpatriot.sig:
     src: mutt/mutt_profile_nycpatriot.sig
     dst: ~/.mutt/mutt_profile_nycpatriot.sig
+    chmod: '644'
   f_monitor.sh:
     src: bin/monitor.sh
     dst: ~/bin/monitor.sh
+    chmod: '744'
   f_saferc:
     src: saferc
     dst: ~/.saferc
@@ -131,12 +148,11 @@ dotfiles:
   f_lab-kvm.sh:
     src: bin/lab-kvm.sh
     dst: ~/bin/lab-kvm.sh
+    chmod: '764'
   f_ssh_config:
     src: ssh/config
     dst: ~/.ssh/config
-  f_ny7:
-    src: bin/ny7
-    dst: ~/bin/ny7
+    chmod: '644'
   f_inputrc:
     src: inputrc
     dst: ~/.inputrc
@@ -161,9 +177,6 @@ dotfiles:
   f_vim-plug.vim:
     src: config/nvim/vim-plug.vim
     dst: ~/.config/nvim/vim-plug.vim
-  f_functions.vim:
-    src: config/nvim/functions.vim
-    dst: ~/.config/nvim/functions.vim
   f_mappings.vim:
     src: config/nvim/mappings.vim
     dst: ~/.config/nvim/mappings.vim
@@ -218,7 +231,6 @@ profiles:
     - f_ncmpcpp_config
     - f_lab-kvm.sh
     - f_ssh_config
-    - f_ny7
     - f_inputrc
     - f_rofi_config
     - f_alacritty.yml
@@ -227,7 +239,6 @@ profiles:
     - d_bashrc.d
     - f_settings.vim
     - f_vim-plug.vim
-    - f_functions.vim
     - f_mappings.vim
     - d_plug-config
     - f_coc.vim

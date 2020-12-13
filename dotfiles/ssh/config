@@ -10,6 +10,8 @@ Host *
   ControlMaster auto
   ControlPath ~/.ssh/%r@%h:%p
   UseRoaming no
+Host extreme
+  Port 5554
 Host nyc
   Hostname nycpatriot.org
   Port 5554
