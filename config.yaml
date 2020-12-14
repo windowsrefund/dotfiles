@@ -156,9 +156,6 @@ dotfiles:
   f_inputrc:
     src: inputrc
     dst: ~/.inputrc
-  f_rofi_config:
-    src: config/rofi/config
-    dst: ~/.config/rofi/config
   f_alacritty.yml:
     src: config/alacritty/alacritty.yml
     dst: ~/.config/alacritty/alacritty.yml
@@ -192,6 +189,9 @@ dotfiles:
   f_colors-rofi-dark.rasi:
     src: config/wal/templates/colors-rofi-dark.rasi
     dst: ~/.config/wal/templates/colors-rofi-dark.rasi
+  f_config.rasi:
+    src: config/rofi/config.rasi
+    dst: ~/.config/rofi/config.rasi
 profiles:
   mtf8:
     dotfiles:
@@ -232,7 +232,6 @@ profiles:
     - f_lab-kvm.sh
     - f_ssh_config
     - f_inputrc
-    - f_rofi_config
     - f_alacritty.yml
     - f_xmodmap
     - f_tmuxline.conf
@@ -244,6 +243,7 @@ profiles:
     - f_coc.vim
     - f_lightline.vim
     - f_colors-rofi-dark.rasi
+    - f_config.rasi
   libretop:
     dotfiles:
     - f_vimrc

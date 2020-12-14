@@ -9,12 +9,6 @@ nnoremap Q gq
 nnoremap <C-n> gt
 nnoremap <C-p> gT
 
-" navigate prev/next/last buffer
-nnoremap <silent> <leader>n :bn<CR>
-nnoremap <silent> <leader>p :bp<CR>
-nnoremap <silent> <leader>l :b#<CR>
-" nnoremap <silent> <leader>b :ls<CR>:buffer<Space>
-
 " save the file using sudo
 cmap w!! w !sudo tee % > /dev/null<cr>
 
@@ -27,3 +21,10 @@ inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " map <silent> <leader>n :cnext<CR>
 " map <silent> <leader>p :cprevious<CR>
 " map <silent> <leader>q :cclose<CR>
+
+" navigate prev/next/last buffer
+" nnoremap <silent> <leader>n :bn<CR>
+" nnoremap <silent> <leader>p :bp<CR>
+" nnoremap <silent> <leader>l :b#<CR>
+" nnoremap <silent> <leader>b :ls<CR>:buffer<Space>
+

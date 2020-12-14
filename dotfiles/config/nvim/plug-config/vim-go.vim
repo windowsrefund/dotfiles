@@ -40,8 +40,10 @@ au FileType go nmap <localleader>c <Plug>(go-coverage-toggle)
 " :GoInfo shows us the signature of a function
 au FileType go nmap <localleader>i <Plug>(go-info)
 
-" Set fold method to syntax
+" Set fold method to syntax but disable auto-folding
 au FileType go silent set foldmethod=syntax
+au FileType go silent set nofoldenable
+
 
 " :GoAlternate in current buffer
 au FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')

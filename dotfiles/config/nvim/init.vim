@@ -17,6 +17,6 @@ source $HOME/.config/nvim/plug-config/vim-vinegar.vim
 source $HOME/.config/nvim/plug-config/vim-terraform.vim
 source $HOME/.config/nvim/plug-config/which-key.vim
 
-au BufWinEnter *.py nnoremap <leader>r :w<CR>:!python3 %<CR>
-au BufWinEnter *.sh nnoremap <leader>r :w<CR>:!sh %<CR>
+au BufWinEnter *.py nnoremap <localleader>r :w<CR>:!python3 %<CR>
+au BufWinEnter *.sh nnoremap <localleader>r :w<CR>:!sh %<CR>
 
