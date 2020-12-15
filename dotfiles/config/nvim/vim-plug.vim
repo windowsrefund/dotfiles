@@ -46,6 +46,9 @@ Plug 'mhinz/vim-startify'
 " file manager
 Plug 'tpope/vim-vinegar'
 
+" swap windows
+Plug 'wesQ3/vim-windowswap'
+
 " open focus to last place of file
 Plug 'farmergreg/vim-lastplace'
 

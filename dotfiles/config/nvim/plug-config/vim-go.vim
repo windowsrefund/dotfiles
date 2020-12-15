@@ -16,6 +16,9 @@ let g:go_play_open_browser = 1
 " use only quickfix windows (no location lists)
 let g:go_list_type = "quickfix"
 
+" do not use vim-go for :GoDef, we'll use LSP instead
+let g:go_def_mapping_enabled = 0
+
 " :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
   let l:file = expand('%')
