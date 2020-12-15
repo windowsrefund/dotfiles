@@ -192,6 +192,9 @@ dotfiles:
   f_config.rasi:
     src: config/rofi/config.rasi
     dst: ~/.config/rofi/config.rasi
+  f_sequences:
+    src: cache/wal/sequences
+    dst: ~/.cache/wal/sequences
 profiles:
   mtf8:
     dotfiles:
@@ -244,6 +247,7 @@ profiles:
     - f_lightline.vim
     - f_colors-rofi-dark.rasi
     - f_config.rasi
+    - f_sequences
   libretop:
     dotfiles:
     - f_vimrc
