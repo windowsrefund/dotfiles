@@ -23,15 +23,14 @@ let g:which_key_map = {}
 
 " Leader mappings
 let g:which_key_map['.'] = [ ':so $MYVIMRC', 'source init' ]
-let g:which_key_map['='] = [ '<c-w>=', 'balance splits' ]
 let g:which_key_map['e'] = [ ':e $MYVIMRC', 'edit init' ]
 let g:which_key_map['E'] = [ ':tabe $MYVIMRC', 'edit init in new tab' ]
 let g:which_key_map['s'] = [ '<c-w>s', 'split below' ]
 let g:which_key_map['v'] = [ '<c-w>v', 'split right' ]
-let g:which_key_map['w'] = [ '<c-w>', 'navigate splits' ]
+let g:which_key_map['w'] = [ '<c-w>', 'split navigation' ]
 let g:which_key_map['n'] = [ ':let @/ = ""', 'no highlight' ]
 " vim-windowswap plugin
-let g:which_key_map['W'] = [ ':call WindowSwap#EasyWindowSwap', 'move window' ]
+let g:which_key_map['W'] = [ ':call WindowSwap#EasyWindowSwap()', 'move window' ]
 
 " v is for vimrc
 let g:which_key_map.v = {
