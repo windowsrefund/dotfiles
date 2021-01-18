@@ -195,6 +195,9 @@ dotfiles:
   f_sequences:
     src: cache/wal/sequences
     dst: ~/.cache/wal/sequences
+  f_coc-settings.json:
+    src: config/nvim/coc-settings.json
+    dst: ~/.config/nvim/coc-settings.json
 profiles:
   mtf8:
     dotfiles:
@@ -248,6 +251,7 @@ profiles:
     - f_colors-rofi-dark.rasi
     - f_config.rasi
     - f_sequences
+    - f_coc-settings.json
   libretop:
     dotfiles:
     - f_vimrc
