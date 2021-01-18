@@ -11,6 +11,7 @@ if !exists('g:vscode')
   set pumheight=10                        " Popup menu size in lines
   set fileencoding=utf-8                  " The encoding written to file
   set ruler                               " Show cursor position all the time
+  set scrolloff=7                         " Keep 7 lines of text at bottom"
   set cmdheight=2                         " More space for displaying messages
   set mouse=a                             " Enable the mouse
   set splitbelow                          " Horizontal splits will automatically be below

@@ -92,6 +92,7 @@ Plug 'skywind3000/asyncrun.vim'
 " Snippets
 Plug 'honza/vim-snippets'
 
+
 " Easy Align
 Plug 'junegunn/vim-easy-align'
 
@@ -109,6 +110,9 @@ Plug 'hashivim/vim-terraform'
 
 
 " plugs I've tried and do not like or can't figure out
+
+" requires nvim >= 5.0
+" Plug 'romgrk/barbar.nvim'
 
 call plug#end()
 
