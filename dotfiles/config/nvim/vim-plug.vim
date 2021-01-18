@@ -92,7 +92,6 @@ Plug 'skywind3000/asyncrun.vim'
 " Snippets
 Plug 'honza/vim-snippets'
 
-
 " Easy Align
 Plug 'junegunn/vim-easy-align'
 
@@ -107,6 +106,12 @@ Plug 'chrisbra/unicode.vim'
 
 " Run terraform fmt on save and other goodies
 Plug 'hashivim/vim-terraform'
+
+" show vertical lines for indent levels
+Plug 'Yggdroot/indentLine'
+
+" plugins I should checkout
+" https://github.com/moll/vim-bbye
 
 
 " plugs I've tried and do not like or can't figure out

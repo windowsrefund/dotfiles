@@ -33,6 +33,7 @@ let g:which_key_map['w'] = [ '<C-w>', 'window commands' ]
 " a is for vim-go
 let g:which_key_map.a = {
       \ 'name' : '+actions' ,
+      \ 'i' : [ ':IndentLinesToggle', 'indentLines toggle' ],
       \ 'h' : [ ':let @/ =""', 'no highlight' ],
       \ 'n' : [ ':set nonumber!', 'nums toggle' ],
       \ 'r' : [ ':set norelativenumber!', 'rel nums toggle' ],

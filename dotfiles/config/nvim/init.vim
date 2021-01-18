@@ -16,4 +16,5 @@ source $HOME/.config/nvim/plug-config/vim-go.vim
 source $HOME/.config/nvim/plug-config/vim-terraform.vim
 source $HOME/.config/nvim/plug-config/vim-vinegar.vim
 source $HOME/.config/nvim/plug-config/which-key.vim
+source $HOME/.config/nvim/plug-config/indentLine.vim
 
