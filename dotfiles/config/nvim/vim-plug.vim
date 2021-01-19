@@ -21,9 +21,9 @@
 "
 " auto-install vim-plug
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
- silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
- autocmd VimEnter * PlugInstall | source $MYVIMRC
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
@@ -33,6 +33,10 @@ Plug 'dylanaraps/wal.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
 Plug 'edkolev/tmuxline.vim'
+
+" folding
+Plug 'pseewald/vim-anyfold'
+Plug 'arecarn/vim-fold-cycle'
 
 " Markdown Preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
