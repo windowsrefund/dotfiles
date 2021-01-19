@@ -1,0 +1,31 @@
+# zathurarc
+
+# open document in fit-width mode by default
+set adjust-open best-fit
+
+# stop at page boundries
+set scroll-page-aware true
+set scroll-full-overlap 0.10
+
+# zoom and scroll step size
+set zoom-step 20
+set scroll-step 40
+
+# copy selection to system clipboard
+set selection-clipboard clipboard
+
+# incremental search
+set incremental-search true
+
+# use sqlite as bookmarks database backend
+set database sqlite
+
+# font
+set font "Hack normal 14"
+
+# key bindings
+map <PageUp> navigate previous
+map <PageDown> navigate next
+
+map + zoom in
+map - zoom out

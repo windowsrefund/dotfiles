@@ -198,6 +198,10 @@ dotfiles:
   f_coc-settings.json:
     src: config/nvim/coc-settings.json
     dst: ~/.config/nvim/coc-settings.json
+  f_zathurarc:
+    src: config/zathura/zathurarc
+    dst: ~/.config/zathura/zathurarc
+    chmod: '644'
 profiles:
   mtf8:
     dotfiles:
@@ -252,6 +256,7 @@ profiles:
     - f_config.rasi
     - f_sequences
     - f_coc-settings.json
+    - f_zathurarc
   libretop:
     dotfiles:
     - f_vimrc
