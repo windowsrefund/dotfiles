@@ -202,6 +202,10 @@ dotfiles:
     src: config/zathura/zathurarc
     dst: ~/.config/zathura/zathurarc
     chmod: '644'
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
+    chmod: '644'
 profiles:
   mtf8:
     dotfiles:
@@ -257,6 +261,7 @@ profiles:
     - f_sequences
     - f_coc-settings.json
     - f_zathurarc
+    - f_zshrc
   libretop:
     dotfiles:
     - f_vimrc
