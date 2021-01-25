@@ -206,6 +206,48 @@ dotfiles:
     src: zshrc
     dst: ~/.zshrc
     chmod: '644'
+  f_better-whitespace.vim:
+    src: config/nvim/plug-config/better-whitespace.vim
+    dst: ~/.config/nvim/plug-config/better-whitespace.vim
+  f_graphviz.vim:
+    src: config/nvim/plug-config/graphviz.vim
+    dst: ~/.config/nvim/plug-config/graphviz.vim
+  f_indentline.vim:
+    src: config/nvim/plug-config/indentLine.vim
+    dst: ~/.config/nvim/plug-config/indentLine.vim
+  f_markdown-preview.vim:
+    src: config/nvim/plug-config/markdown-preview.vim
+    dst: ~/.config/nvim/plug-config/markdown-preview.vim
+  f_polyglot.vim:
+    src: config/nvim/plug-config/polyglot.vim
+    dst: ~/.config/nvim/plug-config/polyglot.vim
+  f_ultisnips.vim:
+    src: config/nvim/plug-config/ultisnips.vim
+    dst: ~/.config/nvim/plug-config/ultisnips.vim
+  f_vim-anyfold.vim:
+    src: config/nvim/plug-config/vim-anyfold.vim
+    dst: ~/.config/nvim/plug-config/vim-anyfold.vim
+  f_vim-fold-cycle.vim:
+    src: config/nvim/plug-config/vim-fold-cycle.vim
+    dst: ~/.config/nvim/plug-config/vim-fold-cycle.vim
+  f_vim-go.vim:
+    src: config/nvim/plug-config/vim-go.vim
+    dst: ~/.config/nvim/plug-config/vim-go.vim
+  f_vim-markdown.vim:
+    src: config/nvim/plug-config/vim-markdown.vim
+    dst: ~/.config/nvim/plug-config/vim-markdown.vim
+  f_vim-terraform.vim:
+    src: config/nvim/plug-config/vim-terraform.vim
+    dst: ~/.config/nvim/plug-config/vim-terraform.vim
+  f_vim-vinegar.vim:
+    src: config/nvim/plug-config/vim-vinegar.vim
+    dst: ~/.config/nvim/plug-config/vim-vinegar.vim
+  f_wal.vim:
+    src: config/nvim/plug-config/wal.vim
+    dst: ~/.config/nvim/plug-config/wal.vim
+  f_which-key.vim:
+    src: config/nvim/plug-config/which-key.vim
+    dst: ~/.config/nvim/plug-config/which-key.vim
 profiles:
   mtf8:
     dotfiles:
@@ -262,6 +304,20 @@ profiles:
     - f_coc-settings.json
     - f_zathurarc
     - f_zshrc
+    - f_better-whitespace.vim
+    - f_graphviz.vim
+    - f_indentline.vim
+    - f_markdown-preview.vim
+    - f_polyglot.vim
+    - f_ultisnips.vim
+    - f_vim-anyfold.vim
+    - f_vim-fold-cycle.vim
+    - f_vim-go.vim
+    - f_vim-markdown.vim
+    - f_vim-terraform.vim
+    - f_vim-vinegar.vim
+    - f_wal.vim
+    - f_which-key.vim
   libretop:
     dotfiles:
     - f_vimrc

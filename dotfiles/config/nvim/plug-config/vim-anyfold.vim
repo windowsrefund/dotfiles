@@ -1,8 +1,8 @@
 " activate anyfold by default
-augroup anyfold
-  autocmd!
-  autocmd FileType * AnyFoldActivate
-augroup END
+" augroup anyfold
+"   autocmd!
+"   autocmd FileType * AnyFoldActivate
+" augroup END
 
 " disable anyfold for large files
 let g:LargeFile = 1000000 " file is large if size is > 1MB

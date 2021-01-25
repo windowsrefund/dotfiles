@@ -30,9 +30,11 @@ let g:which_key_map['b'] = [ ':CocCommand explorer --toggle --sources=buffer+', 
 let g:which_key_map['q'] = [ ':CocAction quickfix', 'quickfix' ]
 let g:which_key_map['w'] = [ '<C-w>', 'window commands' ]
 
-" a is for vim-go
+" a is for actions
 let g:which_key_map.a = {
       \ 'name' : '+actions' ,
+      \ 'a' : [ ':AnyFoldActivate', 'anyfold activate' ],
+      \ 'm' : [ ':MarkdownPreview', 'markdown preview' ],
       \ 'i' : [ ':IndentLinesToggle', 'indentLines toggle' ],
       \ 'h' : [ ':let @/ =""', 'no highlight' ],
       \ 'n' : [ ':set nonumber!', 'nums toggle' ],

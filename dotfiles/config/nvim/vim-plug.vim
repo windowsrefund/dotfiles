@@ -38,7 +38,9 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'pseewald/vim-anyfold'
 Plug 'arecarn/vim-fold-cycle'
 
-" Markdown Preview
+
+" Markdown
+Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 
 " Auto pairs for '(', '[', and '{'
@@ -77,10 +79,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " auto set indent settings
 Plug 'tpope/vim-sleuth'
 
-" better syntax support
-let g:polyglot_disabled = ['csv']
-Plug 'sheerun/vim-polyglot'
-
 " cool icons
 Plug 'ryanoasis/vim-devicons'
 
@@ -95,6 +93,7 @@ Plug 'skywind3000/asyncrun.vim'
 
 " Snippets
 Plug 'honza/vim-snippets'
+Plug 'andrewstuart/vim-kubernetes'
 
 " Easy Align
 Plug 'junegunn/vim-easy-align'
@@ -114,14 +113,21 @@ Plug 'hashivim/vim-terraform'
 " show vertical lines for indent levels
 Plug 'Yggdroot/indentLine'
 
+" better syntax support
+Plug 'sbulav/vim-helm'
+Plug 'sheerun/vim-polyglot'
+
+
 " plugins I should checkout
 " https://github.com/moll/vim-bbye
+" https://github.com/romainl/vim-qf
 
 
 " plugs I've tried and do not like or can't figure out
 
 " requires nvim >= 5.0
 " Plug 'romgrk/barbar.nvim'
+
 
 call plug#end()
 

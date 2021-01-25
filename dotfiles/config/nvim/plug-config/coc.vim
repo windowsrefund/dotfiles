@@ -1,4 +1,5 @@
 let g:coc_global_extensions = [
+  \ 'coc-yaml',
   \ 'coc-snippets',
   \ 'coc-actions',
   \ 'coc-sh',
@@ -6,7 +7,6 @@ let g:coc_global_extensions = [
   \ 'coc-explorer',
   \ 'coc-tasks',
   \ 'coc-pairs',
-  \ 'coc-yaml',
   \ 'coc-jedi',
   \ 'coc-prettier',
   \ 'coc-vimlsp',

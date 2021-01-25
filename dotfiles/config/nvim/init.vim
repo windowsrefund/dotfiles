@@ -19,4 +19,6 @@ source $HOME/.config/nvim/plug-config/which-key.vim
 source $HOME/.config/nvim/plug-config/indentLine.vim
 source $HOME/.config/nvim/plug-config/vim-anyfold.vim
 source $HOME/.config/nvim/plug-config/vim-fold-cycle.vim
+source $HOME/.config/nvim/plug-config/vim-markdown.vim
+source $HOME/.config/nvim/plug-config/markdown-preview.vim
 
