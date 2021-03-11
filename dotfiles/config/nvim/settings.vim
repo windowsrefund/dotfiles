@@ -28,7 +28,7 @@ if !exists('g:vscode')
   set laststatus=2                        " Always display the status line. Use 0 to hide
   set number                              " Line numbers
   set relativenumber
-  set nocursorline                        " Enable highlighting of the current line
+  set cursorline                          " Enable highlighting of the current line
   set background=dark                     " Tell vim what the background color looks like
   set showtabline=1                       " Show tabline when 2 or more pages open
   set noshowmode                          " We don't need to see things like -- INSERT -- anymore

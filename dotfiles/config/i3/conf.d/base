@@ -1,7 +1,7 @@
 set $term alacritty
 # set $term termite
 # follow mouse for window focus
-focus_follows_mouse no
+focus_follows_mouse yes
 
 floating_modifier $mod
 

@@ -28,9 +28,15 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+Plug 'ThePrimeagen/vim-be-good'
+
 " themes
+Plug 'KeitaNakamura/neodark.vim'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'sonph/onehalf', {'rtp': 'vim'}
 Plug 'dylanaraps/wal.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'jacoborus/tender.vim'
 Plug 'ap/vim-css-color'
 Plug 'edkolev/tmuxline.vim'
 

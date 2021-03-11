@@ -5,9 +5,6 @@ export EDITOR=nvim
 # Path to your oh-my-zsh installation.
 export ZSH="/home/akosmin/.oh-my-zsh"
 
-# zsh stuff
-export DISABLE_AUTO_TITLE='true'
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -125,8 +122,6 @@ export PATH=$PATH:$GOPATH/bin
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi="nvim"
-alias vimdiff="nvim -d"
 alias dashboard-token='kubectl -n kubernetes-dashboard describe secret dashboard-admin-token | awk "/^token/ {print $1}"'
 alias dashboard-forward='kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard 8001:443'
 
@@ -148,9 +143,6 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 alias mutt-adamkosmin='MUTT_PROFILE=adamkosmin mutt'
 alias mutt-mtf8='MUTT_PROFILE=mtf8 mutt'
 alias mutt-nycpatriot='MUTT_PROFILE=nycpatriot mutt'
-alias nv="nvim"
-alias cv="nvim -u ~/.config/nvim/init_coc.vim"
-alias lv="nvim -u ~/.config/nvim/init_LanguageClient-neovim.vim"
 alias bt='echo 0 | gdb -batch-silent -ex "run" -ex "set logging overwrite on" -ex "set logging file gdb.bt" -ex "set logging on" -ex "set pagination off" -ex "handle SIG33 pass nostop noprint" -ex "echo backtrace:\n" -ex "backtrace full" -ex "echo \n\nregisters:\n" -ex "info registers" -ex "echo \n\ncurrent instructions:\n" -ex "x/16i \$pc" -ex "echo \n\nthreads backtrace:\n" -ex "thread apply all backtrace" -ex "set logging off" -ex "quit" --args'
 alias tf="terraform"
 if [ -e /home/akosmin/.nix-profile/etc/profile.d/nix.sh ]; then . /home/akosmin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

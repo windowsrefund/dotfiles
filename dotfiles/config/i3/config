@@ -13,10 +13,12 @@ set $ws1 1
 set $ws2 2
 set $ws3 3
 set $ws4 4
+set $ws5 5
+set $ws6 6
 set $term alacritty
 # set $term termite
 # follow mouse for window focus
-focus_follows_mouse no
+focus_follows_mouse yes
 
 floating_modifier $mod
 
@@ -91,7 +93,6 @@ bindsym $mod+m focus mode_toggle
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 #bindsym $mod+minus scratchpad show
-
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -182,6 +183,8 @@ workspace $ws1 output $monitor-left
 workspace $ws2 output $monitor-right
 workspace $ws3 output $monitor-left
 workspace $ws4 output $monitor-right
+workspace $ws5 output $monitor-left
+workspace $ws6 output $monitor-right
 
 # workspace back and forth
 workspace_auto_back_and_forth yes
@@ -199,18 +202,24 @@ bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
 
 # Send focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
 
 # Move to workspace and bring focused container
 bindsym $mod+Control+1 move container to workspace $ws1; workspace $ws1
 bindsym $mod+Control+2 move container to workspace $ws2; workspace $ws2
 bindsym $mod+Control+3 move container to workspace $ws3; workspace $ws3
 bindsym $mod+Control+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Control+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Control+6 move container to workspace $ws6; workspace $ws6
 
 # move workspace between screens
 bindsym $mod+bracketleft move workspace to output left
@@ -264,8 +273,18 @@ assign [class="^Firefox$"] $ws2
 #for_window [title="^Home Page - Select or create a notebook - Mozilla Firefox$"] move workspace $ws1
 
 # qtractor in a single window
-#for_window [class="(?i)Qtractor" instance="(?i)Qtractor"] floating enable border normal
-#assign [class="(?i)Qtractor" instance="(?i)Qtractor"] $ws4
+# for_window [class="(?i)Qtractor" instance="(?i)Qtractor"] floating enable border normal
+
+# title is WM_NAME
+for_window [class="(?i)Qtractor" title="Mixer"] floating disable
+for_window [class="(?i)Qtractor" title="^Calf*"] floating enable
+assign [class="(?i)carla" instance="(?i)Carla2"] $ws5
+assign [class="(?i)Qtractor" title="(?i)Qtractor"] $ws4
+assign [class="(?i)Qtractor" title="Mixer"] $ws3
+assign [class="(?i)Qtractor" title="^Aux Send*"] $ws3
+assign [class="(?i)Qtractor" title="^Calf*"] $ws3
+# for_window [title="^Carla-Rack"] floating enable
+# for_window [class="(?i)Qtractor" title="Mixer"] border normal
 
 # konfyt
 # assign [class="konfyt"] $ws3
@@ -295,6 +314,6 @@ for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="Xephyr"] floating disable
 for_window [class="Xephyr"] floating disable
-for_window [class="Qtractor"] border off
 # on every restart
 exec_always --no-startup-id xrdb -merge ~/.Xresources
+# exec_always --no-startup-id i3-msg 'workspace $ws1; $term'

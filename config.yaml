@@ -183,9 +183,6 @@ dotfiles:
   f_coc.vim:
     src: config/nvim/plug-config/coc.vim
     dst: ~/.config/nvim/plug-config/coc.vim
-  f_lightline.vim:
-    src: config/nvim/plug-config/lightline.vim
-    dst: ~/.config/nvim/plug-config/lightline.vim
   f_colors-rofi-dark.rasi:
     src: config/wal/templates/colors-rofi-dark.rasi
     dst: ~/.config/wal/templates/colors-rofi-dark.rasi
@@ -297,7 +294,6 @@ profiles:
     - f_mappings.vim
     - d_plug-config
     - f_coc.vim
-    - f_lightline.vim
     - f_colors-rofi-dark.rasi
     - f_config.rasi
     - f_sequences
