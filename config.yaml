@@ -245,6 +245,9 @@ dotfiles:
   f_which-key.vim:
     src: config/nvim/plug-config/which-key.vim
     dst: ~/.config/nvim/plug-config/which-key.vim
+  f_shortcuts.yaml:
+    src: local/share/zrythm/shortcuts.yaml
+    dst: ~/.local/share/zrythm/shortcuts.yaml
 profiles:
   mtf8:
     dotfiles:
@@ -314,6 +317,7 @@ profiles:
     - f_vim-vinegar.vim
     - f_wal.vim
     - f_which-key.vim
+    - f_shortcuts.yaml
   libretop:
     dotfiles:
     - f_vimrc

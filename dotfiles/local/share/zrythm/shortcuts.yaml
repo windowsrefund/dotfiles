@@ -1,0 +1,25 @@
+---
+schema_version: 1
+shortcuts:
+  - action: app.loop-selection
+    shortcut: r
+  - action: app.toggle-bot-panel
+    shortcut: x
+  - action: app.copy
+    shortcut: c
+  - action: app.paste
+    shortcut: v
+  - action: app.delete
+    shortcut: d
+  - action: app.select-mode
+    shortcut: s
+  - action: app.select-all
+    shortcut: a
+  - action: app.edit-mode
+    shortcut: w
+  - action: app.goto-prev-marker
+    shortcut: b
+  - action: app.goto-next-marker
+    shortcut: f
+  - action: app.merge-selection
+    shortcut: g
