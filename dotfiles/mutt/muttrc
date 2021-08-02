@@ -43,7 +43,7 @@ set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 # pager options
 auto_view text/html                                         # view html automatically
 auto_view text/calendar                                     # view ical
-alternative_order text/plain text/enriched text/html text/*
+alternative_order text/plain text/enriched text/html        # save html for last 
 set status_on_top
 set pager_stop                                              # do not go to the next message automatically
 set smart_wrap                                              # do not split words

@@ -10,8 +10,6 @@ Host *
   ControlMaster auto
   ControlPath ~/.ssh/%r@%h:%p
   UseRoaming no
-Host extreme
-  Port 5554
 Host nyc
   Hostname nycpatriot.org
   Port 5554
@@ -20,11 +18,10 @@ Host nyc
   LocalForward 8025 localhost:25
   ServerAliveInterval 30
   ServerAliveCountMax 3
-Host *.mylabserver.com
-  User cloud_user
-  IdentityFile ~/.ssh/id_rsa_mylabserver
 Host adamkosmin.info
   Port 5554
+Host kworker3 kworker2 kworker1 kmaster1
+  UserKnownHostsFile=/dev/null
 Host github.com-ds
   Hostname github.com
   User git

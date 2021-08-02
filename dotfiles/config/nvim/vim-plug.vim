@@ -44,19 +44,29 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'pseewald/vim-anyfold'
 Plug 'arecarn/vim-fold-cycle'
 
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 
 " Markdown
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 
-" Auto pairs for '(', '[', and '{'
-Plug 'jiangmiao/auto-pairs'
+" Closes brackets when Enter key is pressed
+Plug 'rstacruz/vim-closer'
 
 " fancy start screen
 Plug 'mhinz/vim-startify'
 
-" file manager
+" file tree viewer
 Plug 'tpope/vim-vinegar'
+
+" Plug 'antoinemadec/FixCursorHold.nvim'
+" Plug 'lambdalisue/nerdfont.vim'
+" Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+" Plug 'lambdalisue/glyph-palette.vim'
+" Plug 'lambdalisue/fern.vim'
 
 " open focus to last place of file
 Plug 'farmergreg/vim-lastplace'
@@ -79,23 +89,20 @@ Plug 'liuchengxu/vim-which-key'
 " golang
 Plug 'fatih/vim-go'
 
-" intellisense
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" native LSP
+Plug 'neovim/nvim-lspconfig'
+
+" autocomplete
+Plug 'hrsh7th/nvim-compe'
 
 " auto set indent settings
 Plug 'tpope/vim-sleuth'
-
-" cool icons
-Plug 'ryanoasis/vim-devicons'
 
 " smooth scroll
 Plug 'psliwka/vim-smoothie'
 
 " show trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
-
-" async tasks Plug 'skywind3000/asynctasks.vim'
-Plug 'skywind3000/asyncrun.vim'
 
 " Snippets
 Plug 'honza/vim-snippets'
@@ -125,11 +132,13 @@ Plug 'sheerun/vim-polyglot'
 
 
 " plugins I should checkout
-" https://github.com/moll/vim-bbye
-" https://github.com/romainl/vim-qf
+" romgrk/barbar.nvim
+" moll/vim-bbye
+" romainl/vim-qf
 
 
 " plugs I've tried and do not like or can't figure out
+" jiangmiao/auto-pairs - vim-closer is better
 
 " requires nvim >= 5.0
 " Plug 'romgrk/barbar.nvim'

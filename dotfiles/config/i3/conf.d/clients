@@ -1,29 +1,31 @@
-# Firefox
-assign [class="^Firefox$"] $ws2
-# for_window [title="^Twitch - Mozilla Firefox$"] move workspace $ws1
-
-# Twitch chat
-#for_window [title="^mtf8_music - Twitch - Mozilla Firefox$"] move workspace $ws1
-
-# jupyter notebook
-#for_window [title="^Home Page - Select or create a notebook - Mozilla Firefox$"] move workspace $ws1
-
-# qtractor in a single window
-# for_window [class="(?i)Qtractor" instance="(?i)Qtractor"] floating enable border normal
-
 # title is WM_NAME
-for_window [class="(?i)Qtractor" title="Mixer"] floating disable
-for_window [class="(?i)Qtractor" title="^Calf*"] floating enable
-assign [class="(?i)carla" instance="(?i)Carla2"] $ws5
-assign [class="(?i)Qtractor" title="(?i)Qtractor"] $ws4
+assign [class="^Firefox$"] $ws2
+assign [class="Carla2"] $ws5
+assign [class="Konfyt"] $ws6
 assign [class="(?i)Qtractor" title="Mixer"] $ws3
+# assign [class="(?i)Qtractor" title="Plugins"] $ws3
 assign [class="(?i)Qtractor" title="^Aux Send*"] $ws3
 assign [class="(?i)Qtractor" title="^Calf*"] $ws3
+assign [class="(?i)Qtractor" title="^B.*"] $ws3
+# assign [class="(?i)Qtractor" title="^EQ*"] $ws3
+assign [class="(?i)Qtractor" title="(?i)Qtractor"] $ws4
+assign [class="(?i)Zrythm" title="Mixer"] $ws3
+assign [class="(?i)Zrythm" title="(?i)Zrythm"] $ws4
+
+for_window [class="(?i)Zrythm" title="Mixer"] floating disable
+for_window [class="(?i)Qtractor" title="Mixer"] floating disable
+for_window [class="(?i)Qtractor" title="^Calf*"] floating enable
+for_window [class="(?i)Qtractor" title="^EQ*"] floating enable
+for_window [class="(?i)Qtractor" title="^CS*"] floating enable
+for_window [class="(?i)Qtractor" title="^B.*"] floating enable
+# This has to be last
 # for_window [title="^Carla-Rack"] floating enable
 # for_window [class="(?i)Qtractor" title="Mixer"] border normal
 
 # konfyt
-# assign [class="konfyt"] $ws3
+
+# jack-keyboard
+for_window [instance="jack-keyboard"] floating enable
 
 # key-mon
 for_window [instance="key-mon"] floating enable
@@ -34,15 +36,6 @@ for_window [instance="kmag"] floating enable
 # rofi
 #bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"
 bindsym $mod+d exec --no-startup-id rofi -show run
-
-# zrythm
-assign [class="^Zrythm$"] $ws4
-
-# OBS
-# assign [class="^obs$"] $ws1
-
-# VirtualBox
-assign [class="^VirtualBox Manager$"] $ws3
 
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal

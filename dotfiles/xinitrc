@@ -51,4 +51,3 @@ exec i3 -V > /tmp/i3.log
 # exec bspwm
 #  exec i3 -c ~/.config/i3/config.min -V > /tmp/i3.log
 #exec startxfce4
-
