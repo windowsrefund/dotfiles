@@ -1,7 +1,7 @@
 ---
 schema_version: 2
 shortcuts:
-  - action: app.save-as
+  - action: app.save
     primary: <Shift>s
   - action: app.loop-selection
     primary: r
