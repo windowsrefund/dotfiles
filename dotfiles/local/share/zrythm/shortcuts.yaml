@@ -1,25 +1,27 @@
 ---
-schema_version: 1
+schema_version: 2
 shortcuts:
+  - action: app.save-as
+    primary: <Shift>s
   - action: app.loop-selection
-    shortcut: r
+    primary: r
   - action: app.toggle-bot-panel
-    shortcut: x
+    primary: x
   - action: app.copy
-    shortcut: c
+    primary: c
   - action: app.paste
-    shortcut: v
+    primary: v
   - action: app.delete
-    shortcut: d
+    primary: d
   - action: app.select-mode
-    shortcut: s
+    primary: s
   - action: app.select-all
-    shortcut: a
+    primary: a
   - action: app.edit-mode
-    shortcut: w
+    primary: w
   - action: app.goto-prev-marker
-    shortcut: b
+    primary: b
   - action: app.goto-next-marker
-    shortcut: f
+    primary: f
   - action: app.merge-selection
-    shortcut: g
+    primary: g

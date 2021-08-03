@@ -266,7 +266,6 @@ bar {
 assign [class="^Firefox$"] $ws2
 assign [class="Carla2"] $ws5
 assign [class="Konfyt"] $ws6
-assign [class="^Zrythm$"] $ws3
 assign [class="(?i)Qtractor" title="Mixer"] $ws3
 # assign [class="(?i)Qtractor" title="Plugins"] $ws3
 assign [class="(?i)Qtractor" title="^Aux Send*"] $ws3
@@ -274,7 +273,10 @@ assign [class="(?i)Qtractor" title="^Calf*"] $ws3
 assign [class="(?i)Qtractor" title="^B.*"] $ws3
 # assign [class="(?i)Qtractor" title="^EQ*"] $ws3
 assign [class="(?i)Qtractor" title="(?i)Qtractor"] $ws4
+assign [class="(?i)Zrythm" title="Mixer"] $ws3
+assign [class="(?i)Zrythm" title="(?i)Zrythm"] $ws4
 
+for_window [class="(?i)Zrythm" title="Mixer"] floating disable
 for_window [class="(?i)Qtractor" title="Mixer"] floating disable
 for_window [class="(?i)Qtractor" title="^Calf*"] floating enable
 for_window [class="(?i)Qtractor" title="^EQ*"] floating enable
