@@ -25,3 +25,7 @@ shortcuts:
     primary: f
   - action: app.merge-selection
     primary: g
+  - action: app.undo
+    primary: z
+  - action: app.quantize-options:global
+    primary: q
