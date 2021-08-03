@@ -27,5 +27,5 @@ shortcuts:
     primary: g
   - action: app.undo
     primary: z
-  - action: app.quantize-options:global
+  - action: app.quantize-options::global
     primary: q
