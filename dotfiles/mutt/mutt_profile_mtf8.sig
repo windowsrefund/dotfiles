@@ -1,5 +1,4 @@
-Bandcamp:     http://mtf8.bandcamp.com
-Twitter:      http://twitter.com/mtf8_music
-Instagram:    http://instagram.com/mtf8_music
+Support this music at https://mtf8.carrd.co
+
 
 There is only fate

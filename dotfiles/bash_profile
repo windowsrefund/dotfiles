@@ -21,4 +21,6 @@ fi
   find .ssh/ -name "id_*_*" | grep -v pub | xargs ssh-add
   touch /tmp/keys_added
 }
-if [ -e /home/akosmin/.nix-profile/etc/profile.d/nix.sh ]; then . /home/akosmin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# if [ -e /home/akosmin/.nix-profile/etc/profile.d/nix.sh ]; then . /home/akosmin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+

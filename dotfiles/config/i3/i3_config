@@ -6,6 +6,10 @@ INCLUDES=${I3_PATH}/i3_config.inc
 
 [[ -d $CONF_D_PATH ]] || error Missing directory: $CONF_D
 
+usage() {
+  echo "$(basename $0) reload|restart"
+}
+
 error() {
   echo $@
   exit 1
@@ -45,5 +49,8 @@ done
 case $1 in
   reload|restart)
     i3-msg $1
+    ;;
+  *)
+    usage
     ;;
 esac

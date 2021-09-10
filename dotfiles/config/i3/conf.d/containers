@@ -46,4 +46,3 @@ bindsym $mod+m focus mode_toggle
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
-

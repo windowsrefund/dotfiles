@@ -113,6 +113,6 @@ lvim.lang.python.linters = { { exe = 'flake8' } }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 lvim.autocommands.custom_groups = {
-  { "Filetype", "python", "nnoremap <buffer> <leader>r :w<CR>:!python %<CR>" },
+  { "Filetype", "python", "nnoremap <buffer> <leader>r :w<CR>:!python3 %<CR>" },
   { "Filetype", "sh", "nnoremap <buffer> <leader>r :w<CR>:!sh %<CR>" },
 }

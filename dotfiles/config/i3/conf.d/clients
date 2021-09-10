@@ -2,15 +2,15 @@
 assign [class="^Firefox$"] $ws2
 assign [class="Carla2"] $ws5
 assign [class="Konfyt"] $ws6
-assign [class="(?i)Qtractor" title="Mixer"] $ws3
-# assign [class="(?i)Qtractor" title="Plugins"] $ws3
-assign [class="(?i)Qtractor" title="^Aux Send*"] $ws3
-assign [class="(?i)Qtractor" title="^Calf*"] $ws3
-assign [class="(?i)Qtractor" title="^B.*"] $ws3
+assign [class="(?i)Qtractor" title="Mixer"] $ws4
+# assign [class="(?i)Qtractor" title="Plugins"] $ws4
+assign [class="(?i)Qtractor" title="^Aux Send*"] $ws4
+assign [class="(?i)Qtractor" title="^Calf*"] $ws4
+assign [class="(?i)Qtractor" title="^B.*"] $ws4
 # assign [class="(?i)Qtractor" title="^EQ*"] $ws3
-assign [class="(?i)Qtractor" title="(?i)Qtractor"] $ws4
-assign [class="(?i)Zrythm" title="Mixer"] $ws3
-assign [class="(?i)Zrythm" title="(?i)Zrythm"] $ws4
+assign [class="(?i)Qtractor" title="(?i)Qtractor"] $ws3
+assign [class="(?i)Zrythm" title="Mixer"] $ws4
+assign [class="(?i)Zrythm" title="(?i)Zrythm"] $ws3
 
 for_window [class="(?i)Zrythm" title="Mixer"] floating disable
 for_window [class="(?i)Qtractor" title="Mixer"] floating disable
@@ -34,8 +34,10 @@ for_window [instance="key-mon"] floating enable
 for_window [instance="kmag"] floating enable
 
 # rofi
-#bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"
 bindsym $mod+d exec --no-startup-id rofi -show run
+
+# spacevim
+bindsym $mod+n exec --no-startup-id spacefm
 
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal

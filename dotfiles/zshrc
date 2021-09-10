@@ -1,5 +1,22 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:$HOME/.local/share/yabridge:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+# yabridge
+if [ -d "$HOME/.local/share/yabridge" ]; then
+  PATH="$HOME/.local/share/yabridge:$PATH"
+fi
+
+# wine with TkG patches
+if [ -d "$HOME/.local/share/yabridge/wine-6.14-staging-tkg-amd64/bin" ]; then
+  PATH="$HOME/local/share/yabridge/wine-6.14-staging-tkg-amd64/bin:$PATH"
+  export WINEFSYNC=1
+fi
+
+# npm-global permissions workaround
+if [ -d "$HOME/.npm-global" ]; then
+  PATH="$HOME/.npm-global:$PATH"
+fi
+
 export EDITOR=nvim
 export BROWSER=firefox
 
@@ -147,8 +164,9 @@ alias mutt-nycpatriot='MUTT_PROFILE=nycpatriot mutt'
 alias bt='echo 0 | gdb -batch-silent -ex "run" -ex "set logging overwrite on" -ex "set logging file gdb.bt" -ex "set logging on" -ex "set pagination off" -ex "handle SIG33 pass nostop noprint" -ex "echo backtrace:\n" -ex "backtrace full" -ex "echo \n\nregisters:\n" -ex "info registers" -ex "echo \n\ncurrent instructions:\n" -ex "x/16i \$pc" -ex "echo \n\nthreads backtrace:\n" -ex "thread apply all backtrace" -ex "set logging off" -ex "quit" --args'
 alias tf="terraform"
 alias kdebug="kubectl run -i --rm --tty debug --image=alpine --restart=Never -- sh"
-if [ -e /home/akosmin/.nix-profile/etc/profile.d/nix.sh ]; then . /home/akosmin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+# if [ -e /home/akosmin/.nix-profile/etc/profile.d/nix.sh ]; then . /home/akosmin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/akosmin/.asdf/installs/terraform/0.13.5/bin/terraform terraform
 bindkey '^o' autosuggest-accept
+
