@@ -248,6 +248,9 @@ dotfiles:
   f_shortcuts.yaml:
     src: local/share/zrythm/shortcuts.yaml
     dst: ~/.local/share/zrythm/shortcuts.yaml
+  f_config.lua:
+    src: config/lvim/config.lua
+    dst: ~/.config/lvim/config.lua
 profiles:
   mtf8:
     dotfiles:
@@ -318,6 +321,7 @@ profiles:
     - f_wal.vim
     - f_which-key.vim
     - f_shortcuts.yaml
+    - f_config.lua
   libretop:
     dotfiles:
     - f_vimrc
