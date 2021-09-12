@@ -3,6 +3,9 @@ vim.opt.relativenumber = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+
 -- Format
 lvim.format_on_save = true
 
@@ -53,16 +56,18 @@ lvim.keys.normal_mode = {
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 
--- Dashboard
+-- Builtins
 lvim.builtin.dashboard.active = true
-
--- Terminal
 lvim.builtin.terminal.active = true
+lvim.builtin.dap.active = true
+lvim.builtin.bufferline.active = true
+lvim.builtin.nvimtree.quit_on_open = 1
 
 -- Nvimtree
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 1
 lvim.builtin.nvimtree.hide_dotfiles = 0
+lvim.builtin.nvimtree.indent_markers = 1
 
 -- Treesitter
 lvim.builtin.treesitter.ensure_installed = "maintained"
@@ -70,10 +75,8 @@ lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.matchup.enable = true
 lvim.builtin.treesitter.context_commentstring.enable = true
-lvim.builtin.treesitter.ident = { enable = true, disable = { "yaml", "python" } } -- https://github.com/LunarVim/LunarVim/issues/1513
+lvim.builtin.treesitter.indent = { enable = true, disable = { "yaml", "python" } } -- https://github.com/LunarVim/LunarVim/issues/1513
 
--- Debugger Support (Debug Adaptor Protocol)
-lvim.builtin.dap.active = true
 
 -- LSP
 -- you can set a custom on_attach function that will be used for all the language servers
@@ -108,16 +111,20 @@ lvim.lang.python.linters = {{ exe = 'flake8' }}
 lvim.lang.go.formatters = {{ exe = "goimports" }}
 
 -- Additional Plugins
--- lvim.plugins = {
---     {"folke/tokyonight.nvim"}, {
---         "ray-x/lsp_signature.nvim",
---         config = function() require"lsp_signature".on_attach() end,
---         event = "InsertEnter"
---     }
--- }
+lvim.plugins = {
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
+  { "vimjas/vim-python-pep8-indent"},
+}
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 lvim.autocommands.custom_groups = {
   { "Filetype", "python", "nnoremap <buffer> <leader>r :w<CR>:!python3 %<CR>" },
   { "Filetype", "sh", "nnoremap <buffer> <leader>r :w<CR>:!sh %<CR>" },
 }
+
+-- Cursor line wrap
+lvim.line_wrap_cursor_movement = true
+
