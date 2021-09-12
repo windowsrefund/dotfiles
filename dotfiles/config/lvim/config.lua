@@ -70,6 +70,10 @@ lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.matchup.enable = true
 lvim.builtin.treesitter.context_commentstring.enable = true
+lvim.builtin.treesitter.ident = { enable = true, disable = { "yaml", "python" } } -- https://github.com/LunarVim/LunarVim/issues/1513
+
+-- Debugger Support (Debug Adaptor Protocol)
+lvim.builtin.dap.active = true
 
 -- LSP
 -- you can set a custom on_attach function that will be used for all the language servers
@@ -99,8 +103,9 @@ lvim.builtin.treesitter.context_commentstring.enable = true
 lvim.lsp.diagnostics.virtual_text = false
 
 -- Lang
-lvim.lang.python.formatters = { { exe = "black" } }
-lvim.lang.python.linters = { { exe = 'flake8' } }
+lvim.lang.python.formatters = {{ exe = "black" }}
+lvim.lang.python.linters = {{ exe = 'flake8' }}
+lvim.lang.go.formatters = {{ exe = "goimports" }}
 
 -- Additional Plugins
 -- lvim.plugins = {

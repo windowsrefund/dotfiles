@@ -251,6 +251,9 @@ dotfiles:
   f_config.lua:
     src: config/lvim/config.lua
     dst: ~/.config/lvim/config.lua
+  d_ftplugin:
+    src: config/lvim/ftplugin
+    dst: ~/.config/lvim/ftplugin
 profiles:
   mtf8:
     dotfiles:
@@ -322,6 +325,7 @@ profiles:
     - f_which-key.vim
     - f_shortcuts.yaml
     - f_config.lua
+    - d_ftplugin
   libretop:
     dotfiles:
     - f_vimrc
