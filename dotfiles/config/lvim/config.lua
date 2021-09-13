@@ -112,11 +112,53 @@ lvim.lang.go.formatters = {{ exe = "goimports" }}
 
 -- Additional Plugins
 lvim.plugins = {
+  { "vimjas/vim-python-pep8-indent"},
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
-  { "vimjas/vim-python-pep8-indent"},
+  {
+    "andymass/vim-matchup",
+    event = "CursorMoved",
+    config = function()
+      require "user.matchup"
+    end,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require "user.blankline"
+    end,
+  },
+  {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("user.neoscroll").config()
+    end,
+  },
+  {
+    "unblevable/quick-scope",
+    config = function()
+      require "user.quickscope"
+    end,
+  },
+  {
+    "kevinhwang91/nvim-bqf",
+    event = "BufRead",
+  },
+  {
+    "ethanholz/nvim-lastplace",
+    event = "BufRead",
+    config = function()
+      require("nvim-lastplace").setup({
+        lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+        lastplace_ignore_filetype = {
+          "gitcommit", "gitrebase", "svn", "hgcommit",
+        },
+        lastplace_open_folds = true,
+      })
+    end,
+	},
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
