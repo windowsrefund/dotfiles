@@ -1,28 +1,38 @@
+-- https://github.com/ChristianChiarulli/lvim/blob/master/config.lua
+
 -- Settings
 vim.opt.relativenumber = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+-- vim.opt.completeopt = {'menuone','noinsert','noselect'}
 
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
 
--- Format
-lvim.format_on_save = true
-
--- Linting
-lvim.lint_on_save = true
-
+-- General
 lvim.colorscheme = "onedarker"
+lvim.format_on_save = true
+lvim.lint_on_save = true
 
 -- Key mappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+lvim.keys. insert_mode = {
+  ["<C-\\>"] = "<C-o>o",
+}
 lvim.keys.normal_mode = {
+  ["<"] = "<<",
+  [">"] = ">>",
+  -- Make Y work like C or D
+  ["Y"] = "y$",
   -- QuickFix
   ["]q"] = ":cnext<CR>",
   ["[q"] = ":cprev<CR>",
-  ["<C-q>"] = ":call QuickFixToggle()<CR>",
+  ["-q"] = ":cclose<CR>",
+  -- buffers
+  ["]b"] = ":bn<CR>",
+  ["[b"] = ":bp<CR>",
+  ["-b"] = ":bd<CR>",
 }
-
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = ""
 -- edit a default keymapping
@@ -42,17 +52,9 @@ lvim.keys.normal_mode = {
 --   lvim.builtin.telescope.defaults.mappings.n["<C-k>"] = actions.move_selection_previous
 -- end
 
--- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnosticss" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnosticss" },
--- }
+-- Whichkey
+lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
+lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 
@@ -62,6 +64,7 @@ lvim.builtin.terminal.active = true
 lvim.builtin.dap.active = true
 lvim.builtin.bufferline.active = true
 lvim.builtin.nvimtree.quit_on_open = 1
+-- lvim.builtin.cmp.confirm_opts.select = false
 
 -- Nvimtree
 lvim.builtin.nvimtree.side = "left"
@@ -77,32 +80,7 @@ lvim.builtin.treesitter.matchup.enable = true
 lvim.builtin.treesitter.context_commentstring.enable = true
 lvim.builtin.treesitter.indent = { enable = true, disable = { "yaml", "python" } } -- https://github.com/LunarVim/LunarVim/issues/1513
 
-
 -- LSP
--- you can set a custom on_attach function that will be used for all the language servers
--- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
--- lvim.lsp.on_attach_callback = function(client, bufnr)
---   local function buf_set_option(...)
---     vim.api.nvim_buf_set_option(bufnr, ...)
---   end
---   --Enable completion triggered by <c-x><c-o>
---   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
--- end
--- you can overwrite the null_ls setup table (useful for setting the root_dir function)
--- lvim.lsp.null_ls.setup = {
---   root_dir = require("lspconfig").util.root_pattern("Makefile", ".git", "node_modules"),
--- }
--- or if you need something more advanced
--- lvim.lsp.null_ls.setup.root_dir = function(fname)
---   if vim.bo.filetype == "javascript" then
---     return require("lspconfig/util").root_pattern("Makefile", ".git", "node_modules")(fname)
---       or require("lspconfig/util").path.dirname(fname)
---   elseif vim.bo.filetype == "php" then
---     return require("lspconfig/util").root_pattern("Makefile", ".git", "composer.json")(fname) or vim.fn.getcwd()
---   else
---     return require("lspconfig/util").root_pattern("Makefile", ".git")(fname) or require("lspconfig/util").path.dirname(fname)
---   end
--- end
 lvim.lsp.diagnostics.virtual_text = false
 
 -- Lang
@@ -112,8 +90,11 @@ lvim.lang.go.formatters = {{ exe = "goimports" }}
 
 -- Additional Plugins
 lvim.plugins = {
+  { "lunarvim/colorschemes"},
+  { "folke/tokyonight.nvim"},
   { "vimjas/vim-python-pep8-indent"},
   {
+    -- Pretty list for diagnostics, references, telescope results, quickfix and location lists
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
@@ -137,6 +118,7 @@ lvim.plugins = {
     end,
   },
   {
+    -- highlight unique characters on a line with f and F
     "unblevable/quick-scope",
     config = function()
       require "user.quickscope"
