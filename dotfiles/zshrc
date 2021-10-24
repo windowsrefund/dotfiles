@@ -95,7 +95,6 @@ plugins=(
   kube-ps1
   kubectl
   helm
-  zsh_reload
   ssh-agent
   gpg-agent
   git

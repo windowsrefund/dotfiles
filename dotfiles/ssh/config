@@ -18,6 +18,8 @@ Host nyc
   LocalForward 8025 localhost:25
   ServerAliveInterval 30
   ServerAliveCountMax 3
+host lede
+  User root
 Host adamkosmin.info
   Port 5554
 Host kworker3 kworker2 kworker1 kmaster1

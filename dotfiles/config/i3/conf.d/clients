@@ -6,7 +6,7 @@ assign [class="(?i)Qtractor" title="Mixer"] $ws4
 # assign [class="(?i)Qtractor" title="Plugins"] $ws4
 assign [class="(?i)Qtractor" title="^Aux Send*"] $ws4
 assign [class="(?i)Qtractor" title="^Calf*"] $ws4
-assign [class="(?i)Qtractor" title="^B.*"] $ws4
+# assign [class="(?i)Qtractor" title="^B.*"] $ws4
 # assign [class="(?i)Qtractor" title="^EQ*"] $ws3
 assign [class="(?i)Qtractor" title="(?i)Qtractor"] $ws3
 assign [class="(?i)Zrythm" title="Mixer"] $ws4
@@ -17,7 +17,7 @@ for_window [class="(?i)Qtractor" title="Mixer"] floating disable
 for_window [class="(?i)Qtractor" title="^Calf*"] floating enable
 for_window [class="(?i)Qtractor" title="^EQ*"] floating enable
 for_window [class="(?i)Qtractor" title="^CS*"] floating enable
-for_window [class="(?i)Qtractor" title="^B.*"] floating enable
+# for_window [class="(?i)Qtractor" title="^B.*"] floating enable
 # This has to be last
 # for_window [title="^Carla-Rack"] floating enable
 # for_window [class="(?i)Qtractor" title="Mixer"] border normal
