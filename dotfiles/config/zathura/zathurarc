@@ -2,10 +2,11 @@
 
 # open document in fit-width mode by default
 set adjust-open best-fit
+set pages-per-row 1
 
 # stop at page boundries
 set scroll-page-aware true
-set scroll-full-overlap 0.10
+set scroll-full-overlap 0.001
 
 # zoom and scroll step size
 set zoom-step 20
@@ -24,8 +25,8 @@ set database sqlite
 set font "Hack normal 14"
 
 # key bindings
+map b navigate previous
 map <PageUp> navigate previous
 map <PageDown> navigate next
-
 map + zoom in
 map - zoom out

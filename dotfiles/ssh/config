@@ -1,3 +1,4 @@
+
 Host *
   ForwardAgent yes
   ForwardX11 no
@@ -20,7 +21,7 @@ Host nyc
   ServerAliveCountMax 3
 host lede
   User root
-Host adamkosmin.info
+Host *adamkosmin.info
   Port 5554
 Host kworker3 kworker2 kworker1 kmaster1
   UserKnownHostsFile=/dev/null
@@ -29,3 +30,6 @@ Host github.com-ds
   User git
   ProxyCommand nc -x localhost:9999 %h %p
   IdentityFile ~/.ssh/id_rsa_dstillery
+Host ct???
+  CheckHostIP no
+  User root

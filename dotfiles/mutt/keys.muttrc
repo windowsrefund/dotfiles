@@ -28,7 +28,6 @@
   bind index R group-reply
   macro index \cr "<enter-command>source ~/.mutt/muttrc<enter>"         "Reload muttrc"
   macro index \er "<tag-prefix><clear-flag>N"                           "mark tagged messages as read"
-  # macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
 
 # pager map
   bind pager x sync-mailbox
@@ -48,7 +47,7 @@
 # browser map
 
 # editor map
-  bind editor <Tab> complete-query
+  bind editor <Tab> complete
 
 # compose map
   bind compose p pgp-menu
@@ -56,4 +55,3 @@
 # pgp map
 
 # postpone map
-

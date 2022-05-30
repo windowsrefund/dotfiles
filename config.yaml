@@ -36,9 +36,6 @@ dotfiles:
   f_systemd-optimize.sh:
     src: bin/systemd-optimize.sh
     dst: ~/bin/systemd-optimize.sh
-  f_init.vim:
-    src: config/nvim/init.vim
-    dst: ~/.config/nvim/init.vim
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
@@ -168,21 +165,6 @@ dotfiles:
   d_bashrc.d:
     src: bashrc.d
     dst: ~/.bashrc.d
-  f_settings.vim:
-    src: config/nvim/settings.vim
-    dst: ~/.config/nvim/settings.vim
-  f_vim-plug.vim:
-    src: config/nvim/vim-plug.vim
-    dst: ~/.config/nvim/vim-plug.vim
-  f_mappings.vim:
-    src: config/nvim/mappings.vim
-    dst: ~/.config/nvim/mappings.vim
-  d_plug-config:
-    src: config/nvim/plug-config
-    dst: ~/.config/nvim/plug-config
-  f_coc.vim:
-    src: config/nvim/plug-config/coc.vim
-    dst: ~/.config/nvim/plug-config/coc.vim
   f_colors-rofi-dark.rasi:
     src: config/wal/templates/colors-rofi-dark.rasi
     dst: ~/.config/wal/templates/colors-rofi-dark.rasi
@@ -192,9 +174,6 @@ dotfiles:
   f_sequences:
     src: cache/wal/sequences
     dst: ~/.cache/wal/sequences
-  f_coc-settings.json:
-    src: config/nvim/coc-settings.json
-    dst: ~/.config/nvim/coc-settings.json
   f_zathurarc:
     src: config/zathura/zathurarc
     dst: ~/.config/zathura/zathurarc
@@ -203,60 +182,9 @@ dotfiles:
     src: zshrc
     dst: ~/.zshrc
     chmod: '644'
-  f_better-whitespace.vim:
-    src: config/nvim/plug-config/better-whitespace.vim
-    dst: ~/.config/nvim/plug-config/better-whitespace.vim
-  f_graphviz.vim:
-    src: config/nvim/plug-config/graphviz.vim
-    dst: ~/.config/nvim/plug-config/graphviz.vim
-  f_indentline.vim:
-    src: config/nvim/plug-config/indentLine.vim
-    dst: ~/.config/nvim/plug-config/indentLine.vim
-  f_markdown-preview.vim:
-    src: config/nvim/plug-config/markdown-preview.vim
-    dst: ~/.config/nvim/plug-config/markdown-preview.vim
-  f_polyglot.vim:
-    src: config/nvim/plug-config/polyglot.vim
-    dst: ~/.config/nvim/plug-config/polyglot.vim
-  f_ultisnips.vim:
-    src: config/nvim/plug-config/ultisnips.vim
-    dst: ~/.config/nvim/plug-config/ultisnips.vim
-  f_vim-anyfold.vim:
-    src: config/nvim/plug-config/vim-anyfold.vim
-    dst: ~/.config/nvim/plug-config/vim-anyfold.vim
-  f_vim-fold-cycle.vim:
-    src: config/nvim/plug-config/vim-fold-cycle.vim
-    dst: ~/.config/nvim/plug-config/vim-fold-cycle.vim
-  f_vim-go.vim:
-    src: config/nvim/plug-config/vim-go.vim
-    dst: ~/.config/nvim/plug-config/vim-go.vim
-  f_vim-markdown.vim:
-    src: config/nvim/plug-config/vim-markdown.vim
-    dst: ~/.config/nvim/plug-config/vim-markdown.vim
-  f_vim-terraform.vim:
-    src: config/nvim/plug-config/vim-terraform.vim
-    dst: ~/.config/nvim/plug-config/vim-terraform.vim
-  f_vim-vinegar.vim:
-    src: config/nvim/plug-config/vim-vinegar.vim
-    dst: ~/.config/nvim/plug-config/vim-vinegar.vim
-  f_wal.vim:
-    src: config/nvim/plug-config/wal.vim
-    dst: ~/.config/nvim/plug-config/wal.vim
-  f_which-key.vim:
-    src: config/nvim/plug-config/which-key.vim
-    dst: ~/.config/nvim/plug-config/which-key.vim
   f_shortcuts.yaml:
     src: local/share/zrythm/shortcuts.yaml
     dst: ~/.local/share/zrythm/shortcuts.yaml
-  f_config.lua:
-    src: config/lvim/config.lua
-    dst: ~/.config/lvim/config.lua
-  d_ftplugin:
-    src: config/lvim/ftplugin
-    dst: ~/.config/lvim/ftplugin
-  d_lua:
-    src: config/lvim/lua
-    dst: ~/.config/lvim/lua
 profiles:
   mtf8:
     dotfiles:
@@ -269,7 +197,6 @@ profiles:
     - f_settings.ini
     - f_redshift.conf
     - f_systemd-optimize.sh
-    - f_init.vim
     - f_tmux.conf
     - f_bash_profile
     - f_bashrc
@@ -280,12 +207,6 @@ profiles:
     - f_imap.muttrc
     - f_gpg.muttrc
     - f_colors
-    - f_mutt_profile_mtf8
-    - f_mutt_profile_mtf8.sig
-    - f_mutt_profile_adamkosmin
-    - f_mutt_profile_adamkosmin.sig
-    - f_mutt_profile_nycpatriot
-    - f_mutt_profile_nycpatriot.sig
     - f_monitor.sh
     - f_dir_colors
     - d_tmuxp
@@ -301,35 +222,12 @@ profiles:
     - f_xmodmap
     - f_tmuxline.conf
     - d_bashrc.d
-    - f_settings.vim
-    - f_vim-plug.vim
-    - f_mappings.vim
-    - d_plug-config
-    - f_coc.vim
     - f_colors-rofi-dark.rasi
     - f_config.rasi
     - f_sequences
-    - f_coc-settings.json
     - f_zathurarc
     - f_zshrc
-    - f_better-whitespace.vim
-    - f_graphviz.vim
-    - f_indentline.vim
-    - f_markdown-preview.vim
-    - f_polyglot.vim
-    - f_ultisnips.vim
-    - f_vim-anyfold.vim
-    - f_vim-fold-cycle.vim
-    - f_vim-go.vim
-    - f_vim-markdown.vim
-    - f_vim-terraform.vim
-    - f_vim-vinegar.vim
-    - f_wal.vim
-    - f_which-key.vim
     - f_shortcuts.yaml
-    - f_config.lua
-    - d_ftplugin
-    - d_lua
   libretop:
     dotfiles:
     - f_vimrc

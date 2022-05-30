@@ -16,7 +16,6 @@ set $ws4 4
 set $ws5 5
 set $ws6 6
 set $term alacritty
-# set $term termite
 # follow mouse for window focus
 focus_follows_mouse yes
 
@@ -85,7 +84,7 @@ bindsym $mod+Shift+f floating toggle
 bindsym $mod+m focus mode_toggle
 
 # focus the parent container
-#bindsym $mod+a focus parent
+bindsym $mod+a focus parent
 
 # move the currently focused window to the scratchpad
 #bindsym $mod+Shift+minus move scratchpad
@@ -223,7 +222,7 @@ bindsym $mod+Control+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+bracketleft move workspace to output left
 bindsym $mod+bracketright move workspace to output right
 bar {
-  status_command i3blocks
+  status_command i3blocks -c $HOME/.config/i3blocks/left-display.conf
   position top
   mode dock
   modifier None
@@ -244,7 +243,7 @@ bar {
 }
 
 bar {
-  status_command i3blocks -c $HOME/.config/i3blocks/config2
+  status_command i3blocks -c $HOME/.config/i3blocks/right-display.conf
   position top
   modifier None
   font pango:FontAwesome 14
@@ -261,28 +260,62 @@ bar {
   }
 }
 # title is WM_NAME
-assign [class="^Firefox$"] $ws2
+assign [class="firefox"] $ws2
 assign [class="Carla2"] $ws5
 assign [class="Konfyt"] $ws6
-assign [class="(?i)Qtractor" title="Mixer"] $ws4
-# assign [class="(?i)Qtractor" title="Plugins"] $ws4
-assign [class="(?i)Qtractor" title="^Aux Send*"] $ws4
-assign [class="(?i)Qtractor" title="^Calf*"] $ws4
-# assign [class="(?i)Qtractor" title="^B.*"] $ws4
-# assign [class="(?i)Qtractor" title="^EQ*"] $ws3
-assign [class="(?i)Qtractor" title="(?i)Qtractor"] $ws3
-assign [class="(?i)Zrythm" title="Mixer"] $ws4
-assign [class="(?i)Zrythm" title="(?i)Zrythm"] $ws3
 
-for_window [class="(?i)Zrythm" title="Mixer"] floating disable
+# zrythm
+#assign [class="(?i)Zrythm" title="Mixer"] $ws4
+#assign [class="(?i)Zrythm" title="(?i)Zrythm"] $ws3
+#for_window [class="(?i)Zrythm" title="Mixer"] floating disable
+
+# qtractor
+assign [class="(?i)Qtractor" title="^Aux*"] $ws4
+assign [class="(?i)Qtractor" title="Mixer"] $ws4
+assign [class="(?i)Qtractor" title="^EQ*"] $ws4
+assign [class="(?i)Qtractor" title="^Calf*"] $ws3
+assign [class="(?i)Qtractor" title="^LSP*"] $ws4
+assign [class="(?i)Qtractor" title="^B.*"] $ws4
+assign [class="(?i)Qtractor" title="^Kuiza.*"] $ws4
+assign [class="(?i)Qtractor" title="^Masha.*"] $ws4
+assign [class="(?i)Qtractor" title="^Panda.*"] $ws4
+assign [class="(?i)Qtractor" title="^Filta.*"] $ws4
+assign [class="(?i)Qtractor" title="^Ducka.*"] $ws4
+assign [class="(?i)Qtractor" title="^Della.*"] $ws4
+assign [class="(?i)Qtractor" title="^Driva.*"] $ws4
+assign [class="(?i)Qtractor" title="^Bitta.*"] $ws4
+assign [class="(?i)Qtractor" title="^Roomy.*"] $ws4
+assign [class="(?i)Qtractor" title="^Satma.*"] $ws4
+assign [class="(?i)Qtractor" title="^Vihda.*"] $ws4
+assign [class="(?i)Qtractor" title="(?i)Qtractor"] $ws3
+
+#for_window [class="(?i)Qtractor" title="^Mixer$"] border normal floating disable
+
+# do not open up next line otherwise it will catch Piano Roll
+for_window [class="(?i)Qtractor" title="^Track$"] floating enable
 for_window [class="(?i)Qtractor" title="Mixer"] floating disable
-for_window [class="(?i)Qtractor" title="^Calf*"] floating enable
+for_window [class="(?i)Qtractor" title="Plugins"] floating enable
+for_window [class="(?i)Qtractor" title="Shortcuts"] floating enable
+for_window [class="(?i)Qtractor" title="Buses"] floating enable
+for_window [class="(?i)Qtractor" title="^Tempo"] floating enable
 for_window [class="(?i)Qtractor" title="^EQ*"] floating enable
-for_window [class="(?i)Qtractor" title="^CS*"] floating enable
+for_window [class="(?i)Qtractor" title="^Calf*"] floating enable
+for_window [class="(?i)Qtractor" title="^LSP*"] floating enable
+for_window [class="(?i)Qtractor" title="^Kuiza.*"] floating enable
+for_window [class="(?i)Qtractor" title="^Masha.*"] floating enable
+for_window [class="(?i)Qtractor" title="^Panda.*"] floating enable
+for_window [class="(?i)Qtractor" title="^Filta.*"] floating enable
+for_window [class="(?i)Qtractor" title="^Ducka.*"] floating enable
+for_window [class="(?i)Qtractor" title="^Della.*"] floating enable
+for_window [class="(?i)Qtractor" title="^Driva.*"] floating enable
+for_window [class="(?i)Qtractor" title="^Bitta.*"] floating enable
+for_window [class="(?i)Qtractor" title="^Roomy.*"] floating enable
+for_window [class="(?i)Qtractor" title="^Satma.*"] floating enable
+for_window [class="(?i)Qtractor" title="^Vihda.*"] floating enable
+for_window [class="(?i)Qtractor"] layout splitv
+#for_window [class="(?i)Qtractor" title="^Aux Send*"] floating disable
+#for_window [class="(?i)Qtractor" title="^CS*"] floating enable
 # for_window [class="(?i)Qtractor" title="^B.*"] floating enable
-# This has to be last
-# for_window [title="^Carla-Rack"] floating enable
-# for_window [class="(?i)Qtractor" title="Mixer"] border normal
 
 # konfyt
 
@@ -304,9 +337,6 @@ bindsym $mod+n exec --no-startup-id spacefm
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
-for_window [class="Xephyr"] floating disable
-for_window [class="Xephyr"] floating disable
 # on every restart
 exec_alwaya --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id i3-msg 'workspace 1; exec /usr/bin/alacritty'
