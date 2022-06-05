@@ -185,6 +185,9 @@ dotfiles:
   f_shortcuts.yaml:
     src: local/share/zrythm/shortcuts.yaml
     dst: ~/.local/share/zrythm/shortcuts.yaml
+  d_astronvim:
+    src: config/astronvim
+    dst: ~/.config/astronvim
 profiles:
   mtf8:
     dotfiles:
@@ -228,6 +231,7 @@ profiles:
     - f_zathurarc
     - f_zshrc
     - f_shortcuts.yaml
+    - d_astronvim
   libretop:
     dotfiles:
     - f_vimrc
