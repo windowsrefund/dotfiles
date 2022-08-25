@@ -3,17 +3,18 @@ bar {
   position top
   mode dock
   modifier None
-  font pango:Hack,FontAwesome 14
+  font pango:Hack,FontAwesome 12
   output primary
   tray_output primary
+  separator_symbol " "
   colors {
-    separator $green
+    separator $green_h
     background $black
-    statusline $white
-    focused_workspace   $black  $white    $black
+    statusline $white_h
+    focused_workspace   $black  $purple    $black
     active_workspace    $black  $black    $white
-    inactive_workspace  $black  $black_h  $white
-    urgent_workspace    $black  $red      $black
+    inactive_workspace  $black  $black  $white
+    urgent_workspace    #black  $blue     $white_h
   }
   # Take a screenshot by right clicking on the bar
   # bindsym --release button3 exec --no-startup-id import /tmp/latest-screenshot.png
@@ -23,16 +24,17 @@ bar {
   status_command i3blocks -c $HOME/.config/i3blocks/right-display.conf
   position top
   modifier None
-  font pango:FontAwesome 14
+  font pango:FontAwesome 12
   output DisplayPort-1
   binding_mode_indicator no
+  tray_padding 0
   colors {
     separator $white
     background $black
-    statusline $white
-    focused_workspace   $black  $white    $black
+    statusline $white_h
+    focused_workspace   $black  $purple    $black
     active_workspace    $black  $black    $white
-    inactive_workspace  $black  $black_h  $white
-    urgent_workspace    $black  $red      $black
+    inactive_workspace  $black  $black  $white
+    urgent_workspace    $black_h  $red      $black_h
   }
 }

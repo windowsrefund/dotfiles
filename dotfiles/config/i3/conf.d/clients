@@ -27,6 +27,7 @@ assign [class="(?i)Qtractor" title="^Roomy.*"] $ws4
 assign [class="(?i)Qtractor" title="^Satma.*"] $ws4
 assign [class="(?i)Qtractor" title="^Vihda.*"] $ws4
 assign [class="(?i)Qtractor" title="(?i)Qtractor"] $ws3
+assign [class="(?i)Qtractor" title="Export Audio File"] $ws3
 
 #for_window [class="(?i)Qtractor" title="^Mixer$"] border normal floating disable
 

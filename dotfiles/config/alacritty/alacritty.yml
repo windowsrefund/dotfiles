@@ -1,3 +1,15 @@
+import:
+  # - ~/.config/alacritty/github_dimmed.yml
+  # - ~/.config/alacritty/github_dark_colorblind.yml
+  # - ~/.config/alacritty/github_dark_default.yml
+  # - ~/.config/alacritty/github_dark.yml
+  # - ~/.config/alacritty/github_light.yml
+  # - ~/.config/alacritty/catppuccin_latte.yml
+  # - ~/.config/alacritty/catppuccin_frappe.yml
+  # - ~/.config/alacritty/catppuccin_mocha.yml
+  # - ~/.config/alacritty/catppuccin_macchiato.yml
+  - ~/.config/alacritty/astronvim.yaml
+
 env:
   # TERM variable
   #
@@ -5,7 +17,7 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: xterm-256color
+  TERM: screen-256color
 
 font:
   # Normal (roman) font face
@@ -39,14 +51,7 @@ font:
     x: 0
     y: 0
 
-background_opacity: 1.0
-
-cursor:
-  vi_mode_style: Underline
-
-  # If this is `true`, the cursor will be rendered as a hollow box when the
-  # window is not focused.
-  #unfocused_hollow: true
+# background_opacity: 1.0
 
 # Live config reload (changes require restart)
 #live_config_reload: true
@@ -91,13 +96,9 @@ key_bindings:
   - { key: Equals, mods: Control, action: IncreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
 
-window:
-  padding:
-    x: 2
-    y: 2
 
+scrolling:
   history: 10000
 
-  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+selection:
   save_to_clipboard: true
-  live_config_reload: true

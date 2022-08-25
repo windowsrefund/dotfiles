@@ -41,7 +41,7 @@ set_from_resource $white i3wm.color7 #ffffff
 set_from_resource $white_h i3wm.color15 #ffffff
 
 # class                 border  backgrd text    indicator child_border
-client.focused          $black  $black  $white  $red      $purple
+client.focused          $black  $black  $white  $teal     $purple
 client.focused_inactive $black  $black  $white  $black    $black
 client.unfocused        $black  $black  $white  $black    $black
 client.urgent           $purple $black  $white  $purple   $purple
@@ -95,7 +95,7 @@ bindsym $mod+a focus parent
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
-#gaps inner 15
+# gaps inner 15
 # gaps outer 5
 # smart_gaps on
 
@@ -226,17 +226,18 @@ bar {
   position top
   mode dock
   modifier None
-  font pango:Hack,FontAwesome 14
+  font pango:Hack,FontAwesome 12
   output primary
   tray_output primary
+  separator_symbol " "
   colors {
-    separator $green
+    separator $green_h
     background $black
-    statusline $white
-    focused_workspace   $black  $white    $black
+    statusline $white_h
+    focused_workspace   $black  $purple    $black
     active_workspace    $black  $black    $white
-    inactive_workspace  $black  $black_h  $white
-    urgent_workspace    $black  $red      $black
+    inactive_workspace  $black  $black  $white
+    urgent_workspace    #black  $blue     $white_h
   }
   # Take a screenshot by right clicking on the bar
   # bindsym --release button3 exec --no-startup-id import /tmp/latest-screenshot.png
@@ -246,17 +247,18 @@ bar {
   status_command i3blocks -c $HOME/.config/i3blocks/right-display.conf
   position top
   modifier None
-  font pango:FontAwesome 14
+  font pango:FontAwesome 12
   output DisplayPort-1
   binding_mode_indicator no
+  tray_padding 0
   colors {
     separator $white
     background $black
-    statusline $white
-    focused_workspace   $black  $white    $black
+    statusline $white_h
+    focused_workspace   $black  $purple    $black
     active_workspace    $black  $black    $white
-    inactive_workspace  $black  $black_h  $white
-    urgent_workspace    $black  $red      $black
+    inactive_workspace  $black  $black  $white
+    urgent_workspace    $black_h  $red      $black_h
   }
 }
 # title is WM_NAME
@@ -288,6 +290,7 @@ assign [class="(?i)Qtractor" title="^Roomy.*"] $ws4
 assign [class="(?i)Qtractor" title="^Satma.*"] $ws4
 assign [class="(?i)Qtractor" title="^Vihda.*"] $ws4
 assign [class="(?i)Qtractor" title="(?i)Qtractor"] $ws3
+assign [class="(?i)Qtractor" title="Export Audio File"] $ws3
 
 #for_window [class="(?i)Qtractor" title="^Mixer$"] border normal floating disable
 

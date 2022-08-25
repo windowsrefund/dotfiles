@@ -1,3 +1,4 @@
+# vim: ft=muttrc
 # use gpgme
 set crypt_use_gpgme = yes
 

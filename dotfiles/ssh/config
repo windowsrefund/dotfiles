@@ -21,6 +21,8 @@ Host nyc
   ServerAliveCountMax 3
 host lede
   User root
+  PubkeyAcceptedAlgorithms +ssh-rsa
+  HostkeyAlgorithms +ssh-rsa
 Host *adamkosmin.info
   Port 5554
 Host kworker3 kworker2 kworker1 kmaster1

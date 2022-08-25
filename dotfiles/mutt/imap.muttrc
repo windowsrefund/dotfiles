@@ -1,3 +1,4 @@
+# vim: ft=muttrc
 # global IMAP settings
 
 set imap_passive              # allow mutt to open new imap connection automatically

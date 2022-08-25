@@ -13,8 +13,8 @@ setxkbmap -option terminate:ctrl_alt_bksp
 # keyboard layout
 setxkbmap us
 
-# speedy keys
-xset r rate 210 40
+# milliseconds to wait before repeating and number of repeats p/s
+xset r rate 250 20
 
 # map keys as defined
 xmodmap ~/.Xmodmap
@@ -35,11 +35,11 @@ compton -b &
 redshift-gtk &
 
 # load Xresources
-xrdb ~/.Xresources
- 
-# restore last color scheme
-wal -Rq
+xrdb ~/.config/xresources/cattpuccin
 
+# set mixer volume
+amixer set PCM -- 95%
+ 
 # something related to font size & resolution/dpi
 #WINIT_X11_SCALE_FACTOR=1
 exec i3 -V > /tmp/i3.log

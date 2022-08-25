@@ -1,9 +1,8 @@
-###
+# vim: ft=muttrc
 # mutt 256 colors file
-###
 
 # source main colors and override
-source ~/.mutt/colors
+source ~/.mutt/colors.muttrc
 
 # color MLs
 #  color index      color69       default "~u"

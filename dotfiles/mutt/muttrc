@@ -1,4 +1,4 @@
-# vim:nu:ai:si:et:ts=4:sw=4:ft=muttrc
+# vim: ft=muttrc
 
 # directories and commands
 set header_cache        = ~/.mutt/cache/headers # cache headers for speed
@@ -88,9 +88,10 @@ unignore date: from: to: cc: subject:
 hdr_order from: to: cc: date: subject:
 
 # always source
-source ~/.mutt/256colors.muttrc
+# source ~/.mutt/256colors.muttrc
 source ~/.mutt/keys.muttrc
 source ~/.mutt/aliases.muttrc
 source ~/.mutt/imap.muttrc
 source ~/.mutt/gpg.muttrc
 source "safe.sh -o mutt_config |"
+# source ~/.mutt/catppuccin.muttrc
