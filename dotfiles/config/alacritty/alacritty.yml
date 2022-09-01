@@ -54,7 +54,7 @@ font:
 # background_opacity: 1.0
 
 # Live config reload (changes require restart)
-#live_config_reload: true
+live_config_reload: true
 
 mouse:
   # Click settings
@@ -92,9 +92,14 @@ mouse:
 key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: C, mods: Control|Shift, action: Copy }
-  - { key: Key0, mods: Control, action: ResetFontSize }
-  - { key: Equals, mods: Control, action: IncreaseFontSize }
-  - { key: Minus, mods: Control, action: DecreaseFontSize }
+# must disable these builtin mappings before rebinding
+  # - { key: Key0, mods: Control, action: ReceiveChar }
+  # - { key: Equals, mods: Control, action: ReceiveChar }
+  # - { key: Minus, mods: Control, action: ReceiveChar }
+# now rebind
+  # - { key: Key0, mods: Control|Shift, action: ResetFontSize }
+  # - { key: Equals, mods: Control|Shift, action: IncreaseFontSize }
+  # - { key: Minus, mods: Control|Shift, action: DecreaseFontSize }
 
 
 scrolling:

@@ -11,10 +11,6 @@ dotfiles:
   f_xinitrc:
     src: xinitrc
     dst: ~/.xinitrc
-  f_xresources:
-    src: Xresources
-    dst: ~/.Xresources
-    chmod: '600'
   f_x-color-switch.sh:
     src: bin/x-color-switch.sh
     dst: ~/bin/x-color-switch.sh
@@ -88,10 +84,6 @@ dotfiles:
   f_gpg.muttrc:
     src: mutt/gpg.muttrc
     dst: ~/.mutt/gpg.muttrc
-    chmod: '644'
-  f_colors:
-    src: mutt/colors
-    dst: ~/.mutt/colors
     chmod: '644'
   f_mutt_profile_mtf8:
     src: mutt/mutt_profile_mtf8
@@ -185,14 +177,10 @@ dotfiles:
   f_shortcuts.yaml:
     src: local/share/zrythm/shortcuts.yaml
     dst: ~/.local/share/zrythm/shortcuts.yaml
-  d_astronvim:
-    src: config/astronvim
-    dst: ~/.config/astronvim
 profiles:
   mtf8:
     dotfiles:
     - f_xinitrc
-    - f_xresources
     - f_x-color-switch.sh
     - d_themes
     - f_userchrome.css
@@ -209,7 +197,6 @@ profiles:
     - f_keys.muttrc
     - f_imap.muttrc
     - f_gpg.muttrc
-    - f_colors
     - f_monitor.sh
     - f_dir_colors
     - d_tmuxp
@@ -231,7 +218,6 @@ profiles:
     - f_zathurarc
     - f_zshrc
     - f_shortcuts.yaml
-    - d_astronvim
   libretop:
     dotfiles:
     - f_vimrc
