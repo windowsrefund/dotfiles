@@ -64,8 +64,6 @@ DISABLE_AUTO_TITLE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   aws
-  kube-ps1
-  kubectl
   helm
   git
   gpg-agent
@@ -86,7 +84,6 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 
-PROMPT=$PROMPT'$(kube_ps1) '
 zstyle ':completion:*' menu select
 zstyle ':completion:*' group-name '' # group results by category
 zstyle ':completion:::::' completer _expand _complete _ignored _approximate #enable approximate matches for completion

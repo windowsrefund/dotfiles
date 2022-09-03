@@ -1,14 +1,5 @@
 import:
-  # - ~/.config/alacritty/github_dimmed.yml
-  # - ~/.config/alacritty/github_dark_colorblind.yml
-  # - ~/.config/alacritty/github_dark_default.yml
-  # - ~/.config/alacritty/github_dark.yml
-  # - ~/.config/alacritty/github_light.yml
-  # - ~/.config/alacritty/catppuccin_latte.yml
-  # - ~/.config/alacritty/catppuccin_frappe.yml
-  # - ~/.config/alacritty/catppuccin_mocha.yml
-  # - ~/.config/alacritty/catppuccin_macchiato.yml
-  - ~/.config/alacritty/astronvim.yaml
+  - ~/.config/astronvim/colors/alacritty
 
 env:
   # TERM variable
@@ -17,7 +8,7 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: screen-256color
+  TERM: xterm-256color
 
 font:
   # Normal (roman) font face
@@ -92,18 +83,17 @@ mouse:
 key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: C, mods: Control|Shift, action: Copy }
-# must disable these builtin mappings before rebinding
-  # - { key: Key0, mods: Control, action: ReceiveChar }
-  # - { key: Equals, mods: Control, action: ReceiveChar }
-  # - { key: Minus, mods: Control, action: ReceiveChar }
-# now rebind
-  # - { key: Key0, mods: Control|Shift, action: ResetFontSize }
-  # - { key: Equals, mods: Control|Shift, action: IncreaseFontSize }
-  # - { key: Minus, mods: Control|Shift, action: DecreaseFontSize }
-
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
 
 scrolling:
   history: 10000
 
 selection:
   save_to_clipboard: true
+window:
+  padding:
+    x: 5
+    y: 8
+  # decorations: "none"

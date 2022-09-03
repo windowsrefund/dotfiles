@@ -8,13 +8,19 @@ bar {
   tray_output primary
   separator_symbol " "
   colors {
-    separator $green_h
-    background $black
-    statusline $white_h
-    focused_workspace   $black  $purple    $black
-    active_workspace    $black  $black    $white
-    inactive_workspace  $black  $black  $white
-    urgent_workspace    #black  $blue     $white_h
+    separator $green
+    background $background
+
+    # font color
+    statusline $green
+
+                        #border       #background  #font
+    focused_workspace   $background   $green      $black
+    active_workspace    $background   $green      $black
+    inactive_workspace  $background   $background $white
+
+    # color used by menus
+    urgent_workspace    $background   $magenta    $black
   }
   # Take a screenshot by right clicking on the bar
   # bindsym --release button3 exec --no-startup-id import /tmp/latest-screenshot.png
@@ -30,11 +36,11 @@ bar {
   tray_padding 0
   colors {
     separator $white
-    background $black
-    statusline $white_h
-    focused_workspace   $black  $purple    $black
-    active_workspace    $black  $black    $white
-    inactive_workspace  $black  $black  $white
-    urgent_workspace    $black_h  $red      $black_h
+    background $background
+    statusline $white
+    focused_workspace   $background  $green    $black
+    active_workspace    $background  $green    $black
+    inactive_workspace  $background  $background  $white
+    urgent_workspace    $background   $magenta    $black
   }
 }

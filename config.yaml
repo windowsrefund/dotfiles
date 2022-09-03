@@ -151,9 +151,6 @@ dotfiles:
   f_xmodmap:
     src: Xmodmap
     dst: ~/.Xmodmap
-  f_tmuxline.conf:
-    src: tmux/tmuxline.conf
-    dst: ~/.tmux/tmuxline.conf
   d_bashrc.d:
     src: bashrc.d
     dst: ~/.bashrc.d
@@ -177,6 +174,10 @@ dotfiles:
   f_shortcuts.yaml:
     src: local/share/zrythm/shortcuts.yaml
     dst: ~/.local/share/zrythm/shortcuts.yaml
+  f_statusline.conf:
+    src: tmux/statusline.conf
+    dst: ~/.tmux/statusline.conf
+    chmod: '644'
 profiles:
   mtf8:
     dotfiles:
@@ -210,7 +211,6 @@ profiles:
     - f_inputrc
     - f_alacritty.yml
     - f_xmodmap
-    - f_tmuxline.conf
     - d_bashrc.d
     - f_colors-rofi-dark.rasi
     - f_config.rasi
@@ -218,6 +218,7 @@ profiles:
     - f_zathurarc
     - f_zshrc
     - f_shortcuts.yaml
+    - f_statusline.conf
   libretop:
     dotfiles:
     - f_vimrc

@@ -23,30 +23,30 @@ floating_modifier $mod
 
 bindsym $mod+Return exec --no-startup-id $term
 # vim: set ft=conf :
-set_from_resource $black i3wm.color0 #000000
-set_from_resource $black_h i3wm.color8 #000000
-set_from_resource $red  i3wm.color1  #000000
-set_from_resource $red_h  i3wm.color9  #000000
-set_from_resource $green i3wm.color2 #000000
-set_from_resource $green_h i3wm.color10 #000000
-set_from_resource $yellow  i3wm.color3  #000000
-set_from_resource $yellow_h  i3wm.color11  #000000
-set_from_resource $blue  i3wm.color4  #000000
-set_from_resource $blue_h  i3wm.color12  #000000
-set_from_resource $purple  i3wm.color5  #000000
-set_from_resource $purple_h  i3wm.color13  #000000
-set_from_resource $teal  i3wm.color6  #000000
-set_from_resource $teal_h  i3wm.color14  #000000
-set_from_resource $white i3wm.color7 #ffffff
-set_from_resource $white_h i3wm.color15 #ffffff
+set_from_resource $background     i3wm.background #000000
+set_from_resource $black          i3wm.color0 #000000
+set_from_resource $black_light    i3wm.color8 #000000
+set_from_resource $red            i3wm.color1  #000000
+set_from_resource $red_light      i3wm.color9  #000000
+set_from_resource $green          i3wm.color2 #000000
+set_from_resource $green_light    i3wm.color10 #000000
+set_from_resource $yellow         i3wm.color3  #000000
+set_from_resource $yellow_light   i3wm.color11  #000000
+set_from_resource $blue           i3wm.color4  #000000
+set_from_resource $blue_light     i3wm.color12  #000000
+set_from_resource $magenta        i3wm.color5  #000000
+set_from_resource $magenta_light  i3wm.color13  #000000
+set_from_resource $cyan           i3wm.color6  #000000
+set_from_resource $cyan_light     i3wm.color14  #000000
+set_from_resource $white          i3wm.color7 #ffffff
+set_from_resource $white_light    i3wm.color15 #ffffff
 
-# class                 border  backgrd text    indicator child_border
-client.focused          $black  $black  $white  $teal     $purple
-client.focused_inactive $black  $black  $white  $black    $black
-client.unfocused        $black  $black  $white  $black    $black
-client.urgent           $purple $black  $white  $purple   $purple
-client.placeholder      $black  $black  $white  $black    $black
-
+# class                 border        backgrd         text    indicator child_border
+client.focused          $background   $background     $white  $cyan     $magenta
+client.focused_inactive $background   $background     $white  $background $background
+client.unfocused        $background   $background     $white  $background $background
+# client.urgent           $background   $red $white  $red      $magenta
+client.placeholder      $background   $background     $white  $black    $black
 # new_window pixel 3
 # new_float normal
 default_border pixel 4
@@ -105,7 +105,7 @@ for_window [urgent=latest] focus
 # vim: set ft=conf :
 
 set $mode_system System: (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-set $mode_i3 i3: (r)eload, (R)estart, (e)xit, (t)ermite config
+set $mode_i3 i3: (r)eload, (R)estart, (e)xit
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -231,13 +231,19 @@ bar {
   tray_output primary
   separator_symbol " "
   colors {
-    separator $green_h
-    background $black
-    statusline $white_h
-    focused_workspace   $black  $purple    $black
-    active_workspace    $black  $black    $white
-    inactive_workspace  $black  $black  $white
-    urgent_workspace    #black  $blue     $white_h
+    separator $green
+    background $background
+
+    # font color
+    statusline $green
+
+                        #border       #background  #font
+    focused_workspace   $background   $green      $black
+    active_workspace    $background   $green      $black
+    inactive_workspace  $background   $background $white
+
+    # color used by menus
+    urgent_workspace    $background   $magenta    $black
   }
   # Take a screenshot by right clicking on the bar
   # bindsym --release button3 exec --no-startup-id import /tmp/latest-screenshot.png
@@ -253,12 +259,12 @@ bar {
   tray_padding 0
   colors {
     separator $white
-    background $black
-    statusline $white_h
-    focused_workspace   $black  $purple    $black
-    active_workspace    $black  $black    $white
-    inactive_workspace  $black  $black  $white
-    urgent_workspace    $black_h  $red      $black_h
+    background $background
+    statusline $white
+    focused_workspace   $background  $green    $black
+    active_workspace    $background  $green    $black
+    inactive_workspace  $background  $background  $white
+    urgent_workspace    $background   $magenta    $black
   }
 }
 # title is WM_NAME
@@ -341,5 +347,4 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 # on every restart
-exec_alwaya --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id i3-msg 'workspace 1; exec /usr/bin/alacritty'

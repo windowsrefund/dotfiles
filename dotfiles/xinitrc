@@ -1,3 +1,4 @@
+# vim: ft=conf
 # disable bell
 xset -b
 
@@ -29,19 +30,20 @@ start-pulseaudio-x11 &
 autojack > /tmp/autojack.log 2>&1 < /dev/null &
 
 # composite manager
-compton -b &
+#compton -b &
 
 # blue light
 redshift-gtk &
 
-# load Xresources
-xrdb ~/.config/xresources/cattpuccin
-
 # set mixer volume
 amixer set PCM -- 95%
- 
+
+xsetroot -solid '#1e222a'
+# load Xresources
+xrdb ~/.config/astronvim/colors/xresources
+
 # something related to font size & resolution/dpi
 #WINIT_X11_SCALE_FACTOR=1
+
 exec i3 -V > /tmp/i3.log
 #exec i3 -c ~/.config/i3/config.min -V > /tmp/i3.log
-# exec startxfce4

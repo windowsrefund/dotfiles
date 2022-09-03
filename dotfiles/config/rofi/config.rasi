@@ -3,9 +3,9 @@ configuration{
     lines: 5;
     font: "JetBrainsMono Nerd Font 14";
 	font: "Hack,FontAwesome 14";
-    show-icons: true;
+    show-icons: false;
     icon-theme: "Oranchelo";
-    terminal: "st";
+    terminal: "alacritty";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
@@ -14,10 +14,10 @@ configuration{
     display-run: "   Run ";
     display-window: " 﩯  window";
     display-Network: " 󰤨  Network";
-    sidebar-mode: true;
+    sidebar-mode: false;
 }
 
-@theme "catppuccin"
+@theme "~/.config/astronvim/colors/rofi"
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;
