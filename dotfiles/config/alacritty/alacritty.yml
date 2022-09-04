@@ -95,5 +95,5 @@ selection:
 window:
   padding:
     x: 5
-    y: 8
+    y: 5
   # decorations: "none"
